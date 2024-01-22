@@ -71,14 +71,21 @@
         <MaximumSize>12,-1</MaximumSize>
       </WidgetGroup>
 
+      <Template src="skin:special_cues.xml"/>
+
+      <WidgetGroup>
+        <Size>1min,1min</Size>
+        <MaximumSize>1,-1</MaximumSize>
+      </WidgetGroup>
+
       <Template src="skin:hotcues.xml"/>
 
       <WidgetGroup>
-        <Size>3min,1min</Size>
-        <MaximumSize>12,-1</MaximumSize>
+        <Size>1min,1min</Size>
+        <MaximumSize>1,-1</MaximumSize>
       </WidgetGroup>
 
-      <Template src="skins:Deere/special_cues.xml"/>
+      <Template src="skin:special_cues_outro.xml"/>
 
       <!-- Expanding spacers in between control contexts -->
       <WidgetGroup><Size>3min,1min</Size></WidgetGroup>
