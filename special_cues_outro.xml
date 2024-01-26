@@ -8,15 +8,14 @@
 <Template>
   <!--Default grid Hotcue 1-4 -->
   <WidgetGroup>
-    <Layout>vertical</Layout>
-    <MinimumSize>40,48</MinimumSize>
-    <MaximumSize>48,48</MaximumSize>
-    <SizePolicy>me,min</SizePolicy>
-    <Children>
-      <WidgetGroup>
+    <Layout>horizontal</Layout>
+    <Size>54f,24</Size>
+    <SizePolicy>min,min</SizePolicy>
+    <!-- <Children> -->
+    <!--   <WidgetGroup> -->
         <ObjectName>HotcueGrid</ObjectName>
-        <Layout>vertical</Layout>
-        <SizePolicy>min,min</SizePolicy>
+        <!-- <Layout>horizontal</Layout> -->
+        <!-- <SizePolicy>min,min</SizePolicy> -->
         <Children>
           <Template src="skin:special_cue_button.xml">
             <SetVariable name="cue_type">outro_start</SetVariable>
@@ -27,8 +26,8 @@
             <SetVariable name="label">&#9699;|</SetVariable>
           </Template>
         </Children>
-      </WidgetGroup>
-    </Children>
+      <!-- </WidgetGroup> -->
+    <!-- </Children> -->
     <Connection>
       <ConfigKey>[Skin],show_intro_outro_cues</ConfigKey>
       <BindProperty>visible</BindProperty>
