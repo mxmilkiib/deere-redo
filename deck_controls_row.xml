@@ -9,7 +9,7 @@ group: the group to connect to
 	<WidgetGroup>
 		<ObjectName>ControlsRow</ObjectName>
 		<Layout>vertical</Layout>
-		<MinimumSize>576,48</MinimumSize>
+		<MinimumSize>576,40</MinimumSize>
 		<MaximumSize>-1,152</MaximumSize>
 		<!-- <SizePolicy>e,me</SizePolicy> -->
 		<SizePolicy>e,me</SizePolicy>
@@ -18,22 +18,22 @@ group: the group to connect to
 				<Layout>horizontal</Layout>
 				<SizePolicy>e,me</SizePolicy>
 				<Children>
-					<WidgetGroup><Size>0in,0min</Size></WidgetGroup>
+					<!-- <WidgetGroup><Size>0in,0min</Size></WidgetGroup> -->
 					<Template src="skin:hotcues.xml"/>
-					<WidgetGroup><Size>0min,0min</Size></WidgetGroup>
+					<!-- <WidgetGroup><Size>0min,0min</Size></WidgetGroup> -->
 				</Children>
 			</WidgetGroup>
-			<WidgetGroup><Size>0min,1min</Size></WidgetGroup>
+			<!-- <WidgetGroup><Size>0min,0min</Size></WidgetGroup> -->
 			<WidgetGroup>
 				<Layout>horizontal</Layout>
 				<SizePolicy>me,me</SizePolicy>
 				<Children>
-					<WidgetGroup><Size>0min,3min</Size></WidgetGroup>
+					<WidgetGroup><Size>0min,1min</Size></WidgetGroup>
 					<!-- Play / Cue -->
 					<WidgetGroup>
 						<ObjectName>PlayCueContainer</ObjectName>
 						<Layout>horizontal</Layout>
-						<MinimumSize>32,22</MinimumSize>
+						<MinimumSize>32,20</MinimumSize>
 						<MaximumSize>120, -1</MaximumSize>
 						<SizePolicy>e,me</SizePolicy>
 						<Children>

@@ -55,7 +55,7 @@
     <!-- <Layout>vertical</Layout> -->
     <MinimumSize>456,24</MinimumSize>
     <MaximumSize>-1,-1</MaximumSize>
-    <SizePolicy>max,me</SizePolicy>
+    <SizePolicy>me,me</SizePolicy>
     <!-- <Children> -->
       <!-- <WidgetGroup> -->
         <ObjectName>HotcueGrid</ObjectName>

@@ -79,7 +79,7 @@
   </manifest>
 
   <ObjectName>Mixxx</ObjectName>
-  <Style src="skins:Deere/style.qss"
+  <Style src="skin:style.qss"
          src-mac="skins:Deere/style-mac.qss"
          src-linux="skins:default-menu-styles-linux.qss"
          src-windows="skins:default-menu-styles-windows.qss"/>
@@ -218,7 +218,7 @@
                       <SizePolicy>min,max</SizePolicy>
                       <Children>
                         <Template src="skin:main_decks.xml"/>
-                        <Template src="skins:Deere/effect_rack.xml"/>
+			<Template src="skins:Deere/effect_rack.xml"/>
                         <Template src="skins:Deere/sample_decks.xml"/>
                         <Template src="skins:Deere/microphone_rack.xml"/>
                       </Children>

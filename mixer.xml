@@ -124,7 +124,7 @@
             <Layout>horizontal</Layout>
             <Size>-1me,44f</Size>
             <Children>
-              <WidgetGroup><Size>2f,0f</Size></WidgetGroup>
+              <WidgetGroup><Size>0f,0f</Size></WidgetGroup>
 
               <WidgetGroup>
                 <Layout>vertical</Layout>
