@@ -93,10 +93,10 @@
                 <Children>
                   <!-- See comments in the templates for explanation of the modes -->
                   <Template src="skins:Deere/mixer_controls_4decks_left.xml">
-                    <SetVariable name="i">1</SetVariable>
+                    <SetVariable name="i">3</SetVariable>
                   </Template>
                   <Template src="skins:Deere/mixer_controls_4decks_left.xml">
-                    <SetVariable name="i">2</SetVariable>
+                    <SetVariable name="i">1</SetVariable>
                   </Template>
                   <!-- The 4-deck main VU meter column contains the same
                       structure and mechanisms as the left/right channel controls.
@@ -104,7 +104,7 @@
                       and fixed spacers there as well -->
                   <Template src="skins:Deere/mixer_column_main_vu_4decks.xml"/>
                   <Template src="skins:Deere/mixer_controls_4decks_right.xml">
-                    <SetVariable name="i">3</SetVariable>
+                    <SetVariable name="i">2</SetVariable>
                   </Template>
                   <Template src="skins:Deere/mixer_controls_4decks_right.xml">
                     <SetVariable name="i">4</SetVariable>
