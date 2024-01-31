@@ -27,6 +27,22 @@
   background-color: #456789;  */
 }
 
+#DeckWaveform1 #WaveformZoomContainer {
+  background-color: #378DF7;
+}
+
+#DeckWaveform2 #WaveformZoomContainer {
+  background-color: #FFB108;
+}
+
+#DeckWaveform3 #WaveformZoomContainer {
+  background-color: #D700D7;
+}
+
+#DeckWaveform4 #WaveformZoomContainer {
+  background-color: #88B31A;
+}
+
 #QuickEffectSelectors_2Decks {
   margin-top: 2px;
 }
@@ -400,7 +416,7 @@ WSearchLineEdit {
 }
 
 #PreviewDeckTextRow WLabel {
-  padding: 2px;
+  padding: 0 2px;
   color: #d2d2d2;
   font-size: 12px/14px;
   text-transform: none;
@@ -1249,7 +1265,7 @@ WBeatSpinBox,
 }
 
 #EffectUnitNameContainer {
-  padding: 2px;
+  padding: 1px;
   qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
 }
 
@@ -1261,14 +1277,14 @@ WBeatSpinBox,
   border: 1px solid #222222;
   border-width: 0px 0px 0px 1px;
   qproperty-layoutSpacing: 2;
-  padding: 0px 0px 1px 0px;
+  padding: 0px 0px 0px 0px;
   qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
   background-color: #333; /*
   background-color: #664971;  */
 }
 
 #EffectUnitHead {
-  padding: 0px 0px 1px 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 #EffectButtonContainer {
@@ -1289,7 +1305,7 @@ WBeatSpinBox,
 }
 
 #EffectButtonParameter {
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 #KnobLabel {
@@ -1413,7 +1429,7 @@ WNumberRate {
 }
 
 #MixerStrip_4Decks {
-  padding: 0px 2px;
+  padding: 0px 1px;
   qproperty-layoutAlignment: 'AlignHCenter';  /*
   background-color: #911661; */
 }
@@ -1425,20 +1441,20 @@ WNumberRate {
 
 #MixerButtonContainerRight {
   qproperty-layoutAlignment: 'AlignLeft';
-  padding: 0px 0px 0px 9px; /*
+  padding: 0px 0px 0px 5px; /*
   background-color: #456313;  */
 }
 
 #MixerButtonContainerLeft {
   qproperty-layoutAlignment: 'AlignRight';
-  padding: 0px 9px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
 
 #4DecksMixerMonoMeterLeft {
-  padding: 0px 3px 0px 4px;
+  padding: 0px 2px 0px 1px;
 }
 #4DecksMixerMonoMeterRight {
-  padding: 0px 4px 0px 3px;
+  padding: 0px 1px 0px 2px;
 }
 
 #channel_VuMeter_Group {
@@ -1450,8 +1466,8 @@ WNumberRate {
 #main_VuMeter_Group {
   qproperty-layoutSpacing: 2;
   qproperty-layoutAlignment: 'AlignHCenter';
-  padding-left: 2x;
-  padding-right: 2px;
+  padding-left: 0x;
+  padding-right: 0px;
   /* background-color: #828315; */
 }
 
@@ -1470,9 +1486,9 @@ WVuMeter, #PeakIndicator {
 
 /* Starrating for tracks loaded in decks */
 WStarRating {
-  margin            : 5px 5px 0px 0px;
+  margin            : 6px 5px 0px 0px;
   border            : 0px solid #ffffff;
-  padding           : 2px;
+  padding           : 0px;
   color             : #d2d2d2;
   background-color  : none;
 }
@@ -1529,7 +1545,7 @@ WStarRating {
 #LibraryContainer {
   qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
   background-color: #222222;
-  padding-top: 2px;
+  padding-top: 1px;
 }
 
 #LibrarySplitter {
@@ -1542,21 +1558,21 @@ WStarRating {
 
 #EffectUnitsRow {
   border: 1px solid #222222;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0px 0px 0px 0px;
 }
 
 #EffectUnitNoParameters { /*
-  padding-left: 5px;  */
+  padding-left: 2px;  */
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
 
 #EffectUnitEffectsNoParameters {
   qproperty-layoutSpacing: 20;
-  padding: 0px 2px;
+  padding: 0px 1px;
 }
 
 #EffectUnitEffects {
-  padding: 2px;
+  padding: 1px;
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   qproperty-layoutSpacing: 2;
 }
