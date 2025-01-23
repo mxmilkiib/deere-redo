@@ -19,6 +19,7 @@ group: the group to connect to
 				<SizePolicy>e,me</SizePolicy>
 				<Children>
 					<!-- <WidgetGroup><Size>0in,0min</Size></WidgetGroup> -->
+					<!-- <Template src="skin:deck_special_cues.xml"/> -->
 					<Template src="skin:hotcues.xml"/>
 					<!-- <WidgetGroup><Size>0min,0min</Size></WidgetGroup> -->
 				</Children>
@@ -86,7 +87,15 @@ group: the group to connect to
 					<WidgetGroup><Size>3min,1min</Size></WidgetGroup>
 					<Template src="skin:deck_looping_controls.xml"/>
 					<WidgetGroup><Size>3min,1min</Size></WidgetGroup>
-					<Template src="skin:deck_beatjump_controls.xml"/>
+					<WidgetGroup>
+						<Layout>horizontal</Layout>
+						<MinimumSize>32,20</MinimumSize>
+						<MaximumSize>170, -1</MaximumSize>
+						<SizePolicy>e,me</SizePolicy>
+						<Children>
+							<Template src="skin:deck_beatjump_controls.xml"/>
+						</Children>
+					</WidgetGroup>
 					<WidgetGroup><Size>0min,1min</Size></WidgetGroup>
 				</Children>
 			</WidgetGroup>

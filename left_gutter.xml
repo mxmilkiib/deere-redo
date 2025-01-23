@@ -17,7 +17,7 @@
         <Layout>horizontal</Layout>
         <Children>
           <Template src="skin:deck.xml">
-            <SetVariable name="i">2</SetVariable>
+            <SetVariable name="i">3</SetVariable>
           </Template>
         </Children>
         <Connection>

@@ -10,7 +10,7 @@
     <SizePolicy>me,min</SizePolicy>
     <Children>
       <Template src="skin:deck.xml">
-        <SetVariable name="i">3</SetVariable>
+        <SetVariable name="i">2</SetVariable>
       </Template>
 
       <WidgetGroup>

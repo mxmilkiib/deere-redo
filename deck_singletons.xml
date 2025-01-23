@@ -26,7 +26,7 @@
   <SingletonDefinition>
     <ObjectName>DeckOverview<Variable name="i"/></ObjectName>
     <Children>
-      <Template src="skins:Deere/deck_overview.xml"/>
+      <Template src="skin:deck_overview.xml"/>
     </Children>
   </SingletonDefinition>
 </Template>
