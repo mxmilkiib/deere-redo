@@ -20,15 +20,18 @@
         <TooltipId>waveform_display</TooltipId>
         <Group><Variable name="group"/></Group>
         <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
-        <SignalHighColor></SignalHighColor>
-        <SignalMidColor>#FFA600</SignalMidColor>
-        <SignalLowColor>#0055E1</SignalLowColor>
-        <SignalRGBHighColor>#FFFF88</SignalRGBHighColor>
-        <SignalRGBMidColor>#FFA600</SignalRGBMidColor>
-        <SignalRGBLowColor>#0055E1</SignalRGBLowColor>
+        <!-- <SignalHighColor>#FF0000</SignalHighColor> -->
+        <!-- <SignalMidColor>#00FF00</SignalMidColor> -->
+        <!-- <SignalLowColor>#0000ff</SignalLowColor> -->
+        <!-- <SignalRGBHighColor>#FF718F</SignalRGBHighColor> -->
+        <SignalRGBHighColor>#FFAAAA</SignalRGBHighColor>
+        <!-- <SignalRGBMidColor>#3AA600</SignalRGBMidColor> -->
+        <SignalRGBMidColor>#F8D200</SignalRGBMidColor>
+        <!-- <SignalRGBLowColor>#0055E1</SignalRGBLowColor> -->
+        <SignalRGBLowColor>#0055FF</SignalRGBLowColor>
         <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
         <BeatColor>#ffffff</BeatColor>
-        <PlayPosColor>#00FF00</PlayPosColor>
+        <PlayPosColor>#eeeeee</PlayPosColor>
         <EndOfTrackColor>#EA0000</EndOfTrackColor>
         <AxesColor></AxesColor>
         <Align></Align>

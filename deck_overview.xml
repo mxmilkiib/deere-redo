@@ -18,11 +18,14 @@
     <SignalHighColor></SignalHighColor>
     <SignalMidColor></SignalMidColor>
     <SignalLowColor></SignalLowColor>
-    <SignalRGBHighColor></SignalRGBHighColor>
-    <SignalRGBMidColor></SignalRGBMidColor>
-    <SignalRGBLowColor></SignalRGBLowColor>
+    <!-- <SignalRGBHighColor></SignalRGBHighColor> -->
+    <!-- <SignalRGBMidColor></SignalRGBMidColor> -->
+    <!-- <SignalRGBLowColor></SignalRGBLowColor> -->
+        <SignalRGBHighColor>#F8D200</SignalRGBHighColor>
+        <SignalRGBMidColor>#FF0000</SignalRGBMidColor>
+        <SignalRGBLowColor>#0055FF</SignalRGBLowColor>
     <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
-    <PlayPosColor>#00FF00</PlayPosColor>
+    <PlayPosColor>#eeeeee</PlayPosColor>
     <DefaultMark>
       <Align>bottom|right</Align>
       <Color>#619dea</Color>
