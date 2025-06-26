@@ -12,6 +12,7 @@
 		<SizePolicy>me,max</SizePolicy>
 		<Children>
 
+<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 			<!-- <WidgetGroup><Size>me,0</Size></WidgetGroup> -->
 			<!-- <WidgetGroup><Size>2min,0</Size></WidgetGroup> -->
 			<!-- Play / Cue -->
@@ -20,7 +21,7 @@
 				<Layout>vertical</Layout>
 				<MinimumSize>56,42</MinimumSize>
 				<MaximumSize>64, -1</MaximumSize>
-				<SizePolicy>preferred,me</SizePolicy>
+				<SizePolicy>max,me</SizePolicy>
 				<Children>
 					<Template src="skin:left_right_display_2state_button.xml">
 						<SetVariable name="TooltipId">cue_default_cue_gotoandstop</SetVariable>
@@ -68,7 +69,7 @@
 				</Children>
 			</WidgetGroup>
 
-			<WidgetGroup><Size>me,0</Size></WidgetGroup>
+			<WidgetGroup><Size>32f,0</Size></WidgetGroup>
 
 			<!-- Hotcue/Intro/Outro block with vertical centering -->
 			<WidgetGroup>
@@ -83,7 +84,7 @@
 					<WidgetGroup>
 						<ObjectName>HotcueShiftButtons</ObjectName>
 						<Layout>vertical</Layout>
-						<SizePolicy>preferred,preferred</SizePolicy>
+						<SizePolicy>max,max</SizePolicy>
 						<Children>
 							<Template src="skin:left_right_1state_button.xml">
 								<SetVariable name="TooltipId">shift_cues_earlier</SetVariable>
@@ -119,14 +120,15 @@
 				</Children>
 			</WidgetGroup>
 
-			<WidgetGroup><Size>me,0</Size></WidgetGroup>
+			<WidgetGroup><Size>32f,0</Size></WidgetGroup>
 			<!-- Loop controls with spinbox above -->
 			<Template src="skin:deck_loop_controls.xml"/>
-			<WidgetGroup><Size>me,0</Size></WidgetGroup>
+			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 
 			<!-- Beatjump controls with spinbox above -->
 			<Template src="skin:deck_beatjump_controls.xml"/>
 
+			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 			<!-- <WidgetGroup><Size>me,0</Size></WidgetGroup> -->
 		</Children>
 	</WidgetGroup>

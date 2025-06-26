@@ -16,9 +16,9 @@
     <NumberStates>1</NumberStates>
     <State>
       <Number>0</Number>
-      <Text><Variable name="beats"/></Text>
-      <Pressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Pressed>
-      <Unpressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Unpressed>
+      <Text><Variable name="beats"/> ⇄</Text>
+      <!-- <Pressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Pressed> -->
+      <!-- <Unpressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Unpressed> -->
     </State>
     <Connection>
       <ConfigKey><Variable name="group"/>,beatjump_<Variable name="beats"/>_forward</ConfigKey>

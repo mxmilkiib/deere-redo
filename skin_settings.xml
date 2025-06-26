@@ -224,8 +224,8 @@
                 <SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
                 <SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">Load Bank</SetVariable>
-                <SetVariable name="state_0_pressed"></SetVariable>
-                <SetVariable name="state_0_unpressed"></SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_add_48px.svg</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_add_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control">[Sampler],LoadSamplerBank</SetVariable>
               </Template>
 
@@ -237,8 +237,8 @@
                 <SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
                 <SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">Save Bank</SetVariable>
-                <SetVariable name="state_0_pressed"></SetVariable>
-                <SetVariable name="state_0_unpressed"></SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_settings_48px.svg</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_settings_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control">[Sampler],SaveSamplerBank</SetVariable>
               </Template>
             </Children>

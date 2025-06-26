@@ -116,11 +116,11 @@
 </Children>
 </WidgetGroup>
 
-<WidgetGroup><Size>me,0</Size></WidgetGroup>
+<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 
 <WidgetGroup>
 <Layout>horizontal</Layout>
-<SizePolicy>preferred,preferred</SizePolicy>
+<SizePolicy>me,me</SizePolicy>
 <Children>
 
       <!-- 16 loop grid -->
@@ -136,34 +136,27 @@
             <Children>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">128</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">64</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">32</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">16</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">8</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">4</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">2</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">1</SetVariable>
-                <SetVariable name="direction">forward</SetVariable>
               </Template>
             </Children>
           </WidgetGroup>
@@ -177,35 +170,27 @@
               <Children>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">128</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">64</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">32</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">16</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">8</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">4</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">2</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
                 <Template src="skin:beatjump_button.xml">
                   <SetVariable name="beats">1</SetVariable>
-                  <SetVariable name="direction">backward</SetVariable>
                 </Template>
               </Children>
 
