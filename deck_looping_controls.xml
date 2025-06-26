@@ -2,22 +2,25 @@
 <!--
   Description:
     A grid of beatloop controls with a loop double and halve on the left and right.
+    Supports both single controls and 16-button grid layout.
   Variables:
     group: The group for the controls.
 -->
 <Template>
+  <!-- Single loop controls (original) -->
   <WidgetGroup>
     <ObjectName>LoopContainer</ObjectName>
-    <Layout>horizontal</Layout>
-    <!-- <MinimumSize>-1,25</MinimumSize> -->
+    <Layout>vertical</Layout>
     <Children>
 
-      <!-- SpinBox + loop_activate -->
+      <WidgetGroup><!-- SpinBox + loop_activate -->
+        <Layout>horizontal</Layout>
+        <Children>
 
           <BeatSpinBox>
             <ObjectName>BeatloopSizeSpinBox</ObjectName>
             <TooltipId>beatloop_size</TooltipId>
-            <Size>54f,24f</Size>
+            <Size>54f,25f</Size>
             <Value><Variable name="group"/>,beatloop_size</Value>
           </BeatSpinBox>
 
@@ -41,6 +44,15 @@
             <SetVariable name="display_connection_control"><Variable name="group"/>,loop_enabled</SetVariable>
           </Template>
 
+        </Children>
+      </WidgetGroup><!-- SpinBox + loop_activate -->
+
+      <!-- Workaround for layout spacing -->
+      <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+
+      <WidgetGroup><!-- loop_in, loop_out, reloop -->
+        <Layout>horizontal</Layout>
+        <Children>
           <WidgetGroup><Size>4f,0min</Size></WidgetGroup>
 
           <Template src="skin:left_right_1state_button.xml">
@@ -91,6 +103,16 @@
             <SetVariable name="right_connection_control"><Variable name="group"/>,reloop_andstop</SetVariable>
           </Template>
 
+        </Children>
+      </WidgetGroup><!-- loop_in, loop_out, reloop -->
+
     </Children>
+    <Connection>
+      <ConfigKey>[Skin],show_16_beatjump_loop</ConfigKey>
+      <BindProperty>visible</BindProperty>
+      <Transform>
+        <Not/>
+      </Transform>
+    </Connection>
   </WidgetGroup><!-- LoopContainer -->
 </Template>

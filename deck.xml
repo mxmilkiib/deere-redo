@@ -18,7 +18,7 @@
         <Layout>vertical</Layout>
         <SizePolicy>me,me</SizePolicy>
         <Children>
-          <Template src="skins:Deere/deck_text_row.xml"/>
+          <Template src="skin:deck_text_row.xml"/>
 
           <!-- Hides if the 'Parallel Waveforms' option is activated in the skin settings -->
           <WidgetGroup>
@@ -36,7 +36,7 @@
                       <Transform><Not/></Transform>
                     </Connection>
                     <Children>
-                      <Template src="skins:Deere/deck_spinny.xml">
+                      <Template src="skin:deck_spinny.xml">
                         <SetVariable name="cover">true</SetVariable>
                         <SetVariable name="Size">55f,55f</SetVariable>
                       </Template>
@@ -49,7 +49,7 @@
                       <BindProperty>visible</BindProperty>
                     </Connection>
                     <Children>
-                      <Template src="skins:Deere/deck_spinny.xml">
+                      <Template src="skin:deck_spinny.xml">
                         <SetVariable name="cover">false</SetVariable>
                         <SetVariable name="Size">55f,55f</SetVariable>
                       </Template>
@@ -69,7 +69,7 @@
             </Connection>
           </WidgetGroup>
 
-          <Template src="skins:Deere/deck_overview_row.xml"/>
+          <Template src="skin:deck_overview_row.xml"/>
           <Template src="skin:deck_controls_row.xml"/>
         </Children>
       </WidgetGroup>
@@ -79,7 +79,7 @@
         <Layout>vertical</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
-          <Template src="skins:Deere/deck_tempo_column.xml"/>
+          <Template src="skin:deck_tempo_column.xml"/>
         </Children>
       </WidgetGroup>
     </Children>

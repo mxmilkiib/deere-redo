@@ -1,0 +1,29 @@
+<!DOCTYPE template>
+<!--
+  Description:
+    Outro cue buttons (placed after hotcue grid).
+  Variables:
+    group: The group for the controls.
+-->
+<Template>
+  <WidgetGroup>
+    <Layout>vertical</Layout>
+    <MinimumSize>24,48</MinimumSize>
+    <MaximumSize>48,48</MaximumSize>
+    <Children>
+      <Template src="skin:special_cue_button.xml">
+        <SetVariable name="cue_type">outro_start</SetVariable>
+        <SetVariable name="label">|&#9699;</SetVariable>
+      </Template>
+      <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+      <Template src="skin:special_cue_button.xml">
+        <SetVariable name="cue_type">outro_end</SetVariable>
+        <SetVariable name="label">&#9699;|</SetVariable>
+      </Template>
+    </Children>
+    <Connection>
+      <ConfigKey>[Skin],show_intro_outro_cues</ConfigKey>
+      <BindProperty>visible</BindProperty>
+    </Connection>
+  </WidgetGroup>
+</Template> 

@@ -11,9 +11,8 @@
   <HotcueButton>
     <TooltipId>hotcue</TooltipId>
     <ObjectName>HotcueButton</ObjectName>
-    <MinimumSize>18,22</MinimumSize>
-    <MaximumSize>22,22</MaximumSize>
-    <SizePolicy>me,f</SizePolicy>
+    <MinimumSize><Variable name="SquareButtonMinimumSize"/></MinimumSize>
+    <MaximumSize><Variable name="SquareButtonMaximumSize"/></MaximumSize>
     <Group><Variable name="group"/></Group>
     <Hotcue><Variable name="hotcue"/></Hotcue>
     <Hover>true</Hover>

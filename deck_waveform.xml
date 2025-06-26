@@ -14,7 +14,7 @@
     <SizePolicy>me,me</SizePolicy>
     <Children>
 
-	    <Template src="skins:Deere/vinylcontrol.xml"/>
+	    <Template src="skin:vinylcontrol.xml"/>
 
       <Visual>
         <TooltipId>waveform_display</TooltipId>
@@ -135,7 +135,7 @@
         <Layout>vertical</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
-	  <Template src="skins:Deere/left_1state_button.xml">
+	  <Template src="skin:left_1state_button.xml">
             <SetVariable name="TooltipId">waveform_zoom_down</SetVariable>
             <SetVariable name="ObjectName">WaveformZoomDownButton</SetVariable>
             <SetVariable name="MinimumSize"><Variable name="SmallSquareButtonMinimumSize"/></SetVariable>
@@ -147,7 +147,7 @@
             <SetVariable name="left_connection_control"><Variable name="group"/>,waveform_zoom_down</SetVariable>
           </Template>
 
-	  <Template src="skins:Deere/left_1state_button.xml">
+	  <Template src="skin:left_1state_button.xml">
             <SetVariable name="TooltipId">waveform_zoom_set_default</SetVariable>
             <SetVariable name="ObjectName">WaveformZoomSetDefaultButton</SetVariable>
             <SetVariable name="MinimumSize"><Variable name="SmallSquareButtonMinimumSize"/></SetVariable>
@@ -159,7 +159,7 @@
             <SetVariable name="left_connection_control"><Variable name="group"/>,waveform_zoom_set_default</SetVariable>
           </Template>
 
-	  <Template src="skins:Deere/left_1state_button.xml">
+	  <Template src="skin:left_1state_button.xml">
             <SetVariable name="TooltipId">waveform_zoom_up</SetVariable>
             <SetVariable name="ObjectName">WaveformZoomUpButton</SetVariable>
             <SetVariable name="MinimumSize"><Variable name="SmallSquareButtonMinimumSize"/></SetVariable>

@@ -10,9 +10,8 @@ Variables:
   <PushButton>
     <TooltipId><Variable name="cue_type"/></TooltipId>
     <ObjectName>SpecialCueButton</ObjectName>
-    <MinimumSize>18,22</MinimumSize>
-    <MaximumSize>22,22</MaximumSize>
-    <SizePolicy>me,f</SizePolicy>
+    <MinimumSize><Variable name="SquareButtonMinimumSize"/></MinimumSize>
+    <MaximumSize><Variable name="SquareButtonMaximumSize"/></MaximumSize>
     <NumberStates>2</NumberStates>
     <RightClickIsPushButton>true</RightClickIsPushButton>
     <State>

@@ -16,6 +16,8 @@
       <!-- Decks -->
       <attribute persist="true" config_key="[Skin],show_4decks">0</attribute>
       <attribute persist="true" config_key="[Skin],show_8_hotcues">1</attribute>
+      <attribute persist="true" config_key="[Skin],show_16_hotcues">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_16_beatjump_loop">0</attribute>
       <attribute persist="true" config_key="[Skin],show_intro_outro_cues">1</attribute>
       <attribute persist="true" config_key="[Skin],show_coverart">1</attribute>
       <attribute persist="true" config_key="[Skin],show_spinnies">1</attribute>
@@ -23,6 +25,7 @@
       <attribute persist="true" config_key="[Deere],show_track_info">1</attribute>
       <attribute persist="true" config_key="[Deere],show_bpm_info">1</attribute>
       <attribute persist="true" config_key="[Skin],timing_shift_buttons">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls">1</attribute>
       <!-- Mixer -->
       <attribute persist="true" config_key="[Skin],show_mixer">1</attribute>
       <attribute persist="true" config_key="[Skin],show_faders">1</attribute>
@@ -54,7 +57,7 @@
       <attribute config_key="[Skin],show_maximized_library">0</attribute>
       <attribute persist="true" config_key="[Skin],show_preview_decks">0</attribute>
       <attribute persist="true" config_key="[Skin],show_library_coverart">1</attribute>
-      <!--<attribute persist="true" config_key="[Skin],show_library_navbar">1</attribute>-->
+      <attribute persist="true" config_key="[Skin],show_library_navbar">1</attribute>
       <!--Disable hidden effect routing Buttons-->
       <attribute persist="false" config_key="[EffectRack1_EffectUnit1],group_[MasterOutput]_enable">0</attribute>
       <attribute persist="false" config_key="[EffectRack1_EffectUnit1],group_[BusLeft]_enable">0</attribute>
@@ -145,22 +148,21 @@
       <!-- Traditional Blue -->
       <SetVariable name="DeckSignalColor">#007BCD</SetVariable>
       <SetVariable name="DeckBackgroundColor">#383838</SetVariable>
-      <!-- <SetVariable name="DeckBackgroundColor">#3C3C3C</SetVariable> -->
       <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
     </Template>
 
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">2</SetVariable>
-      <!-- Violet -->
-      <SetVariable name="DeckSignalColor">#B500B5</SetVariable>
+      <!-- Traditional Orange -->
+      <SetVariable name="DeckSignalColor">#E67A00</SetVariable>
       <SetVariable name="DeckBackgroundColor">#383838</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
     </Template>
 
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">3</SetVariable>
-      <!-- Traditional Orange -->
-      <SetVariable name="DeckSignalColor">#E67A00</SetVariable>
+      <!-- Violet -->
+      <SetVariable name="DeckSignalColor">#B500B5</SetVariable>
       <SetVariable name="DeckBackgroundColor">#383838</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
     </Template>
@@ -176,14 +178,14 @@
     <SingletonDefinition>
       <ObjectName>Library</ObjectName>
       <Children>
-        <Template src="skins:Deere/library.xml"/>
+        <Template src="skin:library.xml"/>
       </Children>
     </SingletonDefinition>
 
     <SingletonDefinition>
       <ObjectName>SamplerSettingsSingleton</ObjectName>
       <Children>
-        <Template src="skins:Deere/skinsettings_sampler_buttons.xml"/>
+        <Template src="skin:skinsettings_sampler_buttons.xml"/>
       </Children>
     </SingletonDefinition>
 
@@ -192,7 +194,7 @@
       <SizePolicy>me,me</SizePolicy>
       <Layout>vertical</Layout>
       <Children>
-        <Template src="skins:Deere/tool_bar.xml"/>
+        <Template src="skin:tool_bar.xml"/>
 
         <!-- regular or maximized library -->
         <WidgetStack currentpage="[Skin],show_maximized_library">
@@ -209,7 +211,7 @@
 
                 <!-- Waveforms & spinnies are shown here as stack or
                   separately in each deck -->
-		      <Template src="skin:parallel_waveforms.xml"/>
+                <Template src="skin:parallel_waveforms.xml"/>
 
                 <WidgetGroup>
                   <Layout>vertical</Layout>
@@ -220,9 +222,9 @@
                       <SizePolicy>min,max</SizePolicy>
                       <Children>
                         <Template src="skin:main_decks.xml"/>
-			<Template src="skin:effect_rack.xml"/>
-                        <Template src="skins:Deere/sample_decks.xml"/>
-                        <Template src="skins:Deere/microphone_rack.xml"/>
+                        <Template src="skin:effect_rack.xml"/>
+                        <Template src="skin:sample_decks.xml"/>
+                        <Template src="skin:microphone_rack.xml"/>
                       </Children>
                     </WidgetGroup><!-- /Main section -->
                     <SingletonContainer>
@@ -239,7 +241,7 @@
               <Layout>vertical</Layout>
               <SizePolicy>me,me</SizePolicy>
               <Children>
-                <Template src="skins:Deere/decks_small.xml"/>
+                <Template src="skin:decks_small.xml"/>
                 <SingletonContainer>
                   <ObjectName>Library</ObjectName>
                 </SingletonContainer>
@@ -251,6 +253,7 @@
 
       </Children>
     </WidgetGroup>
+
     <WidgetGroup>
       <Layout>vertical</Layout>
       <SizePolicy>min,me</SizePolicy>

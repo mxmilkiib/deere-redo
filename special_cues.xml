@@ -1,33 +1,25 @@
 <!DOCTYPE template>
 <!--
   Description:
-    A grid of hotcue controls.
+    Intro cue buttons (placed before hotcue grid).
   Variables:
     group: The group for the controls.
 -->
 <Template>
-  <!--Default grid Hotcue 1-4 -->
   <WidgetGroup>
-    <Layout>horizontal</Layout>
-    <MinimumSize>40,20</MinimumSize>
-    <MaximumSize>48,24</MaximumSize>
-    <SizePolicy>me,min</SizePolicy>
+    <Layout>vertical</Layout>
+    <MinimumSize>24,48</MinimumSize>
+    <MaximumSize>48,48</MaximumSize>
     <Children>
-      <WidgetGroup>
-        <ObjectName>HotcueGrid</ObjectName>
-        <Layout>horizontal</Layout>
-        <SizePolicy>min,min</SizePolicy>
-        <Children>
-          <Template src="skin:special_cue_button.xml">
-            <SetVariable name="cue_type">intro_start</SetVariable>
-            <SetVariable name="label">|&#9698;</SetVariable>
-          </Template>
-          <Template src="skin:special_cue_button.xml">
-            <SetVariable name="cue_type">intro_end</SetVariable>
-            <SetVariable name="label">&#9698;|</SetVariable>
-          </Template>
-        </Children>
-      </WidgetGroup>
+      <Template src="skin:special_cue_button.xml">
+        <SetVariable name="cue_type">intro_start</SetVariable>
+        <SetVariable name="label">|&#9698;</SetVariable>
+      </Template>
+      <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+      <Template src="skin:special_cue_button.xml">
+        <SetVariable name="cue_type">intro_end</SetVariable>
+        <SetVariable name="label">&#9698;|</SetVariable>
+      </Template>
     </Children>
     <Connection>
       <ConfigKey>[Skin],show_intro_outro_cues</ConfigKey>

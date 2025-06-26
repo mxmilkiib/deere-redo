@@ -1,0 +1,37 @@
+<!DOCTYPE template>
+<!--
+  Description:
+    An individual beatloop button for the 16-button grid.
+  Variables:
+    group: The group for the controls.
+    beats: The number of beats for the loop.
+-->
+<Template>
+  <PushButton>
+    <TooltipId>beatloop_activate</TooltipId>
+    <ObjectName>BeatloopButton</ObjectName>
+    <MinimumSize><Variable name="SquareButtonMinimumSize"/></MinimumSize>
+    <MaximumSize><Variable name="SquareButtonMaximumSize"/></MaximumSize>
+    <NumberStates>2</NumberStates>
+    <State>
+      <Number>0</Number>
+      <Text><Variable name="beats"/></Text>
+      <Pressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Pressed>
+      <Unpressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Unpressed>
+    </State>
+    <State>
+      <Number>1</Number>
+      <Text><Variable name="beats"/></Text>
+      <Pressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Pressed>
+      <Unpressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Unpressed>
+    </State>
+    <Connection>
+      <ConfigKey><Variable name="group"/>,beatloop_<Variable name="beats"/>_activate</ConfigKey>
+      <ButtonState>LeftButton</ButtonState>
+    </Connection>
+    <Connection>
+      <ConfigKey><Variable name="group"/>,loop_enabled</ConfigKey>
+      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+    </Connection>
+  </PushButton>
+</Template>

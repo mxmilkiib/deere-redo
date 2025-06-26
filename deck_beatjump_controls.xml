@@ -2,62 +2,59 @@
 <!--
   Description:
     A stack of beatjump controls that jump forward or backward by X beats.
+    Supports both single controls and 16-button grid layout.
   Variables:
     group: The group for the controls.
 -->
-<Template>
+  <Template>
   <WidgetGroup>
     <Layout>horizontal</Layout>
-    <SizePolicy>min,min</SizePolicy>
+    <SizePolicy>max,me</SizePolicy>
     <Children>
+    <WidgetGroup>
+      <Layout>vertical</Layout>
+      <Children>
+        <BeatSpinBox>
+          <ObjectName>BeatjumpSizeSpinBox</ObjectName>
+          <TooltipId>beatjump_size</TooltipId>
+          <Size>52f,22f</Size>
+          <Value><Variable name="group"/>,beatjump_size</Value>
+        </BeatSpinBox>
+        <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+        <WidgetGroup>
+          <Layout>horizontal</Layout>
+          <Children>
+            <Template src="skin:left_right_1state_button.xml">
+              <SetVariable name="TooltipId">beatjump_backward</SetVariable>
+              <SetVariable name="ObjectName">BeatJumpButton</SetVariable>
+              <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
+              <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
+              <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
+              <SetVariable name="state_0_pressed">icon/ic_beatjump_backward_48px.svg</SetVariable>
+              <SetVariable name="state_0_unpressed">icon/ic_beatjump_backward_48px.svg</SetVariable>
+              <SetVariable name="state_0_text"><Variable name="text_length"/></SetVariable>
+              <SetVariable name="left_connection_control"><Variable name="group"/>,beatjump_backward</SetVariable>
+              <SetVariable name="right_connection_control"><Variable name="group"/>,beatjump_1_backward</SetVariable>
+            </Template>
+            <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+            <Template src="skin:left_right_1state_button.xml">
+              <SetVariable name="TooltipId">beatjump_forward</SetVariable>
+              <SetVariable name="ObjectName">BeatJumpButton</SetVariable>
+              <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
+              <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
+              <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
+              <SetVariable name="state_0_pressed">icon/ic_beatjump_forward_48px.svg</SetVariable>
+              <SetVariable name="state_0_unpressed">icon/ic_beatjump_forward_48px.svg</SetVariable>
+              <SetVariable name="state_0_text"><Variable name="text_length"/></SetVariable>
+              <SetVariable name="left_connection_control"><Variable name="group"/>,beatjump_forward</SetVariable>
+              <SetVariable name="right_connection_control"><Variable name="group"/>,beatjump_1_forward</SetVariable>
+            </Template>
+          </Children>
+        </WidgetGroup>
 
-      <BeatSpinBox>
-        <ObjectName>BeatjumpSizeSpinBox</ObjectName>
-        <TooltipId>beatjump_size</TooltipId>
-        <Size>54f,24f</Size>
-        <Value><Variable name="group"/>,beatjump_size</Value>
-      </BeatSpinBox>
-
-      <!-- Workaround for layout spacing -->
+      </Children>
       <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
-      <!-- <WidgetGroup><Size>2f,0min</Size></WidgetGroup> -->
-
-      <WidgetGroup><!-- backward + forward -->
-        <Layout>horizontal</Layout>
-        <Children>
-
-          <Template src="skin:left_right_1state_button.xml">
-            <SetVariable name="TooltipId">beatjump_backward</SetVariable>
-            <SetVariable name="ObjectName">BeatJumpButton</SetVariable>
-            <SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-            <SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-            <SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-            <SetVariable name="state_0_pressed">icon/ic_beatjump_backward_48px.svg</SetVariable>
-            <SetVariable name="state_0_unpressed">icon/ic_beatjump_backward_48px.svg</SetVariable>
-            <SetVariable name="state_0_text"><Variable name="text_length"/></SetVariable>
-            <SetVariable name="left_connection_control"><Variable name="group"/>,beatjump_backward</SetVariable>
-            <SetVariable name="right_connection_control"><Variable name="group"/>,beatjump_1_backward</SetVariable>
-          </Template>
-
-          <!-- Workaround for layout spacing -->
-          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
-
-          <Template src="skin:left_right_1state_button.xml">
-            <SetVariable name="TooltipId">beatjump_forward</SetVariable>
-            <SetVariable name="ObjectName">BeatJumpButton</SetVariable>
-            <SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-            <SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-            <SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-            <SetVariable name="state_0_pressed">icon/ic_beatjump_forward_48px.svg</SetVariable>
-            <SetVariable name="state_0_unpressed">icon/ic_beatjump_forward_48px.svg</SetVariable>
-            <SetVariable name="state_0_text"><Variable name="text_length"/></SetVariable>
-            <SetVariable name="left_connection_control"><Variable name="group"/>,beatjump_forward</SetVariable>
-            <SetVariable name="right_connection_control"><Variable name="group"/>,beatjump_1_forward</SetVariable>
-          </Template>
-
-        </Children>
-      </WidgetGroup><!-- backward + forward -->
-
-    </Children>
-  </WidgetGroup>
-</Template>
+    </WidgetGroup>        <!-- 16 beatjump grid (keep as is, below spinbox/buttons) -->
+     </Children>
+    </WidgetGroup>
+  </Template>

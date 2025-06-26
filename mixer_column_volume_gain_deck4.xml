@@ -1,0 +1,49 @@
+<!DOCTYPE template>
+<!--
+  Description:
+    The deck mixer controls for Deck 4 (orange).
+-->
+<Template>
+  <SetVariable name="group">[Channel4]</SetVariable>
+  <WidgetGroup>
+    <ObjectName>DeckMixer_Column2</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>max,me</SizePolicy>
+    <Children>
+      <WidgetGroup>
+        <Layout>vertical</Layout>
+        <Size>40f,-1</Size>
+        <MinimumSize>40,34</MinimumSize>
+        <MaximumSize>40,46</MaximumSize>
+        <Children>
+          <KnobComposed>
+            <ObjectName>Deck4GainKnob</ObjectName>
+            <TooltipId>pregain</TooltipId>
+            <Size>40f,34f</Size>
+            <Knob>knob.svg</Knob>
+            <BackPath>knob_bg_orange.svg</BackPath>
+            <MinAngle>-135</MinAngle>
+            <MaxAngle>135</MaxAngle>
+            <BgColor>#AABD00</BgColor>
+            <Connection>
+              <ConfigKey>[Channel4],pregain</ConfigKey>
+            </Connection>
+          </KnobComposed>
+        </Children>
+      </WidgetGroup>
+
+      <SliderComposed>
+        <TooltipId>channel_volume</TooltipId>
+        <SizePolicy>min,me</SizePolicy>
+        <MinimumSize>40,50</MinimumSize>
+        <MaximumSize>40,150</MaximumSize>
+        <Handle>knob-vertical.svg</Handle>
+        <Slider>slider-vertical.svg</Slider>
+        <Horizontal>false</Horizontal>
+        <Connection>
+          <ConfigKey>[Channel4],volume</ConfigKey>
+        </Connection>
+      </SliderComposed>
+    </Children>
+  </WidgetGroup>
+</Template>

@@ -19,7 +19,7 @@
   <SingletonDefinition>
     <ObjectName>DeckCoverArt<Variable name="i"/></ObjectName>
     <Children>
-      <Template src="skins:Deere/deck_coverart.xml"/>
+      <Template src="skin:deck_coverart.xml"/>
     </Children>
   </SingletonDefinition>
 

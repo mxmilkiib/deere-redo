@@ -18,12 +18,47 @@
 */
 
 /*******************************************************************************
+ ** BEAT JUMP BUTTON STYLING ***************************************************
+ *******************************************************************************/
+/* Style for the beatjump buttons with text in bottom-right and small arrow in top-right */
+WPushButton#BeatjumpButton {
+  /* Use the exact background color from typical hotcue buttons */
+
+  /* Text styling - very small text */
+  font-size: 9px;
+  color: #D2D2D2;
+  font-weight: bold;
+
+  /* Separate the icon and text by positioning parameters */
+  background-origin: padding;
+  background-repeat: no-repeat;
+  /* background-size not supported in Qt stylesheets, using alternative approaches */
+
+}
+
+/*******************************************************************************
+ ** LOOP BUTTON STYLING ********************************************************
+ *******************************************************************************/
+/* Style for loop buttons to make text smaller */
+WPushButton#LoopIn,
+WPushButton#LoopOut,
+WPushButton#LoopDouble,
+WPushButton#LoopHalve,
+WPushButton#BeatloopActivate,
+WPushButton#Reloop {
+  /* Text styling - small text */
+  font-size: 9px;
+  color: #D2D2D2;
+  font-weight: bold;
+}
+
+/******************************************************************************
  ** BORDER *********************************************************************
  *******************************************************************************/
 /* These definitions put a faint border around all the widgets. We have to be
    tricky with top/bottom-ness to get things right. */
 #DeckControls {
-  padding: 1px 2px 2px 2px;  /*
+  padding: 5px 7.5px 2px 7.5px;  /*
   background-color: #456789;  */
 }
 
@@ -44,7 +79,7 @@
 }
 
 #QuickEffectSelectors_2Decks {
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 #CrossfaderContainer {
@@ -100,15 +135,18 @@
 
 #VisualRow {
   border-top: 1px solid #222;
+  border-bottom: 0px;
   background-color: transparent;
   margin: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 #OverviewRow {
-  border-top: 1px solid #222;
+  border-top: 0px;
   background-color: transparent;
   margin: 0;
-  padding: 0 1px 0 1px;
+  padding: 0;
 }
 
 #ControlsRow {
@@ -183,6 +221,10 @@
   qproperty-layoutAlignment: 'AlignTop | AlignHCenter';
 }
 
+#AlignCenterCenter {
+  qproperty-layoutAlignment: 'AlignVCenter | AlignHCenter';
+}
+
 #AlignTop {
   qproperty-layoutAlignment: 'AlignTop | AlignHCenter';
 }
@@ -237,6 +279,11 @@ WLibrarySidebar {
   /* background of Color delegate in selected row */
   selection-background-color: #006596;
 }
+/* Override the 'missing' color in Tracks > Missing,
+   it's not useful there */
+#DlgMissing WTrackTableView {
+  qproperty-trackMissingColor: #d2d2d2;
+}
 
 /* Prevent OS-style checkbox from being rendered underneath the custom style. */
 #LibraryPlayedCheckbox::item,
@@ -249,9 +296,22 @@ WTrackTableView::item:selected,
 WLibrarySidebar::item:selected,
 #LibraryBPMButton::item:selected,
 #LibraryPlayedCheckbox::item:selected {
-  color: #D6D6D6;
+  /* disabled since it interferes with selection-color
+   which we use in DefaultDelegate and TableItemDelegate to
+   blend the highlight color with the played/missing color.
+  color: #D6D6D6; */
+  /* This is not required for painting the background,
+   but it is for applying the focus outline. */
   background-color: #006596;
-}
+  }
+  /* Highlight currentIndex which can be moved with Ctrl + arrow keys */
+  WTrackTableView::item:!selected:focus {
+    /* For outline to be applied, background-color must be set, too ...
+       Use a value between #1F1F1F and #1A1A1A (alternate-background-color) */
+    background-color: #1d1d1d;
+    outline: 1px solid #fff;
+    color: #fff;
+  }
 WLibrarySidebar::item:selected:focus {
   outline: none;
 }
@@ -271,6 +331,9 @@ WTrackTableView QCheckBox:focus {
   See src/library/tableitemdelegate.cpp */
 WTrackTableView {
   qproperty-focusBorderColor: #D6D6D6;
+  /* This is the color used to paint the text of played tracks.
+     BaseTrackTableModel::data() uses this to override Qt::ForegroundRole (QBrush). */
+  qproperty-trackPlayedColor: #555;
 }
 
 WTrackTableView:focus,
@@ -278,6 +341,8 @@ WLibrarySidebar:focus,
 WLibraryTextBrowser:focus {
   border: 1px solid #FF6600;
 }
+
+
 
 WLibraryTextBrowser {
   padding-left: 5px;
@@ -287,20 +352,26 @@ WLibraryTextBrowser {
 WLibrary QLineEdit,
 WLibrary QPlainTextEdit,
 WBeatSpinBox,
+/* Track label inline editor */
+WTrackPropertyEditor,
 #LibraryBPMSpinBox {
   color: #ddd;
   background-color: #0f0f0f;
   selection-color: #000;
   selection-background-color: #ccc;
+}
+WLibrary QLineEdit,
+WTrackPropertyEditor,
+#LibraryBPMSpinBox {
   border: 1px solid #006596;
 }
 
 /* checkbox in library "Played" column */
 #LibraryPlayedCheckbox::indicator:unchecked {
-  image: url(skin:/../Deere/icon/ic_library_checkbox.svg);
+  image: url(skin:icon/ic_library_checkbox.svg);
 }
 #LibraryPlayedCheckbox::indicator:checked {
-  image: url(skin:/../Deere/icon/ic_library_checkbox_checked.svg);
+  image: url(skin:icon/ic_library_checkbox_checked.svg);
 }
 
 /* focused BPM cell in the library "BPM" column */
@@ -310,11 +381,11 @@ WBeatSpinBox,
 }
 /* BPM lock icon */
 #LibraryBPMButton::indicator:checked {
-  image: url(skin:/../Deere/icon/ic_library_bpm_locked.svg);
+  image: url(skin:icon/ic_library_bpm_locked.svg);
 }
 
 #LibraryBPMButton::indicator:unchecked {
-  image: url(skin:/../Deere/icon/ic_library_bpm_unlocked.svg);
+  image: url(skin:icon/ic_library_bpm_unlocked.svg);
 }
 
 #LibraryBPMSpinBox {
@@ -327,10 +398,10 @@ WBeatSpinBox,
     background-color: #006596;
     }
     #LibraryBPMSpinBox::up-button {
-      image: url(skin:/../Deere/icon/ic_lib_spinbox_up_white.svg) no-repeat;
+      image: url(skin:icon/ic_lib_spinbox_up_white.svg) no-repeat;
       }
     #LibraryBPMSpinBox::down-button {
-      image: url(skin:/../Deere/icon/ic_lib_spinbox_down_white.svg) no-repeat;
+      image: url(skin:icon/ic_lib_spinbox_down_white.svg) no-repeat;
       }
 
 /* button in library "Preview" column */
@@ -343,7 +414,7 @@ QPushButton#LibraryPreviewButton {
 }
 
 QPushButton#LibraryPreviewButton:!checked {
-  image: url(skin:/../Deere/icon/ic_library_preview_play.svg);
+  image: url(skin:icon/ic_library_preview_play.svg);
 }
 
 QPushButton#LibraryPreviewButton:!checked:hover {
@@ -352,7 +423,7 @@ QPushButton#LibraryPreviewButton:!checked:hover {
 }
 
 QPushButton#LibraryPreviewButton:checked {
-  image: url(skin:/../Deere/icon/ic_library_preview_pause.svg);
+  image: url(skin:icon/ic_library_preview_pause.svg);
   background-color: #0f0f0f;
   border: 1px solid #006596;
 }
@@ -386,11 +457,11 @@ WTrackTableViewHeader::down-arrow {
   padding: 0px;
 }
 WTrackTableViewHeader::up-arrow {
-  image: url(skin:/../Deere/image/style_sort_up.svg);
+  image: url(skin:image/style_sort_up.svg);
 }
 
 WTrackTableViewHeader::down-arrow {
-  image: url(skin:/../Deere/image/style_sort_down.svg);
+  image: url(skin:image/style_sort_down.svg);
 }
 
 /* library search bar */
@@ -453,12 +524,12 @@ WLibrarySidebar {
 /* triangle for closed/opened branches in treeview */
 WLibrarySidebar::branch:has-children:!has-siblings:closed,
 WLibrarySidebar::branch:closed:has-children:has-siblings {
-  border-image: none; image: url(skin:/../Deere/image/style_branch_closed.svg);
+  border-image: none; image: url(skin:image/style_branch_closed.svg);
 }
 
 WLibrarySidebar::branch:open:has-children:!has-siblings,
 WLibrarySidebar::branch:open:has-children:has-siblings {
-  border-image: none; image: url(skin:/../Deere/image/style_branch_open.svg);
+  border-image: none; image: url(skin:image/style_branch_open.svg);
 }
 
 /* space left of selected child item */
@@ -472,12 +543,12 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 
 /* QSplitter between WLibrarySidebar and WTrackTableView */
 #LibrarySplitter::handle {
-  image: url(skin:/../Deere/image/style_handle_horizontal_unchecked.svg);
+  image: url(skin:image/style_handle_horizontal_unchecked.svg);
   background: none;
 }
 
 #LibrarySplitter::handle:pressed {
-  image: url(skin:/../Deere/image/style_handle_horizontal_checked.svg);
+  image: url(skin:image/style_handle_horizontal_checked.svg);
   background: none;
 }
 
@@ -493,14 +564,14 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 #LibraryCoverArtSplitter::handle,
 #LibraryVerticalSplitter::handle,
 #WaveformSplitter::handle {
-  image: url(skin:/../Deere/image/style_handle_vertical_unchecked.svg);
+  image: url(skin:image/style_handle_vertical_unchecked.svg);
   background-color: #222;
 }
 
 #LibraryCoverArtSplitter::handle:pressed,
 #LibraryVerticalSplitter::handle:pressed,
 #WaveformSplitter::handle:pressed {
-  image: url(skin:/../Deere/image/style_handle_vertical_checked.svg);
+  image: url(skin:image/style_handle_vertical_checked.svg);
   background-color: #222;
 }
 
@@ -538,11 +609,11 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 }
 
 #LibraryFeatureControls QRadioButton::indicator:checked {
-  image: url(skin:/../Deere/icon/ic_radio_button_on_18px.svg);
+  image: url(skin:icon/ic_radio_button_on_18px.svg);
 }
 
 #LibraryFeatureControls QRadioButton::indicator:unchecked {
-  image: url(skin:/../Deere/icon/ic_radio_button_off_18px.svg);
+  image: url(skin:icon/ic_radio_button_off_18px.svg);
 }
 /* buttons in library (in hierarchical order of appearance)
    Style them just as the other regular buttons */
@@ -625,28 +696,28 @@ QPushButton#pushButtonRecording:checked:hover {
 
 /* AutoDJ button icons */
 QPushButton#pushButtonAutoDJ {
-  image: url(skin:/../Deere/icon/ic_autodj_enable.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_enable.svg) no-repeat center center;
 }
 QPushButton#pushButtonFadeNow:!enabled {
-  image: url(skin:/../Deere/icon/ic_autodj_fade_disabled.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_fade_disabled.svg) no-repeat center center;
   }
   QPushButton#pushButtonFadeNow:enabled {
-    image: url(skin:/../Deere/icon/ic_autodj_fade.svg) no-repeat center center;
+    image: url(skin:icon/ic_autodj_fade.svg) no-repeat center center;
   }
 QPushButton#pushButtonSkipNext:!enabled {
-  image: url(skin:/../Deere/icon/ic_autodj_skip_disabled.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_skip_disabled.svg) no-repeat center center;
   }
   QPushButton#pushButtonSkipNext:enabled {
-    image: url(skin:/../Deere/icon/ic_autodj_skip.svg) no-repeat center center;
+    image: url(skin:icon/ic_autodj_skip.svg) no-repeat center center;
   }
 QPushButton#pushButtonShuffle {
-  image: url(skin:/../Deere/icon/ic_autodj_shuffle.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_shuffle.svg) no-repeat center center;
 }
 QPushButton#pushButtonAddRandomTrack {
-  image: url(skin:/../Deere/icon/ic_autodj_addrandom.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_addrandom.svg) no-repeat center center;
 }
 QPushButton#pushButtonRepeatPlaylist {
-  image: url(skin:/../Deere/icon/ic_autodj_repeat_playlist.svg) no-repeat center center;
+  image: url(skin:icon/ic_autodj_repeat_playlist.svg) no-repeat center center;
 }
 /* AutoDJ button icons */
 
@@ -677,9 +748,9 @@ WSearchLineEdit QAbstractScrollArea QScrollBar:horizontal,
 #fadeModeCombobox QAbstractScrollArea QScrollBar:horizontal {
   border-top: 1px solid #141414;
   min-width: 12px;
-  height: 15px;
+  height: 16px;
   background-color: #222222;
-  padding: 3px;
+  padding: 1px;
 }
 #LibraryContainer QScrollBar:vertical,
 WEffectSelector QAbstractScrollArea QScrollBar:vertical,
@@ -690,7 +761,7 @@ WSearchLineEdit QAbstractScrollArea QScrollBar:vertical,
   min-height: 12px;
   width: 15px;
   background-color: #222222;
-  padding: 3px;
+  padding: 1px;
 }
 /* "add-page" and "sub-page" are the gutter of the scrollbar */
 #LibraryContainer QScrollBar::add-page,
@@ -712,7 +783,7 @@ WSearchLineEdit QAbstractScrollArea QScrollBar::handle:horizontal,
 #fadeModeCombobox QAbstractScrollArea QScrollBar::handle:horizontal {
   min-width: 25px;
   background-color: #5F5F5F;
-  border-radius: 3px;
+  border-radius: 1px;
   border: none;
 }
 #LibraryContainer QScrollBar::handle:vertical,
@@ -720,9 +791,9 @@ WEffectSelector QAbstractScrollArea QScrollBar::handle:vertical,
 WEffectChainPresetSelector QAbstractScrollArea QScrollBar::handle:vertical,
 WSearchLineEdit QAbstractScrollArea QScrollBar::handle:vertical,
 #fadeModeCombobox QAbstractScrollArea QScrollBar::handle:vertical {
-  min-height: 25px;
+  min-height: 16px;
   background-color: #5F5F5F;
-  border-radius: 3px;
+  border-radius: 1px;
   border: none;
 }
 #LibraryContainer QScrollBar::handle:horizontal:hover,
@@ -852,6 +923,7 @@ WPushButton,
 WKey,
 WTime,
 WTrackProperty,
+WTrackPropertyEditor,
 WRecordingDuration,
 QSpinBox,
 WBeatSpinBox,
@@ -923,12 +995,15 @@ WOverview #PassthroughLabel {
 }
 
 #OverviewRow {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
 }
 /* End spacing for Deck overview row */
 
 #Waveforms {
-  background-color: #333;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: 0px;
+  background-color: #000;
 }
 
 #WaveformZoomContainer {
@@ -952,7 +1027,53 @@ WOverview #PassthroughLabel {
 
 /* Start spacing for Deck controls row (transport, beatgrid, looping, hotcue, vinylcontrol) */
 
+/* Button alignment and spacing fixes */
 #PlayCueContainer,
+#HotcueGrid,
+#LoopGrid,
+#VinylControlsGrid {
+  padding: 1px;
+  qproperty-layoutSpacing: 2;
+}
+
+#DeckCue {
+  /* Center the button text */
+  text-align: center;
+  /* qproperty-alignment removed - not supported by WPushButton */
+}
+
+#PlayToggle {
+  /* Center the button text */
+  text-align: center;
+  /* qproperty-alignment removed - not supported by WPushButton */
+}
+
+#HotcueGrid WWidgetGroup,
+#LoopGrid WWidgetGroup,
+#BeatjumpGrid WWidgetGroup,
+#VinylControlsGrid WWidgetGroup,
+#DeckControlsGrid WWidgetGroup {
+  qproperty-layoutSpacing: 2;
+}
+
+#DeckControlsGrid {
+  qproperty-layoutSpacing: 2;
+  padding: 0px;
+}
+
+/* Fix the overall control row margins */
+#ControlsRow {
+  margin: 1px 1px 0px 1px !important;
+  padding: 0px !important;
+}
+
+/* Fix for parent container margins */
+WidgetGroup#DeckRows > QWidget, 
+WidgetGroup#DeckRows * > #ControlsRow {
+  margin: 1px 1px 1px 1px !important;
+  padding: 0px !important;
+}
+
 #HotcueGrid,
 #VinylControlsGrid {
   padding: 1px;
@@ -960,9 +1081,10 @@ WOverview #PassthroughLabel {
 }
 
 #HotcueGrid WWidgetGroup,
-#VinylControlsGrid WWidgetGroup,
+#BeatjumpContainer WWidgetGroup,
+#VinylControlsGrid WWidgetGroup
 #DeckControlsGrid WWidgetGroup {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 1;
 }
 
 #DeckControlsGrid {
@@ -975,7 +1097,7 @@ WBeatSpinBox,
   color: #c1cabe;
   background-color: #1f1e1e;
   border: 1px solid #444342;
-  border-radius: 3px;
+  border-radius: 1px;
   font: 15px;
   }
   WBeatSpinBox {
@@ -1003,11 +1125,11 @@ WBeatSpinBox,
   #spinBoxTransition::down-arrow {
     width: 9px;
     height: 7px;
-    image: url(skin:/../Deere/icon/ic_chevron_down_selector.svg);
+    image: url(skin:icon/ic_chevron_down_selector.svg);
   }
   WBeatSpinBox::down-arrow:hover,
   #spinBoxTransition::down-arrow:hover {
-    image: url(skin:/../Deere/icon/ic_chevron_down_selector_hover.svg);
+    image: url(skin:icon/ic_chevron_down_selector_hover.svg);
   }
   WBeatSpinBox::up-button,
   #spinBoxTransition::up-button {
@@ -1021,20 +1143,20 @@ WBeatSpinBox,
   #spinBoxTransition::up-arrow {
     width: 9px;
     height: 7px;
-    image: url(skin:/../Deere/icon/ic_chevron_up_selector.svg);
+    image: url(skin:icon/ic_chevron_up_selector.svg);
   }
   WBeatSpinBox::up-arrow:hover,
   #spinBoxTransition::up-arrow:hover {
-    image: url(skin:/../Deere/icon/ic_chevron_up_selector_hover.svg);
+    image: url(skin:icon/ic_chevron_up_selector_hover.svg);
   }
 
 /* End spacing for Deck controls row */
 
 /* Start spacing for toolbar */
 #ToolBar {
-  padding: 0px 4px 0px 4px;
+  padding: 0px 3px 0px 0px;
   qproperty-layoutSpacing: 5;
-  border-width: 0px 0px 3px 0px;
+  border-width: 0px 0px 0px 0px;
   border-style: solid;
   border-color: #222;
 }
@@ -1053,7 +1175,7 @@ WBeatSpinBox,
 
 #MainControls, #HeadphoneControls {
     qproperty-layoutSpacing: 10;
-    margin-bottom: 1px;
+    margin-bottom: 0px;
     margin-top: 1px;
 }
 
@@ -1099,27 +1221,32 @@ WBeatSpinBox,
   padding: 2px;
 }
 #PositionGutter {
-  margin-right: 4px;
+  margin-right: 0px;
 }
 #PositionGutterSmall {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  padding: 0px 6px 2px 3px;
+  padding: 0px 0px 2px 0px;
 }
 
 /* Start editable widgets in decks */
-#BpmKeyEditRowCollapsed:hover,
-#BpmKeyEditRowExpanded:hover,
+/* emphasize editable widgets on hover */
+#BpmKeyEditTriggerRow:hover,
 #PositionGutter:hover,
 #PlayPositionTextSmall:hover,
-#StarratingGutter:hover {
-  /* emphasize editable widgets on hover */
-  border: 1px solid #FF6600;
+#StarratingGutter:hover,
+WTrackProperty:hover {
   background-color: rgba(255, 102, 0, 128);
-}
-#BpmKeyEditRowCollapsed {
+  }
+  #BpmKeyEditRowCollapsed:hover,
+  WTrackProperty[selected="true"] {
+    border: 1px solid #FF6600;
+  }
+
+#BpmKeyEditTriggerRow[value="1"] {
   qproperty-layoutAlignment: 'AlignCenter';
   /* emphasize active widget */
   border: 1px solid #666666;
+  border-left: 0px;
 }
 
 #BpmKeyEditRowExpanded {
@@ -1127,12 +1254,18 @@ WBeatSpinBox,
   border: 1px solid #FF6600;
   background-color: rgba(255, 102, 0, 64);
   color: #D6D6D6;
+  qproperty-layoutSpacing: 2;
 }
 
 #BpmKeyEditTrigger {
   /* make trigger button transparent */
   background-color: none;
   border: none;
+  border-radius: 0px;
+}
+#BpmKeyEditTrigger[value="1"] {
+  border: 1px solid #FF6600;
+  border-left: 0px;
 }
 
 #BpmKeyEditRowControls {
@@ -1144,6 +1277,31 @@ WBeatSpinBox,
   qproperty-layoutSpacing: 2;
 }
 
+#BeatEditCover {
+  background-color: rgba(51, 51, 51, 120);
+}
+
+/* This defines the width of the key/cents display per selected notation. */
+#KeyLabelExpander[highlight="0"],  /* Invalid */
+#KeyLabelExpander[highlight="1"],  /* Custom */
+#KeyLabelExpander[highlight="2"],  /* OpenKey */
+#KeyLabelExpander[highlight="3"] { /* Lancelot */
+  /* Widest key is 12A + cents */
+  min-width: 97px;
+  max-width: 97px;
+}
+#KeyLabelExpander[highlight="4"] { /*Traditional */
+  /* The widest key is "D#m/Ebm" + cents */
+  min-width: 138px;
+  max-width: 138px;
+}
+#KeyLabelExpander[highlight="5"],  /* OpenKeyAndTraditional */
+#KeyLabelExpander[highlight="6"] { /* LancelotAndTraditional */
+  /* The widest key is "7m (D#m/Ebm)" + cents */
+  min-width: 175px;
+  max-width: 175px;
+}
+
 #HotcueShiftButtons {
   qproperty-layoutSpacing: 2;
 }
@@ -1152,12 +1310,11 @@ WBeatSpinBox,
   padding-right: 1px;
 }
 
-#BpmKeyInfoShow {
-  image: url(skin:/../Deere/icon/ic_chevron_left_24x48px.svg) center center;
+#BpmKeyInfoShowHide[highlight="0"] {
+  image: url(skin:icon/ic_chevron_left_24x48px.svg) center center;
 }
-
-#BpmKeyInfoHide {
-  image: url(skin:/../Deere/icon/ic_chevron_right_24x48px.svg) center center;
+#BpmKeyInfoShowHide[highlight="1"] {
+  image: url(skin:icon/ic_chevron_right_24x48px.svg) center center;
 }
 /* End editable widgets in decks */
 
@@ -1191,7 +1348,7 @@ WBeatSpinBox,
 #TitleTextSmall,
 #EffectRackExpanded #EffectUnitNameContainer WLabel {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
   text-transform: none;
   text-align: left;
 }
@@ -1212,7 +1369,7 @@ WBeatSpinBox,
 #EffectUnitLabel,
 #EffectRackCollapsed #EffectUnitNameContainer WLabel {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 1px;
   text-transform: none;
   text-align: center;
 }
@@ -1229,7 +1386,9 @@ WBeatSpinBox,
 
 #EffectUnitToggle {
   padding: 0px 0px 0px 27px;
-  font: bold 14px/20px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
   border: 0px;
 }
 
@@ -1241,18 +1400,33 @@ WBeatSpinBox,
   image: url(skin:icon/ic_unfold_less_48px.svg) no-repeat top right;
 }
 
+WEffectChainPresetButton {
+  padding: 0px;
+  border:  none;
+  border-radius: 2px;
+  image: url(skin:icon/ic_settings_22px.svg) no-repeat center center;
+}
+WEffectChainPresetButton::menu-indicator {
+  subcontrol-position: center center;
+  subcontrol-origin: margin;
+  padding: 0px;
+  border: 0px;
+  outline: none;
+  image: url(skin:icon/ic_settings_22px.svg) no-repeat center center;
+}
+
 #EffectUnitFiller {
   border: 1px solid #222;
   border-width: 1px 0px 0px 0px;
 }
 
 #EffectButtonControls {
-  qproperty-layoutSpacing: 5;
+  qproperty-layoutSpacing: 2;
 }
 
 #EffectHighlightable[highlight="0"] {
   border: 0px;
-  padding: 3px 4px 3px 4px;
+  padding: 0px 4px 0px 4px;
 }
 
 #EffectHighlightable[highlight="1"] {
@@ -1265,7 +1439,7 @@ WBeatSpinBox,
 }
 
 #EffectUnitNameContainer {
-  padding: 1px;
+  padding: 0px;
   qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
 }
 
@@ -1284,11 +1458,11 @@ WBeatSpinBox,
 }
 
 #EffectUnitHead {
-  padding: 0px 0px 0px 0px;
+  padding: 0px 4px 0px 0px;
 }
 
 #EffectButtonContainer {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
 }
 
 #EffectMetaKnob, WEffectName {
@@ -1298,14 +1472,14 @@ WBeatSpinBox,
 }
 
 #EffectEnableButton {
-  image: url(skin:/../Deere/icon/ic_power_48px.svg) no-repeat center center;
+  image: url(skin:icon/ic_power_48px.svg) no-repeat center center;
 }
 
 #EffectKnob {
 }
 
 #EffectButtonParameter {
-  margin-top: 2px;
+  margin-top: 0px;
 }
 
 #KnobLabel {
@@ -1396,8 +1570,10 @@ WNumberRate {
 #Mixer {
   qproperty-layoutAlignment: 'AlignTop';
   background-color: #333;
-  margin: 0px 1px 1px 1px;
-  padding: 0px 0px 1px 0px;
+  margin: 0px 0px 1px 0px;
+  padding: 0px 0px 3px 0px;
+  border-left: 1px solid #222;
+  border-right: 1px solid #222;
 }
 
 #DeckMixer {
@@ -1411,9 +1587,9 @@ WNumberRate {
 
 #EQKillButton,
 #QuickEffectKillButton {
-  border-radius: 1px;
+  border-radius: 2px;
   border: 0px;
-  margin: 0px;
+  margin: 0px
 }
 
 #EQKillButton[value="1"] {
@@ -1429,25 +1605,25 @@ WNumberRate {
 }
 
 #MixerStrip_4Decks {
-  padding: 0px 1px;
+  padding: 0px 0px;
   qproperty-layoutAlignment: 'AlignHCenter';  /*
   background-color: #911661; */
 }
 
 #ButtonContainer {
   qproperty-layoutAlignment: 'AlignCenter';
-  padding: 3px 0px 3px 0px;
+  padding: 1px 0px 1px 0px;
 }
 
 #MixerButtonContainerRight {
   qproperty-layoutAlignment: 'AlignLeft';
-  padding: 0px 0px 0px 5px; /*
+  padding: 0px 0px 0px 1px; /*
   background-color: #456313;  */
 }
 
 #MixerButtonContainerLeft {
   qproperty-layoutAlignment: 'AlignRight';
-  padding: 0px 5px 0px 0px;
+  padding: 0px 1px 0px 0px;
 }
 
 #4DecksMixerMonoMeterLeft {
@@ -1466,8 +1642,8 @@ WNumberRate {
 #main_VuMeter_Group {
   qproperty-layoutSpacing: 2;
   qproperty-layoutAlignment: 'AlignHCenter';
-  padding-left: 0x;
-  padding-right: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   /* background-color: #828315; */
 }
 
@@ -1486,9 +1662,9 @@ WVuMeter, #PeakIndicator {
 
 /* Starrating for tracks loaded in decks */
 WStarRating {
-  margin            : 6px 5px 0px 0px;
+  margin            : 5px 5px 0px 0px;
   border            : 0px solid #ffffff;
-  padding           : 0px;
+  padding           : 2px;
   color             : #d2d2d2;
   background-color  : none;
 }
@@ -1554,37 +1730,47 @@ WStarRating {
 
 #EffectRackContainer {
   background-color: #333333;
+  border: 0
 }
 
-#EffectUnitsRow {
-  border: 1px solid #222222;
-  border-width: 0px 0px 0px 0px;
+#EffectUnit1 {
+border: 0 }
+
+
+#EffectUnit2 {
+border: 0 }
+
+#EffectUnit3, #EffectUnit4 {
+border: 0
 }
 
-#EffectUnitNoParameters { /*
-  padding-left: 2px;  */
-  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
+#EffectUnitNoParameters {
+  padding: 0px;
+  qproperty-layoutAlignment: 'AlignCenter';
 }
 
 #EffectUnitEffectsNoParameters {
-  qproperty-layoutSpacing: 20;
-  padding: 0px 1px;
+  qproperty-layoutSpacing: 4;
 }
 
 #EffectUnitEffects {
-  padding: 1px;
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 8;
 }
 
 #EffectUnitParameters {
-  padding: 0 2px;
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 24;
 }
 
 #EffectUnit {
-  font-size: 14px;
+  font-size: 12px;
+  background-color: red;
+}
+
+/* Track label inline editor in decks and samplers */
+WTrackPropertyEditor {
+  font-size: 15px;
 }
 
 #SampleDecksContainer {
@@ -1612,19 +1798,22 @@ WStarRating {
 }
 
 WWidgetGroup {
-  /*border: 1px solid rgb(128, 128, 128);*/
-  /*margin: 0px;
-  padding: 0px;
-  qproperty-layoutSpacing: 0;
-  qproperty-layoutContentsMargins: rect(0 0 0 0);*/
-  /*qproperty-layoutAlignment: 'AlignCenter';*/
+  /* All properties commented out to troubleshoot stylesheet parsing errors */
+  /* border: 1px solid rgb(128, 128, 128); */
+  /* margin: 0px; */
+  /* padding: 0px; */
+  /* qproperty-layoutSpacing: 0; */
+  /* qproperty-layoutContentsMargins: rect(0 0 0 0); */
+  /* qproperty-layoutAlignment: 'AlignCenter'; */
 }
 
 /*******************************************************************************
  ** Buttons  *******************************************************************
  *******************************************************************************/
 
-WPushButton {
+WPushButton,
+WEffectChainPresetButton,
+#BpmLockToggle[value="1"] {
     color: #D2D2D2;
     background-color: #4B4B4B;
     border: 1px solid #4B4B4B;
@@ -1633,7 +1822,9 @@ WPushButton {
 }
 
 WPushButton:hover,
-#PlayToggle:hover {
+#PlayToggle:hover,
+WEffectChainPresetButton:hover,
+#BpmLockToggle[value="1"]:hover {
     color: #D2D2D2;
     background-color: #5F5F5F;
     border: 1px solid #5F5F5F;
@@ -1652,11 +1843,11 @@ WPushButton#SyncLeader[value="1"] {
     border: 1px solid #0092d9;
 }
 WPushButton#SyncLeader[value="0"] {
-  image: url(skin:/../Deere/icon/ic_sync_leader_off.svg) no-repeat center center;
+  image: url(skin:icon/ic_sync_leader_off.svg) no-repeat center center;
 }
 WPushButton#SyncLeader[value="1"],
 WPushButton#SyncLeader[value="2"] {
-  image: url(skin:/../Deere/icon/ic_sync_leader_on.svg) no-repeat center center;
+  image: url(skin:icon/ic_sync_leader_on.svg) no-repeat center center;
 }
 
 WPushButton[value="1"]:hover,
@@ -1667,12 +1858,27 @@ WPushButton[value="2"]:hover,
     border: 1px solid #0080BE;
 }
 
-#HotcueButton {
+#HotcueButton,
+#BeatJumpButton {
   border: none;
 }
 
-#HotcueButton[light="true"] {
+#BeatJumpButton {
+  
+}
+
+
+
+
+#HotcueButton[light="true"],
+#BeatJumpButton[light="true"] {
     color: #1f1e1e;
+}
+#HotcueButton[light="true"][type="loop"] {
+  image: url(skin:icon/ic_hotcue_loop_dark_48px.svg) no-repeat center center;
+}
+#HotcueButton[dark="true"][type="loop"] {
+  image: url(skin:icon/ic_hotcue_loop_light_48px.svg) no-repeat center center;
 }
 
 #PlayToggle {
@@ -1681,12 +1887,12 @@ WPushButton[value="2"]:hover,
 }
 
 WPushButton#PlayToggle[value="0"] {
-  image: url(skin:/../Deere/icon/ic_play_48px.svg) no-repeat center center;
+  image: url(skin:icon/ic_play_48px.svg) no-repeat center center;
   background-color: transparent;
 }
 
 WPushButton#PlayToggle[value="1"] {
-  image: url(skin:/../Deere/icon/ic_pause_48px.svg) no-repeat center center;
+  image: url(skin:icon/ic_pause_48px.svg) no-repeat center center;
 }
 WPushButton#PreviewIndicator {
   background-color: transparent;
@@ -1718,8 +1924,8 @@ WPushButton#PreviewIndicator[value="0"] {
 two different modes that are not "on" or "off", so
 do not highlight either state. */
 #EffectUnitMixModeButton {
-  margin: 1px 4px;
-  border-radius: 2px;
+  margin: 0px 0px;
+  border-radius: 1px;
   border: 0px;
 }
 
@@ -1834,7 +2040,7 @@ do not highlight either state. */
 #EffectSlotParameterLinkButtonsContainer {
     margin: 1px 4px;
     qproperty-layoutSpacing: 1;
-    border-radius: 2px;
+    border-radius: 1px;
     background-color: #282828;
 }
 
@@ -1929,7 +2135,7 @@ do not highlight either state. */
 */
 #ShowHideToggle {
   qproperty-layoutAlignment: 'AlignTop';
-  padding-top: 3px;
+  padding-top: 0px;
 }
 
 #SampleDeckToggle[value="1"], #LibraryToggle[value="1"], #EffectRackToggle[value="1"] {
@@ -1964,7 +2170,7 @@ do not highlight either state. */
 
 /* common styles for WEffectSelector, QMenu, QToolTip */
 WEffectSelector QAbstractScrollArea {
-  min-width: 160px;
+  min-width: 180px;
 }
 WEffectChainPresetSelector QAbstractScrollArea {
   min-width: 140px;
@@ -1982,7 +2188,7 @@ QToolTip,
 WLibrarySidebar QMenu,
 WLibrarySidebar QMenu::item,
 WTrackTableViewHeader QMenu,
-WTrackTableViewHeader QMenu::item,
+WTrackTableViewHeader QMenu QCheckBox,
 WLibraryTextBrowser QMenu,
 WLibraryTextBrowser QMenu::item,
 WTrackMenu,
@@ -1990,6 +2196,7 @@ WTrackMenu::item,
 WTrackMenu QMenu,
 WTrackMenu QMenu::item,
 WTrackMenu QMenu QCheckBox,
+WTrackMenu WStarRating,
 QLineEdit QMenu,
 QLineEdit QMenu::item,
 QPlainTextEdit QMenu,
@@ -2037,8 +2244,9 @@ WSearchLineEdit QAbstractScrollArea,
   #MainMenu QMenu::indicator:unchecked:selected,
   WLibrarySidebar QMenu::item:selected,
   WLibrarySidebar QMenu::indicator:unchecked:selected,
-  WTrackTableViewHeader QMenu::item:selected,
-  WTrackTableViewHeader QMenu::indicator:unchecked:selected,
+  WTrackTableViewHeader QMenu QCheckBox:selected,
+  WTrackTableViewHeader QMenu QCheckBox:focus,
+  WTrackTableViewHeader QMenu QCheckBox:hover,
   WLibraryTextBrowser QMenu::item:selected,
   WTrackMenu::item:selected,
   WTrackMenu QMenu::item:selected,
@@ -2094,24 +2302,24 @@ WSearchLineEdit QAbstractScrollArea,
 }
   #MainMenu QMenu::indicator:checked,
   #MainMenu QMenu::indicator:checked:selected {
-    image: url(skin:/../Deere/icon/ic_mainmenu_checkbox_checked.svg);
+    image: url(skin:icon/ic_mainmenu_checkbox_checked.svg);
   }
   #MainMenu QMenu::indicator:unchecked,
   #MainMenu QMenu::indicator:unchecked:selected {
-    image: url(skin:/../Deere/icon/ic_mainmenu_checkbox.svg);
+    image: url(skin:icon/ic_mainmenu_checkbox.svg);
   }
 
 #MainMenu QMenu {
-  padding: 0.08em;
+  /*padding: 0.08em;*/
   border: 1px solid #888;
-  border-radius: 2px;
+  border-radius: 1px;
   }
   #MainMenu QMenu::right-arrow,
   WTrackMenu::right-arrow,
   WTrackMenu QMenu::right-arrow {
-    width: 0.7em;
-    height: 0.7em;
-    image: url(skin:/../Deere/icon/ic_chevron_right_48px.svg);
+    /*width: 0.5em;*/
+    /*height: 0.5em;*/
+    image: url(skin:icon/ic_chevron_right_48px.svg);
   }
 
 
@@ -2121,14 +2329,15 @@ WEffectChainPresetSelector:!editable,
   color: #c1cabe;
   /* The 3D frame on the combo box becomes flat when you give it a border */
   border: 1px solid #444342;
-  border-radius: 3px;
+  border-radius: 1px;
+  max-height: 22px;
   }
   WEffectSelector:!editable,
   #fadeModeCombobox:!editable {
-    font: 15px;
+    font: 13px;
   }
   WEffectChainPresetSelector:!editable {
-    font: 13px;
+    font: 11px;
   }
 WEffectSelector:!editable,
 WEffectSelector:!editable:on,
@@ -2138,14 +2347,14 @@ WEffectChainPresetSelector:!editable:on {
   margin: 0px;
   /* If you use margin top/bottom 0, the combo box shrinks in width (go figure) and
    * names start getting cut off. Adding explicit padding improves this. */
-  padding: 0px 6px;
+  padding: 0px 2px;
   background-color: #404040;
 }
 #fadeModeCombobox {
   /* 1px is added in each dimension. 20+1+1 = 22 = button height */
-  height: 20px;
-  padding: 0px 6px;
-  margin: 9px 3px 6px 3px;
+  height: 16px;
+  padding: 0px 2px;
+  margin: 0px 0px 0px 0px;
 }
 
   WEffectSelector:!editable:hover,
@@ -2163,18 +2372,18 @@ WEffectChainPresetSelector:!editable:on {
   }
   WEffectSelector::down-arrow,
   #fadeModeCombobox::down-arrow {
-    width: 20px;
-    height: 20px;
-  }
-  WEffectChainPresetSelector::down-arrow {
     width: 16px;
     height: 16px;
+  }
+  WEffectChainPresetSelector::down-arrow {
+    width: 12px;
+    height: 12px;
   }
   WEffectSelector::down-arrow,
   WSearchLineEdit::down-arrow,
   WEffectChainPresetSelector::down-arrow,
   #fadeModeCombobox::down-arrow {
-    image: url(skin:/../Deere/icon/ic_chevron_down_48px.svg);
+    image: url(skin:icon/ic_chevron_down_48px.svg);
   }
   /* currently loaded effect */
   WEffectSelector::checked,
@@ -2188,7 +2397,7 @@ WEffectChainPresetSelector:!editable:on {
   #fadeModeCombobox::indicator:checked {
     /* checkbox container is 28 x 22px;
       use margin + border to create a square checkbox sized like kill buttons */
-    margin: 2px 0px 2px 5px;
+    margin: 0px 0px 0px 5px;
   }
 
   /* QuickEffect selector of left-hand decks and in 4-decks mixer
@@ -2247,7 +2456,7 @@ QPlainTextEdit QMenu::separator {
 }
 
 WLibrarySidebar QMenu::indicator,
-WTrackTableViewHeader QMenu::indicator,
+WTrackTableViewHeader QMenu QCheckBox::indicator,
 WTrackMenu QMenu QCheckBox::indicator {
   border: 1px solid #555;
   border-radius: 1px;
@@ -2255,11 +2464,13 @@ WTrackMenu QMenu QCheckBox::indicator {
   /* remove OS focus indicator */
   outline: none;
 }
+WSearchRelatedTracksMenu #SearchSelectedAction::indicator {
+  border: 0px;
+  background-color: transparent;
+}
 
-QLineEdit QMenu::icon:selected,
-QPlainTextEdit QMenu::icon:selected,
 WLibrarySidebar QMenu::indicator:selected,
-WTrackTableViewHeader QMenu::indicator:selected,
+WTrackTableViewHeader QMenu QCheckBox::indicator:selected,
 WTrackMenu QMenu QCheckBox::indicator:selected {
   border: 1px solid #999;
 }
@@ -2267,6 +2478,7 @@ WTrackMenu QMenu QCheckBox::indicator:selected {
 #MainMenu::item:disabled,
 #MainMenu QMenu::item:disabled,
 WLibrarySidebar QMenu::item:disabled,
+WLibraryTextBrowser QMenu::item:disabled,
 WTrackMenu::item:disabled,
 WTrackMenu QMenu::item:disabled,
 WTrackMenu QMenu QCheckBox:disabled,
@@ -2279,14 +2491,15 @@ WTrackMenu QMenu QCheckBox::indicator:disabled {
   background-color: #333;
 }
 WLibrarySidebar QMenu::indicator:checked,
+WTrackTableViewHeader QMenu QCheckBox::indicator:checked,
 WTrackMenu QMenu QCheckBox::indicator:checked {
-  image: url(skin:/../Deere/icon/ic_library_checkmark_orange.svg);
+  image: url(skin:icon/ic_library_checkmark_orange.svg);
 }
 WTrackTableViewHeader QMenu::indicator:checked,
 WEffectSelector::indicator:checked,
 WEffectChainPresetSelector::indicator:checked,
 #fadeModeCombobox::indicator:checked {
-  image: url(skin:/../Deere/icon/ic_library_checkmark_blue.svg);
+  image: url(skin:icon/ic_library_checkmark_blue.svg);
 }
 
 /* disabled menu item and checkbox */
@@ -2296,13 +2509,13 @@ WTrackMenu QMenu QCheckBox::indicator:indeterminate {
   background-color: #222;
 }
 WTrackMenu QMenu QCheckBox::indicator:disabled:checked {
-  image: url(skin:/../Deere/icon/ic_library_checkmark_grey.svg);
+  image: url(skin:icon/ic_library_checkmark_grey.svg);
 }
 WTrackMenu QMenu QCheckBox::indicator:indeterminate {
-  image: url(skin:/../Deere/icon/ic_library_checkmark_indeterminate_orange.svg);
+  image: url(skin:icon/ic_library_checkmark_indeterminate_orange.svg);
 }
 WTrackMenu QMenu QCheckBox::indicator:disabled:indeterminate {
-  image: url(skin:/../Deere/icon/ic_library_checkmark_indeterminate_grey.svg);
+  image: url(skin:icon/ic_library_checkmark_indeterminate_grey.svg);
 }
 WTrackMenu QMenu QCheckBox::indicator:disabled:checked,
 WTrackMenu QMenu QCheckBox::indicator:disabled:unchecked {
@@ -2325,6 +2538,10 @@ WEffectChainPresetSelector::indicator:unchecked:selected,
 }
 /* common styles for WEffectSelector, QMenu, QToolTip */
 
+WEffectSelector QMenu::item {
+}
+
+
 /* widgets in cue popup menu */
 #CueLabelEdit {
   padding: 2px;
@@ -2341,14 +2558,30 @@ WEffectChainPresetSelector::indicator:unchecked:selected,
   height: 46px;
   /* make the icon slightly larger than default 16px */
   qproperty-iconSize: 20px;
-  qproperty-icon: url(skin:/../Deere/icon/ic_delete.svg);
+  qproperty-icon: url(skin:icon/ic_delete.svg);
   background-color: #3B3B3B;
   border-radius: 2px;
   outline: none;
 }
 
-#CueDeleteButton:hover {
+#CueSavedLoopButton {
+/* tall button, about the same height as cue number + label edit box */
+  width: 28px;
+  height: 46px;
+  /* make the icon slightly larger than default 16px */
+  qproperty-iconSize: 20px;
+  qproperty-icon: url(skin:/../Deere/icon/ic_loop_48px.svg);
+  background-color: #3B3B3B;
+  border-radius: 2px;
+  outline: none;
+}
+
+#CueDeleteButton:hover, #CueSavedLoopButton:hover {
   background-color: #4B4B4B;
+}
+
+#CueSavedLoopButton:checked {
+  background-color: #006596;
 }
 
 WRateRange {
@@ -2367,4 +2600,18 @@ WRateRange {
 }
 #RateDisplayBottomRate {
     qproperty-alignment: 'AlignRight | AlignBottom';
+}
+
+
+/* * { border: 1px solid rgba(255, 0, 0, 0.5); }
+QFrame { border: 1px solid blue; }
+QLabel { border: 1px solid green; }
+QComboBox { border: 1px solid magenta; }
+QPushButton { border: 1px solid orange; }
+QSlider { border: 1px solid teal; } */
+
+/* Beatjump button hover effects */
+QPushButton[name="BeatJumpButton"]:hover {
+  background-color: #555 !important;
+  border-color: #fff !important;
 }

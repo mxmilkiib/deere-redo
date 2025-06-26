@@ -1,0 +1,166 @@
+digraph MixxxSkin {
+    rankdir=LR;
+    bgcolor="#23212b";
+    node [shape=box, style="rounded,filled", fontsize=14, fontname="Arial", margin=0.22, color="#39394d", fontcolor="#111"];
+    edge [penwidth=1.1, color="#b6a7c2"];
+    splines=ortho;
+    nodesep=0.22;
+    ranksep=0.29;
+
+    // Main/root node
+    "skin.xml" [fillcolor="#ffe6d2", fontsize=18, penwidth=2, fontname="Arial Bold", fontcolor="#111", width=2.2, height=0.7, pos="5,5!", pin=true];
+
+    // Group deck nodes
+    subgraph cluster_deck {
+        label="Decks";
+        style=invis;
+        "deck.xml";
+        "deck_controls_row.xml";
+        "deck_overview.xml";
+        "deck_waveform.xml";
+        "deck_beatjump_controls.xml";
+        "deck_looping_controls.xml";
+        "deck_overview_row.xml";
+        "deck_singletons.xml";
+    }
+
+    // Group mixer nodes
+    subgraph cluster_mixer {
+        label="Mixer";
+        style=invis;
+        "main_decks.xml";
+        "mixer.xml";
+        "mixer_controls_2decks_left.xml";
+        "mixer_controls_2decks_right.xml";
+        "mixer_column_pfl_levels.xml";
+        "mixer_column_volume_gain.xml";
+        "mixer_column_eq_left.xml";
+        "mixer_column_eq_right.xml";
+    }
+
+    // Group external nodes
+    subgraph cluster_external {
+        label="External";
+        style=invis;
+        "library.xml (external)";
+        "skinsettings_sampler_buttons.xml (external)";
+        "tool_bar.xml (external)";
+        "sample_decks.xml (external)";
+        "microphone_rack.xml (external)";
+        "decks_small.xml (external)";
+        "vinylcontrol.xml (external)";
+        "left_1state_button.xml (external)";
+        "skinsettings_button.xml (external)";
+        "skinsettings_category_button.xml (external)";
+    }
+
+    // Deck section (muted orange, black text)
+    "deck.xml" [fillcolor="#f2e2c6"];
+    "deck_controls_row.xml" [fillcolor="#f2e2c6"];
+    "deck_overview.xml" [fillcolor="#f2e2c6"];
+    "deck_waveform.xml" [fillcolor="#f2e2c6"];
+    "deck_beatjump_controls.xml" [fillcolor="#f2e2c6"];
+    "deck_looping_controls.xml" [fillcolor="#f2e2c6"];
+    "deck_overview_row.xml" [fillcolor="#f2e2c6"];
+    "deck_singletons.xml" [fillcolor="#f2e2c6"];
+    // Mixer section (muted purple, black text)
+    "main_decks.xml" [fillcolor="#e3d9ef"];
+    "mixer.xml" [fillcolor="#e3d9ef"];
+    "mixer_controls_2decks_left.xml" [fillcolor="#e3d9ef"];
+    "mixer_controls_2decks_right.xml" [fillcolor="#e3d9ef"];
+    "mixer_column_pfl_levels.xml" [fillcolor="#e3d9ef"];
+    "mixer_column_volume_gain.xml" [fillcolor="#e3d9ef"];
+    "mixer_column_eq_left.xml" [fillcolor="#e3d9ef"];
+    "mixer_column_eq_right.xml" [fillcolor="#e3d9ef"];
+
+    // Force mixer nodes to lower area in horizontal layout
+    dummy_bottom_anchor [style=invis, width=0, height=0];
+    {rank=sink; dummy_bottom_anchor; "main_decks.xml"; "mixer.xml"; "mixer_controls_2decks_left.xml"; "mixer_controls_2decks_right.xml"; "mixer_column_pfl_levels.xml"; "mixer_column_volume_gain.xml"; "mixer_column_eq_left.xml"; "mixer_column_eq_right.xml";}
+    // Invisible edges to anchor them visually lower
+    "main_decks.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_controls_2decks_left.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_controls_2decks_right.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_column_pfl_levels.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_column_volume_gain.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_column_eq_left.xml" -> dummy_bottom_anchor [style=invis];
+    "mixer_column_eq_right.xml" -> dummy_bottom_anchor [style=invis];
+    // Other main (muted orange, black text)
+    "parallel_waveforms.xml" [fillcolor="#f2e2c6"];
+    "effect_rack.xml" [fillcolor="#f2e2c6"];
+    "skin_settings.xml" [fillcolor="#f2e2c6"];
+    // Mixer/deck widgets (muted purple, black text)
+    "left_2state_button.xml" [fillcolor="#e3d9ef"];
+    "vumeter_v.xml" [fillcolor="#e3d9ef"];
+    "crossfader_orientation_button.xml" [fillcolor="#e3d9ef"];
+    "knob.xml" [fillcolor="#e3d9ef"];
+    "effect_unit.xml" [fillcolor="#e3d9ef"];
+    "spacer_hx.xml" [fillcolor="#e3d9ef"];
+    "effect_unit_no_parameters.xml" [fillcolor="#e3d9ef"];
+    "effect_unit_controls.xml" [fillcolor="#e3d9ef"];
+    "effect_unit_with_parameters.xml" [fillcolor="#e3d9ef"];
+
+    // External nodes styled differently (light gray, black text)
+    "library.xml (external)" [fillcolor="#edeaf2"];
+    "skinsettings_sampler_buttons.xml (external)" [fillcolor="#edeaf2"];
+    "tool_bar.xml (external)" [fillcolor="#edeaf2"];
+    "sample_decks.xml (external)" [fillcolor="#edeaf2"];
+    "microphone_rack.xml (external)" [fillcolor="#edeaf2"];
+    "decks_small.xml (external)" [fillcolor="#edeaf2"];
+    "vinylcontrol.xml (external)" [fillcolor="#edeaf2"];
+    "left_1state_button.xml (external)" [fillcolor="#edeaf2"];
+    "skinsettings_button.xml (external)" [fillcolor="#edeaf2"];
+    "skinsettings_category_button.xml (external)" [fillcolor="#edeaf2"];
+
+    // Connections
+    "skin.xml" -> "deck_singletons.xml";
+    "skin.xml" -> "library.xml (external)";
+    "skin.xml" -> "skinsettings_sampler_buttons.xml (external)";
+    "skin.xml" -> "tool_bar.xml (external)";
+    "skin.xml" -> "parallel_waveforms.xml";
+    "skin.xml" -> "sample_decks.xml (external)";
+    "skin.xml" -> "microphone_rack.xml (external)";
+    "skin.xml" -> "decks_small.xml (external)";
+    "skin.xml" -> "vinylcontrol.xml (external)";
+    "skin.xml" -> "left_1state_button.xml (external)";
+    "skin.xml" -> "skinsettings_button.xml (external)";
+    "skin.xml" -> "skinsettings_category_button.xml (external)";
+    "skin.xml" -> "main_decks.xml";
+    "skin.xml" -> "mixer.xml";
+    "skin.xml" -> "mixer_controls_2decks_left.xml";
+    "skin.xml" -> "mixer_controls_2decks_right.xml";
+    "skin.xml" -> "mixer_column_pfl_levels.xml";
+    "skin.xml" -> "mixer_column_volume_gain.xml";
+    "skin.xml" -> "mixer_column_eq_left.xml";
+    "skin.xml" -> "mixer_column_eq_right.xml";
+    "main_decks.xml" -> "deck.xml";
+    "main_decks.xml" -> "mixer.xml";
+    "deck.xml" -> "deck_controls_row.xml";
+    "deck.xml" -> "deck_overview.xml";
+    "deck.xml" -> "deck_waveform.xml";
+    "deck_controls_row.xml" -> "deck_beatjump_controls.xml";
+    "deck_controls_row.xml" -> "deck_looping_controls.xml";
+    "deck_controls_row.xml" -> "deck_overview_row.xml";
+    "deck_controls_row.xml" -> "deck_singletons.xml";
+    "deck_waveform.xml" -> "vinylcontrol.xml (external)";
+    "deck_waveform.xml" -> "left_1state_button.xml (external)";
+    "mixer.xml" -> "mixer_controls_2decks_left.xml";
+    "mixer.xml" -> "mixer_controls_2decks_right.xml";
+    "mixer_controls_2decks_left.xml" -> "mixer_column_pfl_levels.xml";
+    "mixer_controls_2decks_left.xml" -> "mixer_column_volume_gain.xml";
+    "mixer_controls_2decks_left.xml" -> "mixer_column_eq_left.xml";
+    "mixer_controls_2decks_right.xml" -> "mixer_column_pfl_levels.xml";
+    "mixer_controls_2decks_right.xml" -> "mixer_column_volume_gain.xml";
+    "mixer_controls_2decks_right.xml" -> "mixer_column_eq_right.xml";
+    "mixer_column_pfl_levels.xml" -> "left_2state_button.xml";
+    "mixer_column_pfl_levels.xml" -> "vumeter_v.xml";
+    "mixer_column_pfl_levels.xml" -> "crossfader_orientation_button.xml";
+    "mixer_column_volume_gain.xml" -> "knob.xml";
+    "effect_rack.xml" -> "effect_unit.xml";
+    "effect_rack.xml" -> "spacer_hx.xml";
+    "effect_unit.xml" -> "effect_unit_no_parameters.xml";
+    "effect_unit.xml" -> "effect_unit_controls.xml";
+    "effect_unit.xml" -> "effect_unit_with_parameters.xml";
+    "skin_settings.xml" -> "skinsettings_button.xml (external)";
+    "skin_settings.xml" -> "skinsettings_category_button.xml (external)";
+}

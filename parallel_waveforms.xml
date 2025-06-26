@@ -4,7 +4,6 @@
 <Template>
   <SetVariable name="group">[Channel<Variable name="i"/>]</SetVariable>
 
-
   <WidgetGroup><!-- Parallel Waveforms -->
     <ObjectName>Waveforms</ObjectName>
     <Layout>vertical</Layout>
@@ -13,10 +12,7 @@
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <Children>
-      <WidgetGroup>
-        <Layout>horizontal</Layout>
-        <Children>
-          <Template src="skins:Deere/deck_spinny.xml">
+          <Template src="skin:deck_spinny.xml">
             <SetVariable name="cover">true</SetVariable>
             <SetVariable name="Size">55f,55f</SetVariable>
             <SetVariable name="i">3</SetVariable>
@@ -30,14 +26,6 @@
           <BindProperty>visible</BindProperty>
         </Connection>
       </WidgetGroup>
-    </Children>
-
-    <Connection>
-       <ConfigKey>[Skin],show_4decks</ConfigKey>
-       <BindProperty>visible</BindProperty>
-    </Connection>
-   </WidgetGroup>
-
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
@@ -45,7 +33,7 @@
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
-              <Template src="skins:Deere/deck_spinny.xml">
+              <Template src="skin:deck_spinny.xml">
                 <SetVariable name="cover">true</SetVariable>
                 <SetVariable name="Size">55f,55f</SetVariable>
                 <SetVariable name="i">1</SetVariable>
@@ -59,7 +47,7 @@
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
-              <Template src="skins:Deere/deck_spinny.xml">
+              <Template src="skin:deck_spinny.xml">
                 <SetVariable name="cover">true</SetVariable>
                 <SetVariable name="Size">75f,75f</SetVariable>
                 <SetVariable name="i">1</SetVariable>
@@ -83,7 +71,7 @@
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
-              <Template src="skins:Deere/deck_spinny.xml">
+              <Template src="skin:deck_spinny.xml">
                 <SetVariable name="cover">true</SetVariable>
                 <SetVariable name="Size">55f,55f</SetVariable>
                 <SetVariable name="i">2</SetVariable>
@@ -97,7 +85,7 @@
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
-              <Template src="skins:Deere/deck_spinny.xml">
+              <Template src="skin:deck_spinny.xml">
                 <SetVariable name="cover">true</SetVariable>
                 <SetVariable name="Size">75f,75f</SetVariable>
                 <SetVariable name="i">2</SetVariable>
@@ -115,14 +103,10 @@
         </Children>
       </WidgetGroup>
 
-
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <Children>
-      <WidgetGroup>
-        <Layout>horizontal</Layout>
-        <Children>
-          <Template src="skins:Deere/deck_spinny.xml">
+          <Template src="skin:deck_spinny.xml">
             <SetVariable name="cover">true</SetVariable>
             <SetVariable name="Size">55f,55f</SetVariable>
             <SetVariable name="i">4</SetVariable>
@@ -130,16 +114,9 @@
           <SingletonContainer>
             <ObjectName>DeckWaveform4</ObjectName>
           </SingletonContainer>
-            </Children>
+        </Children>
         <Connection>
           <ConfigKey>[Channel4],track_loaded</ConfigKey>
-          <BindProperty>visible</BindProperty>
-        </Connection>
-      </WidgetGroup>
-    </Children>
-
-        <Connection>
-          <ConfigKey>[Skin],show_4decks</ConfigKey>
           <BindProperty>visible</BindProperty>
         </Connection>
       </WidgetGroup>

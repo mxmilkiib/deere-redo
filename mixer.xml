@@ -7,7 +7,6 @@
   <WidgetGroup>
     <ObjectName>MixerBorder</ObjectName>
     <Layout>vertical</Layout>
-    <SizePolicy>min,me</SizePolicy>
     <Children>
       <WidgetGroup>
         <ObjectName>Mixer</ObjectName>

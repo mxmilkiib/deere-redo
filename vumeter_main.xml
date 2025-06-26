@@ -4,14 +4,12 @@
   <WidgetGroup>
     <ObjectName>MainVu</ObjectName>
     <Layout>vertical</Layout>
-    <MinimumSize>22,60</MinimumSize>
-    <MaximumSize>22,300</MaximumSize>
-    <SizePolicy>min,me</SizePolicy>
+    <MinimumSize>20,60</MinimumSize>
+    <MaximumSize>20,300</MaximumSize>
     <Children>
 
       <WidgetGroup>
         <ObjectName>main_VuMeter_Group</ObjectName>
-        <SizePolicy>f,me</SizePolicy>
         <Layout>horizontal</Layout>
         <Children>
           <Template src="skin:vumeter_v.xml">
