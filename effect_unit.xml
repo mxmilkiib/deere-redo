@@ -11,11 +11,11 @@
   <WidgetGroup>
     <ObjectName>EffectUnit<Variable name="EffectUnit"/></ObjectName>
     <Layout>vertical</Layout>
-    <Size>502min,me</Size>
+    <Size>502min,min</Size>
     <Children>
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <SizePolicy>min,max</SizePolicy>
+        <SizePolicy>min,min</SizePolicy>
         <Children>
           <Template src="skin:effect_unit_no_parameters.xml"/>
           <Template src="skin:effect_unit_controls.xml"/>

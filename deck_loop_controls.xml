@@ -16,7 +16,7 @@
       <!-- SpinBox + loop_activate (original Deere style) -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <SizePolicy>max,me</SizePolicy>
+        <SizePolicy>max,min</SizePolicy>
         <Children>
           <BeatSpinBox>
             <ObjectName>BeatloopSizeSpinBox</ObjectName>
@@ -59,7 +59,7 @@
           </Template>
         </Children>
       </WidgetGroup>
-
+          <WidgetGroup><Size>0,2f</Size></WidgetGroup>
       <!-- Row of loop actions (in, out, reloop, double, halve, etc) -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
@@ -116,11 +116,11 @@
 </Children>
 </WidgetGroup>
 
-<WidgetGroup><Size>16f,0</Size></WidgetGroup>
+<WidgetGroup><Size>4f,0</Size></WidgetGroup>
 
 <WidgetGroup>
 <Layout>horizontal</Layout>
-<SizePolicy>me,me</SizePolicy>
+<SizePolicy>min,me</SizePolicy>
 <Children>
 
       <!-- 16 loop grid -->
@@ -132,7 +132,7 @@
           <WidgetGroup>
             <ObjectName>LoopGrid</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>me,min</SizePolicy>
+            <SizePolicy>min,min</SizePolicy>
             <Children>
               <Template src="skin:beatloop_button.xml">
                 <SetVariable name="beats">128</SetVariable>
@@ -165,7 +165,7 @@
           <WidgetGroup>
             <ObjectName>LoopGrid</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>me,min</SizePolicy>
+            <SizePolicy>min,min</SizePolicy>
 
               <Children>
                 <Template src="skin:beatjump_button.xml">

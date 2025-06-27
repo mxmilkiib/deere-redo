@@ -11,66 +11,8 @@
 		<Layout>horizontal</Layout>
 		<SizePolicy>me,max</SizePolicy>
 		<Children>
-
-<WidgetGroup><Size>16f,0</Size></WidgetGroup>
-			<!-- <WidgetGroup><Size>me,0</Size></WidgetGroup> -->
-			<!-- <WidgetGroup><Size>2min,0</Size></WidgetGroup> -->
-			<!-- Play / Cue -->
-			<WidgetGroup>
-				<ObjectName>PlayCueContainer</ObjectName>
-				<Layout>vertical</Layout>
-				<MinimumSize>56,42</MinimumSize>
-				<MaximumSize>64, -1</MaximumSize>
-				<SizePolicy>max,me</SizePolicy>
-				<Children>
-					<Template src="skin:left_right_display_2state_button.xml">
-						<SetVariable name="TooltipId">cue_default_cue_gotoandstop</SetVariable>
-						<SetVariable name="ObjectName">DeckCue</SetVariable>
-						<SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-						<SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-						<SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-						<SetVariable name="LeftClickIsPushButton">true</SetVariable>
-						<SetVariable name="state_0_text">CUE</SetVariable>
-						<SetVariable name="state_1_text">CUE</SetVariable>
-						<SetVariable name="left_connection_control"><Variable name="group"/>,cue_default</SetVariable>
-						<SetVariable name="right_connection_control"><Variable name="group"/>,cue_gotoandstop</SetVariable>
-						<SetVariable name="display_connection_control"><Variable name="group"/>,cue_indicator</SetVariable>
-					</Template>
-
-					<WidgetGroup><!-- Play button + play_indicator -->
-						<Layout>stacked</Layout>
-						<SizePolicy>me,me</SizePolicy>
-						<Children>
-							<Template src="skin:left_right_display_2state_button.xml">
-								<SetVariable name="TooltipId">play_cue_set</SetVariable>
-								<SetVariable name="ObjectName">PlayToggle</SetVariable>
-								<SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-								<SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-								<SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-								<SetVariable name="left_connection_control"><Variable name="group"/>,play</SetVariable>
-								<SetVariable name="right_connection_control"><Variable name="group"/>,cue_set</SetVariable>
-								<SetVariable name="display_connection_control"><Variable name="group"/>,play_latched</SetVariable>
-							</Template>
-							<Template src="skin:left_2state_button.xml">
-								<SetVariable name="ObjectName">PreviewIndicator</SetVariable>
-								<SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-								<SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-								<SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-								<SetVariable name="left_connection_control"><Variable name="group"/>,play</SetVariable>
-							</Template>
-							<Template src="skin:left_2state_button.xml">
-								<SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
-								<SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
-								<SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
-								<SetVariable name="left_connection_control"><Variable name="group"/>,play_indicator</SetVariable>
-							</Template>
-						</Children>
-					</WidgetGroup>
-				</Children>
-			</WidgetGroup>
-
-			<WidgetGroup><Size>32f,0</Size></WidgetGroup>
-
+			<Template src="skin:deck_play_cue.xml"/>
+			<WidgetGroup><Size>18f,0</Size></WidgetGroup>
 			<!-- Hotcue/Intro/Outro block with vertical centering -->
 			<WidgetGroup>
 				<Layout>horizontal</Layout>
@@ -79,57 +21,14 @@
 					<Template src="skin:special_cues.xml"/>
 					<Template src="skin:hotcues.xml"/>
 					<Template src="skin:outro_cues.xml"/>
-	        		<WidgetGroup><Size>3f,0</Size></WidgetGroup>
-					<!-- Hotcue Shift Buttons -->
-					<WidgetGroup>
-						<ObjectName>HotcueShiftButtons</ObjectName>
-						<Layout>vertical</Layout>
-						<SizePolicy>max,max</SizePolicy>
-						<Children>
-							<Template src="skin:left_right_1state_button.xml">
-								<SetVariable name="TooltipId">shift_cues_earlier</SetVariable>
-								<SetVariable name="ObjectName">HotcuesEarlierButton</SetVariable>
-								<SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
-								<SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
-								<SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
-								<SetVariable name="state_0_text"></SetVariable>
-								<SetVariable name="state_0_pressed">icon/ic_hotcues_earlier_48px.svg</SetVariable>
-								<SetVariable name="state_0_unpressed">icon/ic_hotcues_earlier_48px.svg</SetVariable>
-								<SetVariable name="left_connection_control"><Variable name="group"/>,shift_cues_earlier</SetVariable>
-								<SetVariable name="right_connection_control"><Variable name="group"/>,shift_cues_earlier_small</SetVariable>
-							</Template>
-							<Template src="skin:left_right_1state_button.xml">
-								<SetVariable name="TooltipId">shift_cues_later</SetVariable>
-								<SetVariable name="ObjectName">HotcuesLaterButton</SetVariable>
-								<SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
-								<SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
-								<SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
-								<SetVariable name="state_0_text"></SetVariable>
-								<SetVariable name="state_0_pressed">icon/ic_hotcues_later_48px.svg</SetVariable>
-								<SetVariable name="state_0_unpressed">icon/ic_hotcues_later_48px.svg</SetVariable>
-								<SetVariable name="left_connection_control"><Variable name="group"/>,shift_cues_later</SetVariable>
-								<SetVariable name="right_connection_control"><Variable name="group"/>,shift_cues_later_small</SetVariable>
-							</Template>
-						</Children>
-						<Connection>
-							<ConfigKey>[Skin],timing_shift_buttons</ConfigKey>
-							<BindProperty>visible</BindProperty>
-						</Connection>
-					</WidgetGroup>
-	        		<WidgetGroup><Size>2f,0</Size></WidgetGroup>
 				</Children>
 			</WidgetGroup>
-
-			<WidgetGroup><Size>32f,0</Size></WidgetGroup>
-			<!-- Loop controls with spinbox above -->
+			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
+			<!-- Loop controls -->
 			<Template src="skin:deck_loop_controls.xml"/>
-			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
-
-			<!-- Beatjump controls with spinbox above -->
+			<WidgetGroup><Size>6f,0</Size></WidgetGroup>
+			<!-- Beatjump controls -->
 			<Template src="skin:deck_beatjump_controls.xml"/>
-
-			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
-			<!-- <WidgetGroup><Size>me,0</Size></WidgetGroup> -->
 		</Children>
 	</WidgetGroup>
 </Template>

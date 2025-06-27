@@ -17,6 +17,45 @@
 
 */
 
+/* LIBRARY ZEBRA ROWS - moved to top for priority */
+WLibraryTextBrowser,
+WTrackTableView,
+WLibrarySidebar {
+  color: #d2d2d2;
+  border: 1px solid #1A1A1A;
+  background-color: #1F1F1F;
+  alternate-background-color: #0F0F0F;
+  selection-color: #D6D6D6;
+  selection-background-color: #006596;
+}
+
+/* Explicit WTrackTableView zebra rows */
+WTrackTableView {
+  qproperty-alternatingRowColors: true;
+  qproperty-showAlternatingRowColors: true;
+  alternate-background-color: #0F0F0F;
+  background-color: #1F1F1F;
+}
+
+/* Force alternating colors with Qt properties */
+WTrackTableView QAbstractItemView {
+  qproperty-alternatingRowColors: true;
+  alternate-background-color: #0F0F0F;
+}
+
+/* Standard Qt QTableView alternating colors */
+QTableView {
+  qproperty-alternatingRowColors: true;
+  alternate-background-color: #0F0F0F;
+}
+
+WTrackTableView {
+  qproperty-focusBorderColor: #D6D6D6;
+  /* This is the color used to paint the text of played tracks.
+     BaseTrackTableModel::data() uses this to override Qt::ForegroundRole (QBrush). */
+  qproperty-trackPlayedColor: #555;
+}
+
 /* Hotcue spacing fix */
 WPushButton#HotcueButton {
   /* margin: 0 1px 0 1px; */
@@ -95,8 +134,8 @@ WPushButton#BeatloopButton {
 
 #DeckTextRow {
   border-top: 0px solid #222;
-  border-bottom: 1px solid #222;
-  padding: 0px 0 0px 0px; 
+  border-bottom: 0px solid #222;
+  padding-left: 3px;
 }
 #DeckTextRowSmall {
   border: 1px solid #222;
@@ -120,7 +159,7 @@ WPushButton#BeatloopButton {
 }
 
 #DeckSmall #TitleGutter {
-  padding-left: 4px;
+  padding-left: 2px;
 }
 
 #OverviewGutterSmall {
@@ -151,11 +190,10 @@ WPushButton#BeatloopButton {
 }
 
 #OverviewRow {
-  border-top: 1px;
+  border-top: 0px;
   background-color: transparent;
   margin: 0;
   padding: 0;
-  padding-top: 0px;
 }
 
 #ControlsRow {
@@ -286,7 +324,7 @@ WLibrarySidebar {
    > See src/library/coverartdelegate.cpp: "option.palette.highlightedText().color();" */
   selection-color: #D6D6D6;
   /* background of Color delegate in selected row */
-  selection-background-color: #FF6600;
+  selection-background-color: #006596;
 }
 /* Override the 'missing' color in Tracks > Missing,
    it's not useful there */
@@ -312,15 +350,16 @@ WLibrarySidebar::item:selected,
   /* This is not required for painting the background,
    but it is for applying the focus outline. */
   background-color: #006596;
-  }
-  /* Highlight currentIndex which can be moved with Ctrl + arrow keys */
-  WTrackTableView::item:!selected:focus {
-    /* For outline to be applied, background-color must be set, too ...
-       Use a value between #1F1F1F and #1A1A1A (alternate-background-color) */
-    background-color: #1d1d1d;
-    outline: 1px solid #fff;
-    color: #fff;
-  }
+}
+
+/* Highlight currentIndex which can be moved with Ctrl + arrow keys */
+WTrackTableView::item:!selected:focus {
+  /* For outline to be applied, background-color must be set, too ...
+     Use a value between #1F1F1F and #151515 (alternate-background-color) */
+  background-color: #1d1d1d;
+  outline: 1px solid #fff;
+  color: #fff;
+}
 WLibrarySidebar::item:selected:focus {
   outline: none;
 }
@@ -384,7 +423,7 @@ WTrackPropertyEditor,
 }
 
 /* focused BPM cell in the library "BPM" column */
-#LibraryBPMButton:focus
+#LibraryBPMButton:focus,
 #LibraryBPMButton::indicator:focus {
   outline: none;
 }
@@ -466,11 +505,11 @@ WTrackTableViewHeader::down-arrow {
   padding: 0px;
 }
 WTrackTableViewHeader::up-arrow {
-  image: url(skin:image/style_sort_up.svg);
+  image: url(skin:/../Deere/image/style_sort_up.svg);
 }
 
 WTrackTableViewHeader::down-arrow {
-  image: url(skin:image/style_sort_down.svg);
+  image: url(skin:/../Deere/image/style_sort_down.svg);
 }
 
 /* library search bar */
@@ -496,7 +535,7 @@ WSearchLineEdit {
 }
 
 #PreviewDeckTextRow WLabel {
-  padding: 0 0px;
+  padding: 0 2px;
   color: #d2d2d2;
   font-size: 12px/14px;
   text-transform: none;
@@ -533,12 +572,12 @@ WLibrarySidebar {
 /* triangle for closed/opened branches in treeview */
 WLibrarySidebar::branch:has-children:!has-siblings:closed,
 WLibrarySidebar::branch:closed:has-children:has-siblings {
-  border-image: none; image: url(skin:image/style_branch_closed.svg);
+  border-image: none; image: url(skin:/../Deere/image/style_branch_closed.svg);
 }
 
 WLibrarySidebar::branch:open:has-children:!has-siblings,
 WLibrarySidebar::branch:open:has-children:has-siblings {
-  border-image: none; image: url(skin:image/style_branch_open.svg);
+  border-image: none; image: url(skin:/../Deere/image/style_branch_open.svg);
 }
 
 /* space left of selected child item */
@@ -552,12 +591,12 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 
 /* QSplitter between WLibrarySidebar and WTrackTableView */
 #LibrarySplitter::handle {
-  image: url(skin:image/style_handle_horizontal_unchecked.svg);
+  image: url(skin:/../Deere/image/style_handle_horizontal_unchecked.svg);
   background: none;
 }
 
 #LibrarySplitter::handle:pressed {
-  image: url(skin:image/style_handle_horizontal_checked.svg);
+  image: url(skin:/../Deere/image/style_handle_horizontal_checked.svg);
   background: none;
 }
 
@@ -573,14 +612,14 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 #LibraryCoverArtSplitter::handle,
 #LibraryVerticalSplitter::handle,
 #WaveformSplitter::handle {
-  image: url(skin:image/style_handle_vertical_unchecked.svg);
+  image: url(skin:/../Deere/image/style_handle_vertical_unchecked.svg);
   background-color: #222;
 }
 
 #LibraryCoverArtSplitter::handle:pressed,
 #LibraryVerticalSplitter::handle:pressed,
 #WaveformSplitter::handle:pressed {
-  image: url(skin:image/style_handle_vertical_checked.svg);
+  image: url(skin:/../Deere/image/style_handle_vertical_checked.svg);
   background-color: #222;
 }
 
@@ -709,16 +748,18 @@ QPushButton#pushButtonAutoDJ {
 }
 QPushButton#pushButtonFadeNow:!enabled {
   image: url(skin:icon/ic_autodj_fade_disabled.svg) no-repeat center center;
-  }
-  QPushButton#pushButtonFadeNow:enabled {
-    image: url(skin:icon/ic_autodj_fade.svg) no-repeat center center;
-  }
+}
+
+QPushButton#pushButtonFadeNow:enabled {
+  image: url(skin:icon/ic_autodj_fade.svg) no-repeat center center;
+}
 QPushButton#pushButtonSkipNext:!enabled {
   image: url(skin:icon/ic_autodj_skip_disabled.svg) no-repeat center center;
-  }
-  QPushButton#pushButtonSkipNext:enabled {
-    image: url(skin:icon/ic_autodj_skip.svg) no-repeat center center;
-  }
+}
+
+QPushButton#pushButtonSkipNext:enabled {
+  image: url(skin:icon/ic_autodj_skip.svg) no-repeat center center;
+}
 QPushButton#pushButtonShuffle {
   image: url(skin:icon/ic_autodj_shuffle.svg) no-repeat center center;
 }
@@ -996,7 +1037,7 @@ WOverview #PassthroughLabel {
 #OptionGrid, #ButtonGrid {
   background-color: #333333;
   /*padding: 1px;*/
-  qproperty-layoutSpacing: 0;
+  qproperty-layoutSpacing: 2;
 }
 
 #OptionGridRow1, #OptionGridRow2 {
@@ -1207,10 +1248,10 @@ WBeatSpinBox,
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   }
   #TitleGutter {
-    padding: 0px 1px 0px 4px;
+    padding: 0px 2px 0px 4px;
   }
   #ArtistGutter {
-    padding: 0px 1px 0px 4px;
+    padding: 0px 2px 0px 2px;
   }
 #TitleGutterSmall {
   padding: 0px;
@@ -1226,13 +1267,13 @@ WBeatSpinBox,
 
 #BPMGutter, #PositionGutter {
   qproperty-layoutAlignment: 'AlignRight | AlignTop';
-  qproperty-layoutSpacing: 0;
+  qproperty-layoutSpacing: 2;
   padding: 0px;
 }
 #PositionGutter {
   margin-right: 0px;
-  padding-top: 2px;
-  padding-right: 2px;
+  padding-top: 3px;
+  padding-right: 4px;
 }
 #PositionGutterSmall {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
@@ -1266,7 +1307,7 @@ WTrackProperty:hover {
   /* border: 1px solid #FF6600; */
   background-color: rgba(255, 102, 0, 64);
   color: #D6D6D6;
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
 }
 
 #BpmKeyEditTrigger {
@@ -1275,7 +1316,6 @@ WTrackProperty:hover {
   background-color: rgba(255, 102, 0, 64);
   border: none;
   border-radius: 0px;
-  max-height: 22px;
 }
 #BpmKeyEditTrigger[value="1"] {
   /* border: 1px solid #FF6600; */
@@ -1286,10 +1326,8 @@ WTrackProperty:hover {
   /* Make room between buttons */
   background-color: #333333;
   padding-left: 1px;
-  padding-right: 0px;
-  margin-right: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+  padding-right: 1px;
+  margin-right: 2px;
   qproperty-layoutSpacing: 0;
 }
 
@@ -1318,7 +1356,6 @@ WTrackProperty:hover {
 
 #HotcueShiftButtons {
   qproperty-layoutSpacing: 2;
-  border-radius: 2px;
 }
 
 #BpmKeyEditTriggerLabel {
@@ -1677,9 +1714,9 @@ WVuMeter, #PeakIndicator {
 
 /* Starrating for tracks loaded in decks */
 WStarRating {
-  margin            : 0px 0px 0px 0px;
+  margin            : 5px 5px 0px 0px;
   border            : 0px solid #ffffff;
-  padding           : 0px;
+  padding           : 2px;
   color             : #d2d2d2;
   background-color  : none;
 }
@@ -1786,10 +1823,6 @@ border: 0
 /* Track label inline editor in decks and samplers */
 WTrackPropertyEditor {
   font-size: 15px;
-}
-
-WTrackWidgetGroup {
-  border-radius: 2px;
 }
 
 #SampleDecksContainer {
@@ -2350,14 +2383,17 @@ WEffectChainPresetSelector:!editable,
   border: 1px solid #444342;
   border-radius: 1px;
   max-height: 22px;
-  }
-  WEffectSelector:!editable,
-  #fadeModeCombobox:!editable {
-    font: 13px;
-  }
-  WEffectChainPresetSelector:!editable {
-    font: 11px;
-  }
+}
+
+WEffectSelector:!editable,
+#fadeModeCombobox:!editable {
+  font: 13px;
+}
+
+WEffectChainPresetSelector:!editable {
+  font: 11px;
+}
+
 WEffectSelector:!editable,
 WEffectSelector:!editable:on,
 WEffectChainPresetSelector:!editable,
@@ -2369,6 +2405,7 @@ WEffectChainPresetSelector:!editable:on {
   padding: 0px 2px;
   background-color: #404040;
 }
+
 #fadeModeCombobox {
   /* 1px is added in each dimension. 20+1+1 = 22 = button height */
   height: 16px;
@@ -2376,11 +2413,12 @@ WEffectChainPresetSelector:!editable:on {
   margin: 0px 0px 0px 0px;
 }
 
-  WEffectSelector:!editable:hover,
-  WEffectChainPresetSelector:!editable:hover,
-  #fadeModeCombobox:!editable:hover {
-    border: 1px ridge #015d8d;
-  }
+WEffectSelector:!editable:hover,
+WEffectChainPresetSelector:!editable:hover,
+#fadeModeCombobox:!editable:hover {
+  border: 1px ridge #015d8d;
+}
+
   WEffectSelector::drop-down,
   WEffectChainPresetSelector::drop-down,
   WSearchLineEdit::drop-down,
@@ -2622,7 +2660,7 @@ WRateRange {
 }
 
 
-/* * { border: 1px solid rgba(255, 0, 0, 0.5); } 
+/* * { border: 1px solid rgba(255, 0, 0, 0.5); }
 QFrame { border: 1px solid blue; }
 QLabel { border: 1px solid green; }
 QComboBox { border: 1px solid magenta; }

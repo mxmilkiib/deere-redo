@@ -79,25 +79,10 @@
               </Library>
 
             </Children>
-            <!--Connection>
-              <ConfigKey>[Skin],show_library</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection-->
           </Splitter>
 
-          <!--WidgetGroup>
-            <ObjectName>Spacer22</ObjectName>
-            <SizePolicy>me,me</SizePolicy>
-            <Children/>
-            <Connection>
-              <ConfigKey>[Skin],show_library</ConfigKey>
-              <Transform><Not/></Transform>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-          </WidgetGroup-->
-
         </Children>
       </WidgetGroup>
-        </Children>
-      </WidgetGroup>
+    </Children>
+  </WidgetGroup>
 </Template>

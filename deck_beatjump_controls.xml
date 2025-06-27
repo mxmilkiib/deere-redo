@@ -9,15 +9,16 @@
   <Template>
   <WidgetGroup>
     <Layout>horizontal</Layout>
-    <SizePolicy>max,me</SizePolicy>
+    <SizePolicy>min,me</SizePolicy>
     <Children>
     <WidgetGroup>
       <Layout>vertical</Layout>
       <Children>
+
         <BeatSpinBox>
           <ObjectName>BeatjumpSizeSpinBox</ObjectName>
           <TooltipId>beatjump_size</TooltipId>
-          <Size>52f,22f</Size>
+          <Size>55f,22f</Size>
           <Value><Variable name="group"/>,beatjump_size</Value>
         </BeatSpinBox>
         <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
@@ -53,8 +54,7 @@
         </WidgetGroup>
 
       </Children>
-      <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
     </WidgetGroup>        <!-- 16 beatjump grid (keep as is, below spinbox/buttons) -->
-     </Children>
+    </Children>
     </WidgetGroup>
   </Template>
