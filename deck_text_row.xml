@@ -13,12 +13,12 @@
   <WidgetGroup>
     <ObjectName>DeckTextRow</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>me,me</SizePolicy>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <Size>58f,58f</Size>
+        <Size>45f,45</Size>
         <Children>
           <SingletonContainer>
             <ObjectName>DeckCoverArt<Variable name="i"/></ObjectName>
@@ -45,14 +45,14 @@
               <WidgetGroup>
                 <ObjectName>TitleGutter</ObjectName>
                 <Layout>horizontal</Layout>
-                <SizePolicy>me,max</SizePolicy>
+                <SizePolicy>me,me</SizePolicy>
                 <Children>
 
                   <!-- We allow to hide track/artist info (aka AM-Mode) in the skin settings,
                        display just a label with asterixes instead. -->
                   <TrackProperty>
                     <TooltipId>track_title</TooltipId>
-                    <SizePolicy>e,min</SizePolicy>
+                    <SizePolicy>me,min</SizePolicy>
                     <MinimumSize>1</MinimumSize>
                     <Property>titleInfo</Property>
                     <Group><Variable name="group"/></Group>
@@ -80,7 +80,7 @@
                   <WidgetGroup>
                     <ObjectName>BpmKeyEditRowExpanded</ObjectName>
                     <Layout>horizontal</Layout>
-                    <MinimumSize>209,16</MinimumSize>
+                    <MinimumSize>209,22</MinimumSize>
                     <SizePolicy>max,min</SizePolicy>
                     <Children>
                       <SetVariable name="CoverName">BeatEditCover</SetVariable>
@@ -219,7 +219,7 @@
                   <WidgetGroup>
                     <ObjectName>BpmKeyEditTriggerRow</ObjectName>
                     <Layout>stacked</Layout>
-                    <SizePolicy>max,</SizePolicy>
+                    <SizePolicy>max,min</SizePolicy>
                     <Children>
                       <PushButton>
                         <ObjectName>BpmKeyEditTrigger</ObjectName>
@@ -244,7 +244,7 @@
                         <SizePolicy>min,</SizePolicy>
                         <Children>
                           <Label>
-                            <Size>10f,20f</Size>
+                            <Size>10f,20</Size>
                             <ObjectName>BpmKeyInfoShowHide</ObjectName>
                             <Connection>
                               <ConfigKey>[Skin],show_beatgrid_controls</ConfigKey>
@@ -254,8 +254,8 @@
 
                           <NumberBpm>
                             <ObjectName>BpmKeyEditTriggerLabel</ObjectName>
-                            <MinimumSize>40,20</MinimumSize>
-                            <SizePolicy>min,me</SizePolicy>
+                            <MinimumSize>40,22</MinimumSize>
+                            <SizePolicy>min,min</SizePolicy>
                             <Group><Variable name="group"/></Group>
                             <Style>text-align: right;</Style>
                             <Connection>
@@ -269,7 +269,7 @@
 
                           <Label>
                             <TooltipId>visual_bpm</TooltipId>
-                            <SizePolicy>min,me</SizePolicy>
+                            <SizePolicy>min,min</SizePolicy>
                             <ObjectName>HiddenBpmInfo</ObjectName>
                             <Text>***.**</Text>
                             <Connection>
@@ -292,7 +292,7 @@
           <WidgetGroup>
             <ObjectName>TrackColorWrapper</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,2f</Size>
+            <Size>0me,2</Size>
             <Children>
               <TrackWidgetGroup>
                 <Size>0me,2f</Size>
@@ -309,12 +309,13 @@
                  decks might end up with different widths based on the size of the
                  labels in this row -->
             <SizePolicy>i,min</SizePolicy>
-            <Size>,32f</Size>
+            <Size>,22</Size>
             <Children>
               <WidgetGroup>
                 <ObjectName>ArtistGutter</ObjectName>
                 <Layout>horizontal</Layout>
-                <SizePolicy>me,min</SizePolicy>
+                <Size>,22</Size>
+                <SizePolicy>me,me</SizePolicy>
                 <Children>
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
@@ -369,9 +370,9 @@
                       <WidgetGroup>
                         <ObjectName>PositionGutter</ObjectName>
                         <Layout>horizontal</Layout>
-                        <SizePolicy>min,me</SizePolicy>
-                        <MinimumSize>60,20</MinimumSize>
-                        <MaximumSize>190,26</MaximumSize>
+                        <SizePolicy>min,min</SizePolicy>
+                        <MinimumSize>60,22</MinimumSize>
+                        <MaximumSize>190,22</MaximumSize>
                         <Children>
                           <NumberPos>
                             <TooltipId>track_time</TooltipId>
@@ -388,7 +389,7 @@
                     <ObjectName>BpmKeyEditRowExpanded</ObjectName>
                     <Layout>horizontal</Layout>
                     <SizePolicy>p,min</SizePolicy>
-                    <MinimumSize>80,20</MinimumSize>
+                    <MinimumSize>80,22</MinimumSize>
                     <MaximumSize>120,22</MaximumSize>
                     <Children>
                       <Template src="skin:left_right_1state_button.xml">
@@ -464,7 +465,7 @@
                         <Layout>horizontal</Layout>
                         <Children>
                           <Label>
-                            <Size>10f,20f</Size>
+                            <Size>10f,22</Size>
                             <ObjectName>BpmKeyInfoShowHide</ObjectName>
                             <Connection>
                               <ConfigKey>[Deere],show_key_controls</ConfigKey>
@@ -495,7 +496,7 @@
                   <WidgetGroup>
                     <ObjectName>BpmKeyEditTriggerRow</ObjectName>
                     <Layout>stacked</Layout>
-                    <Size>80,20</Size>
+                    <Size>80,22</Size>
                     <SizePolicy>f,min</SizePolicy>
                     <Children>
                       <PushButton>
@@ -518,7 +519,7 @@
                         <Layout>horizontal</Layout>
                         <Children>
                           <Label>
-                            <Size>10f,12f</Size>
+                            <Size>10f,12</Size>
                             <ObjectName>BpmKeyInfoShowHide</ObjectName>
                             <Connection>
                               <ConfigKey>[Deere],show_key_controls</ConfigKey>
@@ -528,7 +529,7 @@
 
                           <Key>
                             <ObjectName>BpmKeyEditTriggerLabel</ObjectName>
-                            <Size>30me,12f</Size>
+                            <Size>30me,22</Size>
                             <Group><Variable name="group"/></Group>
                             <DisplayCents>false</DisplayCents>
                             <Connection>

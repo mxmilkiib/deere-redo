@@ -9,7 +9,7 @@
   <WidgetGroup>
     <ObjectName>OverviewRow</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>me,me</SizePolicy>
+    <SizePolicy>me,min</SizePolicy>
     <MinimumSize>-1,46</MinimumSize>
     <Children>
       <WidgetGroup>

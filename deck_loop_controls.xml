@@ -10,7 +10,7 @@
 
 <WidgetGroup>
   <Layout>vertical</Layout>
-  <SizePolicy>min,me</SizePolicy>
+  <SizePolicy>min,min</SizePolicy>
     <Children>
 
       <!-- SpinBox + loop_activate (original Deere style) -->
@@ -24,7 +24,7 @@
             <Size>52f,22f</Size>
             <Value><Variable name="group"/>,beatloop_size</Value>
           </BeatSpinBox>
-          <WidgetGroup><Size>3f,0min</Size></WidgetGroup>
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
           <Template src="skin:left_right_display_2state_button.xml">
             <SetVariable name="TooltipId">beatloop_activate</SetVariable>
             <SetVariable name="ObjectName">BeatloopActivate</SetVariable>
@@ -126,12 +126,13 @@
       <!-- 16 loop grid -->
       <WidgetGroup>
         <Layout>vertical</Layout>
+            <ObjectName>LoopGrid</ObjectName>
         <MinimumSize>152,48</MinimumSize>
         <MaximumSize>192,48</MaximumSize>
         <Children>
           <WidgetGroup>
-            <ObjectName>LoopGrid</ObjectName>
             <Layout>horizontal</Layout>
+            <ObjectName>LoopGridTop</ObjectName>
             <SizePolicy>min,min</SizePolicy>
             <Children>
               <Template src="skin:beatloop_button.xml">
@@ -161,9 +162,10 @@
             </Children>
           </WidgetGroup>
 
+			<WidgetGroup><Size>0,2f</Size></WidgetGroup>
 
           <WidgetGroup>
-            <ObjectName>LoopGrid</ObjectName>
+            <ObjectName>LoopGridBottom</ObjectName>
             <Layout>horizontal</Layout>
             <SizePolicy>min,min</SizePolicy>
 

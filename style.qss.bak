@@ -17,33 +17,6 @@
 
 */
 
-/* LIBRARY ZEBRA ROWS - moved to top for priority */
-WLibraryTextBrowser,
-WTrackTableView,
-WLibrarySidebar {
-  color: #d2d2d2;
-  border: 1px solid #1A1A1A;
-  background-color: #1F1F1F;
-  alternate-background-color: #0F0F0F;
-  selection-color: #D6D6D6;
-  selection-background-color: #006596;
-}
-
-/* Explicit WTrackTableView zebra rows */
-WTrackTableView {
-  qproperty-alternatingRowColors: true;
-  qproperty-showAlternatingRowColors: true;
-  alternate-background-color: #0F0F0F;
-  background-color: #1F1F1F;
-}
-
-WTrackTableView {
-  qproperty-focusBorderColor: #D6D6D6;
-  /* This is the color used to paint the text of played tracks.
-     BaseTrackTableModel::data() uses this to override Qt::ForegroundRole (QBrush). */
-  qproperty-trackPlayedColor: #555;
-}
-
 /* Hotcue spacing fix */
 WPushButton#HotcueButton {
   /* margin: 0 1px 0 1px; */
@@ -93,7 +66,7 @@ WPushButton#BeatloopButton {
 /* These definitions put a faint border around all the widgets. We have to be
    tricky with top/bottom-ness to get things right. */
 #DeckControls {
-  padding: 5px 7.5px 2px 7.5px;  /*
+  padding: 1px 7.5px 0px 7.5px;  /*
   background-color: #456789;  */
 }
 
@@ -122,8 +95,8 @@ WPushButton#BeatloopButton {
 
 #DeckTextRow {
   border-top: 0px solid #222;
-  border-bottom: 0px solid #222;
-  padding-left: 3px;
+  border-bottom: 1px solid #222;
+  padding: 0px 0 0px 0px; 
 }
 #DeckTextRowSmall {
   border: 1px solid #222;
@@ -147,7 +120,7 @@ WPushButton#BeatloopButton {
 }
 
 #DeckSmall #TitleGutter {
-  padding-left: 2px;
+  padding-left: 4px;
 }
 
 #OverviewGutterSmall {
@@ -178,16 +151,17 @@ WPushButton#BeatloopButton {
 }
 
 #OverviewRow {
-  border-top: 0px;
+  border-top: 1px;
   background-color: transparent;
   margin: 0;
   padding: 0;
+  padding-top: 0px;
 }
 
 #ControlsRow {
   border-top: 1px solid #222;
   padding: 0px;
-  qproperty-layoutAlignment: 'AlignBottom';
+  qproperty-layoutAlignment: 'AlignVCenter';
 }
 
 #MixerBorder {
@@ -312,7 +286,7 @@ WLibrarySidebar {
    > See src/library/coverartdelegate.cpp: "option.palette.highlightedText().color();" */
   selection-color: #D6D6D6;
   /* background of Color delegate in selected row */
-  selection-background-color: #006596;
+  selection-background-color: #FF6600;
 }
 /* Override the 'missing' color in Tracks > Missing,
    it's not useful there */
@@ -338,20 +312,19 @@ WLibrarySidebar::item:selected,
   /* This is not required for painting the background,
    but it is for applying the focus outline. */
   background-color: #006596;
-}
-
-/* Highlight currentIndex which can be moved with Ctrl + arrow keys */
-WTrackTableView::item:selected:focus {
-  /* For outline to be applied, background-color must be set, too ...
-     Use a value between #1F1F1F and #151515 (alternate-background-color) */
-  background-color: #1d1d1d;
-  outline: 1px solid #fff;
-  color: #fff;
-}
+  }
+  /* Highlight currentIndex which can be moved with Ctrl + arrow keys */
+  WTrackTableView::item:!selected:focus {
+    /* For outline to be applied, background-color must be set, too ...
+       Use a value between #1F1F1F and #1A1A1A (alternate-background-color) */
+    background-color: #1d1d1d;
+    outline: 1px solid #fff;
+    color: #fff;
+  }
 WLibrarySidebar::item:selected:focus {
   outline: none;
 }
-WLibrarySidebar::item:selected:focus {
+WLibrarySidebar::item:!selected:focus {
   outline: none;
   border: 1px solid white;
 }
@@ -411,7 +384,7 @@ WTrackPropertyEditor,
 }
 
 /* focused BPM cell in the library "BPM" column */
-#LibraryBPMButton:focus,
+#LibraryBPMButton:focus
 #LibraryBPMButton::indicator:focus {
   outline: none;
 }
@@ -449,11 +422,11 @@ QPushButton#LibraryPreviewButton {
   border-radius: 2px;
 }
 
-QPushButton#LibraryPreviewButton:unchecked {
+QPushButton#LibraryPreviewButton:!checked {
   image: url(skin:icon/ic_library_preview_play.svg);
 }
 
-QPushButton#LibraryPreviewButton:unchecked:hover {
+QPushButton#LibraryPreviewButton:!checked:hover {
   background-color: #1A1A1A;
   border: 1px solid #00ABFD;
 }
@@ -493,11 +466,11 @@ WTrackTableViewHeader::down-arrow {
   padding: 0px;
 }
 WTrackTableViewHeader::up-arrow {
-  image: url(skin:/../Deere/image/style_sort_up.svg);
+  image: url(skin:image/style_sort_up.svg);
 }
 
 WTrackTableViewHeader::down-arrow {
-  image: url(skin:/../Deere/image/style_sort_down.svg);
+  image: url(skin:image/style_sort_down.svg);
 }
 
 /* library search bar */
@@ -523,7 +496,7 @@ WSearchLineEdit {
 }
 
 #PreviewDeckTextRow WLabel {
-  padding: 0 2px;
+  padding: 0 0px;
   color: #d2d2d2;
   font-size: 12px/14px;
   text-transform: none;
@@ -534,7 +507,7 @@ WSearchLineEdit {
   border-top: 1px solid #1A1A1A;
 }
 
-#PreviewDeckEjectButton[value="0"]:hover {
+#PreviewDeckEjectButton[value="0"]:!hover {
   background: none;
   border: none;
 }
@@ -560,12 +533,12 @@ WLibrarySidebar {
 /* triangle for closed/opened branches in treeview */
 WLibrarySidebar::branch:has-children:!has-siblings:closed,
 WLibrarySidebar::branch:closed:has-children:has-siblings {
-  border-image: none; image: url(skin:/../Deere/image/style_branch_closed.svg);
+  border-image: none; image: url(skin:image/style_branch_closed.svg);
 }
 
 WLibrarySidebar::branch:open:has-children:!has-siblings,
 WLibrarySidebar::branch:open:has-children:has-siblings {
-  border-image: none; image: url(skin:/../Deere/image/style_branch_open.svg);
+  border-image: none; image: url(skin:image/style_branch_open.svg);
 }
 
 /* space left of selected child item */
@@ -579,12 +552,12 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 
 /* QSplitter between WLibrarySidebar and WTrackTableView */
 #LibrarySplitter::handle {
-  image: url(skin:/../Deere/image/style_handle_horizontal_unchecked.svg);
+  image: url(skin:image/style_handle_horizontal_unchecked.svg);
   background: none;
 }
 
 #LibrarySplitter::handle:pressed {
-  image: url(skin:/../Deere/image/style_handle_horizontal_checked.svg);
+  image: url(skin:image/style_handle_horizontal_checked.svg);
   background: none;
 }
 
@@ -600,14 +573,14 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
 #LibraryCoverArtSplitter::handle,
 #LibraryVerticalSplitter::handle,
 #WaveformSplitter::handle {
-  image: url(skin:/../Deere/image/style_handle_vertical_unchecked.svg);
+  image: url(skin:image/style_handle_vertical_unchecked.svg);
   background-color: #222;
 }
 
 #LibraryCoverArtSplitter::handle:pressed,
 #LibraryVerticalSplitter::handle:pressed,
 #WaveformSplitter::handle:pressed {
-  image: url(skin:/../Deere/image/style_handle_vertical_checked.svg);
+  image: url(skin:image/style_handle_vertical_checked.svg);
   background-color: #222;
 }
 
@@ -672,7 +645,7 @@ WLibrarySidebar::branch:open:!has-children:has-siblings:selected {
     }
 
 
-#LibraryFeatureControls QPushButton:disabled {
+#LibraryFeatureControls QPushButton:!enabled {
   /* buttons in "disabled" (not click-able) state. They are nearly invisible
      by default QT palette, so style accordingly */
   color: #808080; /* Default #A3A3A3 -90L HSL*/
@@ -734,20 +707,18 @@ QPushButton#pushButtonRecording:checked:hover {
 QPushButton#pushButtonAutoDJ {
   image: url(skin:icon/ic_autodj_enable.svg) no-repeat center center;
 }
-QPushButton#pushButtonFadeNow:disabled {
+QPushButton#pushButtonFadeNow:!enabled {
   image: url(skin:icon/ic_autodj_fade_disabled.svg) no-repeat center center;
-}
-
-QPushButton#pushButtonFadeNow:enabled {
-  image: url(skin:icon/ic_autodj_fade.svg) no-repeat center center;
-}
-QPushButton#pushButtonSkipNext:disabled {
+  }
+  QPushButton#pushButtonFadeNow:enabled {
+    image: url(skin:icon/ic_autodj_fade.svg) no-repeat center center;
+  }
+QPushButton#pushButtonSkipNext:!enabled {
   image: url(skin:icon/ic_autodj_skip_disabled.svg) no-repeat center center;
-}
-
-QPushButton#pushButtonSkipNext:enabled {
-  image: url(skin:icon/ic_autodj_skip.svg) no-repeat center center;
-}
+  }
+  QPushButton#pushButtonSkipNext:enabled {
+    image: url(skin:icon/ic_autodj_skip.svg) no-repeat center center;
+  }
 QPushButton#pushButtonShuffle {
   image: url(skin:icon/ic_autodj_shuffle.svg) no-repeat center center;
 }
@@ -1009,6 +980,12 @@ WPushButton, #LibraryFeatureControls QPushButton {
   text-transform: uppercase;
 }
 
+WCoverArt,
+WCoverArtMenu {
+  margin: 0px 0px 0px 4px;
+  padding: 0px 0px 0px 4px;
+}
+
 /* cue points labels in the overview */
 WOverview {
   text-transform: none;
@@ -1025,7 +1002,7 @@ WOverview #PassthroughLabel {
 #OptionGrid, #ButtonGrid {
   background-color: #333333;
   /*padding: 1px;*/
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
 }
 
 #OptionGridRow1, #OptionGridRow2 {
@@ -1053,7 +1030,7 @@ WOverview #PassthroughLabel {
 /* Start spacing for Deck inner column (tempo slider, rate change) */
 #DeckRateSliderColumn {
   background-color: #333333;
-  padding: 4px;
+  padding: 0px;
   qproperty-layoutSpacing: 2;
 }
 
@@ -1066,11 +1043,13 @@ WOverview #PassthroughLabel {
 /* Start spacing for Deck controls row (transport, beatgrid, looping, hotcue, vinylcontrol) */
 
 /* Button alignment and spacing fixes */
-#PlayCueContainer,
+#PlayCueContainer {
+  padding: 2px 0px 0px 0px;
+}
 #HotcueGrid,
-#LoopGrid,
+#LoopGridBottom,
 #VinylControlsGrid {
-  padding: 1px;
+  padding: 0px 0px 0px 0px;
   qproperty-layoutSpacing: 2;
 }
 
@@ -1096,19 +1075,19 @@ WOverview #PassthroughLabel {
 
 #DeckControlsGrid {
   qproperty-layoutSpacing: 2;
-  padding: 0px;
+  padding: 0px 1px 0px 1px;
 }
 
 /* Fix the overall control row margins */
 #ControlsRow {
-  margin: 1px 1px 0px 1px !important;
+  margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
 
 /* Fix for parent container margins */
 WidgetGroup#DeckRows > QWidget, 
 WidgetGroup#DeckRows * > #ControlsRow {
-  margin: 1px 1px 1px 1px !important;
+  margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
 
@@ -1236,11 +1215,13 @@ WBeatSpinBox,
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   }
   #TitleGutter {
-    padding: 0px 2px 0px 4px;
+    padding: 0px 1px 0px 0px;
   }
   #ArtistGutter {
-    padding: 0px 2px 0px 2px;
-  }
+  padding: 0;
+  margin: 0;
+  qproperty-layoutSpacing: 0;
+}
 #TitleGutterSmall {
   padding: 0px;
 }
@@ -1255,13 +1236,12 @@ WBeatSpinBox,
 
 #BPMGutter, #PositionGutter {
   qproperty-layoutAlignment: 'AlignRight | AlignTop';
-  qproperty-layoutSpacing: 2;
-  padding: 0px;
+  qproperty-layoutSpacing: 0;
 }
 #PositionGutter {
   margin-right: 0px;
-  padding-top: 3px;
-  padding-right: 4px;
+  padding-top: 0px;
+  padding-right: 8px;
 }
 #PositionGutterSmall {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
@@ -1291,19 +1271,28 @@ WTrackProperty:hover {
 }
 
 #BpmKeyEditRowExpanded {
+  margin: 0px 2px 0px 0px;
+  padding: 0px 0px 0px 0px;
   /* emphasize active widget */
   /* border: 1px solid #FF6600; */
   background-color: rgba(255, 102, 0, 64);
   color: #D6D6D6;
   qproperty-layoutSpacing: 0;
+  min-height: 22px;
+  max-height: 22px;
+  qproperty-layoutAlignment: 'AlignTop';
+  qproperty-layoutContentsMargins: rect(0 0 0 0);
 }
 
 #BpmKeyEditTrigger {
+  margin: 0px 0px 0px 0px;
   /* make trigger button transparent */
   /* background-color: none; */
   background-color: rgba(255, 102, 0, 64);
   border: none;
-  border-radius: 0px;
+  border-radius: 1px;
+  min-height: 22px;
+  max-height: 22px;
 }
 #BpmKeyEditTrigger[value="1"] {
   /* border: 1px solid #FF6600; */
@@ -1314,8 +1303,10 @@ WTrackProperty:hover {
   /* Make room between buttons */
   background-color: #333333;
   padding-left: 1px;
-  padding-right: 1px;
-  margin-right: 2px;
+  padding-right: 0px;
+  margin-right: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
   qproperty-layoutSpacing: 0;
 }
 
@@ -1344,6 +1335,7 @@ WTrackProperty:hover {
 
 #HotcueShiftButtons {
   qproperty-layoutSpacing: 2;
+  border-radius: 2px;
 }
 
 #BpmKeyEditTriggerLabel {
@@ -1702,11 +1694,12 @@ WVuMeter, #PeakIndicator {
 
 /* Starrating for tracks loaded in decks */
 WStarRating {
-  margin            : 5px 5px 0px 0px;
+  margin            : 0px 0px 0px 0px;
   border            : 0px solid #ffffff;
-  padding           : 2px;
+  padding           : 0px;
   color             : #d2d2d2;
   background-color  : none;
+  max-height        : 22px;
 }
 
 #SampleDecksContainer {
@@ -1811,6 +1804,10 @@ border: 0
 /* Track label inline editor in decks and samplers */
 WTrackPropertyEditor {
   font-size: 15px;
+}
+
+WTrackWidgetGroup {
+  border-radius: 2px;
 }
 
 #SampleDecksContainer {
@@ -2192,9 +2189,9 @@ do not highlight either state. */
     border: 0px solid #5F5F5F;
 }
 
-#WaveformZoomDownButton[value="0"]:hover,
-#WaveformZoomSetDefaultButton[value="0"]:hover,
-#WaveformZoomUpButton[value="0"]:hover {
+#WaveformZoomDownButton[value="0"]:!hover,
+#WaveformZoomSetDefaultButton[value="0"]:!hover,
+#WaveformZoomUpButton[value="0"]:!hover {
   background: none;
   border: none;
 }
@@ -2245,13 +2242,13 @@ WCoverArtMenu,
 WCoverArtMenu::item,
 WCueMenuPopup,
 WCueMenuPopup QLabel,
-WEffectSelector::item:selected,
+WEffectSelector::item:!selected,
 WEffectSelector QAbstractScrollArea,
-WEffectChainPresetSelector::item:selected,
+WEffectChainPresetSelector::item:!selected,
 WEffectChainPresetSelector QAbstractScrollArea,
-WSearchLineEdit::item:selected,
+WSearchLineEdit::item:!selected,
 WSearchLineEdit QAbstractScrollArea,
-#fadeModeCombobox::item:selected,
+#fadeModeCombobox::item:!selected,
 #fadeModeCombobox QAbstractScrollArea {
   color: #c1cabe;
   background-color: #201f1f;
@@ -2363,29 +2360,26 @@ WSearchLineEdit QAbstractScrollArea,
   }
 
 
-WEffectSelector:read-only,
-WEffectChainPresetSelector:read-only,
-#fadeModeCombobox:read-only {
+WEffectSelector:!editable,
+WEffectChainPresetSelector:!editable,
+#fadeModeCombobox:!editable {
   color: #c1cabe;
   /* The 3D frame on the combo box becomes flat when you give it a border */
   border: 1px solid #444342;
   border-radius: 1px;
   max-height: 22px;
-}
-
-WEffectSelector:read-only,
-#fadeModeCombobox:read-only {
-  font: 13px;
-}
-
-WEffectChainPresetSelector:read-only {
-  font: 11px;
-}
-
-WEffectSelector:read-only,
-WEffectSelector:read-only:on,
-WEffectChainPresetSelector:read-only,
-WEffectChainPresetSelector:read-only:on {
+  }
+  WEffectSelector:!editable,
+  #fadeModeCombobox:!editable {
+    font: 13px;
+  }
+  WEffectChainPresetSelector:!editable {
+    font: 11px;
+  }
+WEffectSelector:!editable,
+WEffectSelector:!editable:on,
+WEffectChainPresetSelector:!editable,
+WEffectChainPresetSelector:!editable:on {
   /* Fixes the white bars on the top/bottom of the popup on Mac OS X */
   margin: 0px;
   /* If you use margin top/bottom 0, the combo box shrinks in width (go figure) and
@@ -2393,7 +2387,6 @@ WEffectChainPresetSelector:read-only:on {
   padding: 0px 2px;
   background-color: #404040;
 }
-
 #fadeModeCombobox {
   /* 1px is added in each dimension. 20+1+1 = 22 = button height */
   height: 16px;
@@ -2401,12 +2394,11 @@ WEffectChainPresetSelector:read-only:on {
   margin: 0px 0px 0px 0px;
 }
 
-WEffectSelector:read-only:hover,
-WEffectChainPresetSelector:read-only:hover,
-#fadeModeCombobox:read-only:hover {
-  border: 1px ridge #015d8d;
-}
-
+  WEffectSelector:!editable:hover,
+  WEffectChainPresetSelector:!editable:hover,
+  #fadeModeCombobox:!editable:hover {
+    border: 1px ridge #015d8d;
+  }
   WEffectSelector::drop-down,
   WEffectChainPresetSelector::drop-down,
   WSearchLineEdit::drop-down,
@@ -2648,12 +2640,13 @@ WRateRange {
 }
 
 
-/* * { border: 1px solid rgba(255, 0, 0, 0.5); }
-QFrame { border: 1px solid blue; }
-QLabel { border: 1px solid green; }
-QComboBox { border: 1px solid magenta; }
-QPushButton { border: 1px solid orange; }
-QSlider { border: 1px solid teal; } */
+/* *  { border: 1px solid rgba(255, 0, 0, 0.5); }  */
+
+/* QFrame { border: 1px solid blue; } */
+/* QLabel { border: 1px solid rgb(0, 109, 128); } */
+/* QComboBox { border: 1px solid magenta; } */
+/* QPushButton { border: 1px solid orange; } */
+/* QSlider { border: 1px solid teal; }  */
 
 /* Beatjump button hover effects */
 QPushButton[name="BeatJumpButton"]:hover {

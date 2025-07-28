@@ -91,7 +91,7 @@
                     <TooltipId>waveform_overview</TooltipId>
                     <Style></Style>
                     <Group><Variable name="group"/></Group>
-                    <Size>me,30f</Size>
+                    <Size>me,20f</Size>
                     <BgColor></BgColor>
                     <PlayedOverlayColor>#88000000</PlayedOverlayColor>
                     <SignalHighColor>#FFE300</SignalHighColor>

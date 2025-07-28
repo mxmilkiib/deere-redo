@@ -19,6 +19,8 @@
       <Visual>
         <TooltipId>waveform_display</TooltipId>
         <Group><Variable name="group"/></Group>
+        <SizePolicy>me,me</SizePolicy>
+        <MinimumSize>-1,80</MinimumSize>
         <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
         <!-- <SignalHighColor>#FF0000</SignalHighColor> -->
         <!-- <SignalMidColor>#00FF00</SignalMidColor> -->

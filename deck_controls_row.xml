@@ -9,14 +9,14 @@
 	<WidgetGroup>
 		<ObjectName>ControlsRow</ObjectName>
 		<Layout>horizontal</Layout>
-		<SizePolicy>me,max</SizePolicy>
+		<SizePolicy>me,me</SizePolicy>
 		<Children>
 			<Template src="skin:deck_play_cue.xml"/>
 			<WidgetGroup><Size>18f,0</Size></WidgetGroup>
 			<!-- Hotcue/Intro/Outro block with vertical centering -->
 			<WidgetGroup>
 				<Layout>horizontal</Layout>
-				<SizePolicy>max,me</SizePolicy>
+				<SizePolicy>max,min</SizePolicy>
 				<Children>
 					<Template src="skin:special_cues.xml"/>
 					<Template src="skin:hotcues.xml"/>
@@ -26,7 +26,7 @@
 			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 			<!-- Loop controls -->
 			<Template src="skin:deck_loop_controls.xml"/>
-			<WidgetGroup><Size>6f,0</Size></WidgetGroup>
+			<WidgetGroup><Size>16f,0</Size></WidgetGroup>
 			<!-- Beatjump controls -->
 			<Template src="skin:deck_beatjump_controls.xml"/>
 		</Children>

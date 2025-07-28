@@ -55,14 +55,14 @@
                       <WidgetGroup>
                         <ObjectName>TitleGutterSmall</ObjectName>
                         <Layout>horizontal</Layout>
-                        <Size>100me,23f</Size>
+                        <Size>100me,20f</Size>
                         <Children>
                           <!-- We allow to hide track/artist info (aka AM-Mode) in the skin settings,
                               display just a label with asterixes instead. -->
                           <TrackProperty>
                             <TooltipId>track_title</TooltipId>
                             <ObjectName>TitleTextSmall</ObjectName>
-                            <Size>100me,23f</Size>
+                            <Size>100me,20f</Size>
                             <Property>titleInfo</Property>
                             <Group><Variable name="group"/></Group>
                             <Style>text-align: left;</Style>

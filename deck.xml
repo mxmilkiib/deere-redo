@@ -11,7 +11,7 @@
     <ObjectName>Deck<Variable name="i"/></ObjectName>
     <Layout>horizontal</Layout>
     <SizePolicy>me,me</SizePolicy>
-    <MinimumSize>-1,150</MinimumSize>
+    <MinimumSize>-1,150f</MinimumSize>
     <Children>
       <WidgetGroup>
         <ObjectName>DeckRows</ObjectName>

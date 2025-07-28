@@ -33,7 +33,7 @@
           <Overview>
             <TooltipId>waveform_overview</TooltipId>
             <Group><Variable name="group"/></Group>
-            <SizePolicy>me,me</SizePolicy>
+            <SizePolicy>me,min</SizePolicy>
             <BgColor>#333333</BgColor>
             <PlayedOverlayColor>#88000000</PlayedOverlayColor>
             <SignalHighColor>#FFE300</SignalHighColor>

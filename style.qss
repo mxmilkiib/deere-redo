@@ -66,7 +66,7 @@ WPushButton#BeatloopButton {
 /* These definitions put a faint border around all the widgets. We have to be
    tricky with top/bottom-ness to get things right. */
 #DeckControls {
-  padding: 5px 7.5px 2px 7.5px;  /*
+  padding: 1px 7.5px 0px 7.5px;  /*
   background-color: #456789;  */
 }
 
@@ -161,7 +161,7 @@ WPushButton#BeatloopButton {
 #ControlsRow {
   border-top: 1px solid #222;
   padding: 0px;
-  qproperty-layoutAlignment: 'AlignBottom';
+  qproperty-layoutAlignment: 'AlignVCenter';
 }
 
 #MixerBorder {
@@ -980,6 +980,12 @@ WPushButton, #LibraryFeatureControls QPushButton {
   text-transform: uppercase;
 }
 
+WCoverArt,
+WCoverArtMenu {
+  margin: 0px 0px 0px 4px;
+  padding: 0px 0px 0px 4px;
+}
+
 /* cue points labels in the overview */
 WOverview {
   text-transform: none;
@@ -1024,7 +1030,7 @@ WOverview #PassthroughLabel {
 /* Start spacing for Deck inner column (tempo slider, rate change) */
 #DeckRateSliderColumn {
   background-color: #333333;
-  padding: 4px;
+  padding: 0px;
   qproperty-layoutSpacing: 2;
 }
 
@@ -1037,11 +1043,13 @@ WOverview #PassthroughLabel {
 /* Start spacing for Deck controls row (transport, beatgrid, looping, hotcue, vinylcontrol) */
 
 /* Button alignment and spacing fixes */
-#PlayCueContainer,
+#PlayCueContainer {
+  padding: 2px 0px 0px 0px;
+}
 #HotcueGrid,
-#LoopGrid,
+#LoopGridBottom,
 #VinylControlsGrid {
-  padding: 1px;
+  padding: 0px 0px 0px 0px;
   qproperty-layoutSpacing: 2;
 }
 
@@ -1067,19 +1075,19 @@ WOverview #PassthroughLabel {
 
 #DeckControlsGrid {
   qproperty-layoutSpacing: 2;
-  padding: 0px;
+  padding: 0px 1px 0px 1px;
 }
 
 /* Fix the overall control row margins */
 #ControlsRow {
-  margin: 1px 1px 0px 1px !important;
+  margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
 
 /* Fix for parent container margins */
 WidgetGroup#DeckRows > QWidget, 
 WidgetGroup#DeckRows * > #ControlsRow {
-  margin: 1px 1px 1px 1px !important;
+  margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
 
@@ -1207,11 +1215,13 @@ WBeatSpinBox,
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   }
   #TitleGutter {
-    padding: 0px 1px 0px 4px;
+    padding: 0px 1px 0px 0px;
   }
   #ArtistGutter {
-    padding: 0px 1px 0px 4px;
-  }
+  padding: 0;
+  margin: 0;
+  qproperty-layoutSpacing: 0;
+}
 #TitleGutterSmall {
   padding: 0px;
 }
@@ -1227,12 +1237,11 @@ WBeatSpinBox,
 #BPMGutter, #PositionGutter {
   qproperty-layoutAlignment: 'AlignRight | AlignTop';
   qproperty-layoutSpacing: 0;
-  padding: 0px;
 }
 #PositionGutter {
   margin-right: 0px;
-  padding-top: 2px;
-  padding-right: 2px;
+  padding-top: 0px;
+  padding-right: 8px;
 }
 #PositionGutterSmall {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
@@ -1262,19 +1271,27 @@ WTrackProperty:hover {
 }
 
 #BpmKeyEditRowExpanded {
+  margin: 0px 2px 0px 0px;
+  padding: 0px 0px 0px 0px;
   /* emphasize active widget */
   /* border: 1px solid #FF6600; */
   background-color: rgba(255, 102, 0, 64);
   color: #D6D6D6;
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
+  min-height: 22px;
+  max-height: 22px;
+  qproperty-layoutAlignment: 'AlignTop';
+  qproperty-layoutContentsMargins: rect(0 0 0 0);
 }
 
 #BpmKeyEditTrigger {
+  margin: 0px 0px 0px 0px;
   /* make trigger button transparent */
   /* background-color: none; */
   background-color: rgba(255, 102, 0, 64);
   border: none;
-  border-radius: 0px;
+  border-radius: 1px;
+  min-height: 22px;
   max-height: 22px;
 }
 #BpmKeyEditTrigger[value="1"] {
@@ -1682,6 +1699,7 @@ WStarRating {
   padding           : 0px;
   color             : #d2d2d2;
   background-color  : none;
+  max-height        : 22px;
 }
 
 #SampleDecksContainer {
@@ -2622,12 +2640,13 @@ WRateRange {
 }
 
 
-/* * { border: 1px solid rgba(255, 0, 0, 0.5); } 
-QFrame { border: 1px solid blue; }
-QLabel { border: 1px solid green; }
-QComboBox { border: 1px solid magenta; }
-QPushButton { border: 1px solid orange; }
-QSlider { border: 1px solid teal; } */
+/* *  { border: 1px solid rgba(255, 0, 0, 0.5); }  */
+
+/* QFrame { border: 1px solid blue; } */
+/* QLabel { border: 1px solid rgb(0, 109, 128); } */
+/* QComboBox { border: 1px solid magenta; } */
+/* QPushButton { border: 1px solid orange; } */
+/* QSlider { border: 1px solid teal; }  */
 
 /* Beatjump button hover effects */
 QPushButton[name="BeatJumpButton"]:hover {
