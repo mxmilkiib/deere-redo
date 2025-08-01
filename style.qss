@@ -2440,18 +2440,22 @@ WEffectChainPresetSelector:!editable:on {
   /* QuickEffect selector of left-hand decks and in 4-decks mixer
     has it's down arrow on the left side, below the QuickEffect toggle */
   WEffectChainPresetSelector#QuickEffectSelectorLeft {
-    padding: 0px -2px 0px -1px;
-    margin: 0px;
+    padding: 2px 2px 0px 2px;
+    margin: 3px 2px 0px;
     text-align: left;
+    vertical-align: middle;
+    height: 16px;
     }
     WEffectChainPresetSelector#QuickEffectSelectorLeft::drop-down {
       subcontrol-origin: margin;
       subcontrol-position: left center;
     }
   WEffectChainPresetSelector#QuickEffectSelectorRight {
-    padding: 0px -1px 0px -2px;
-    margin: 0px;
+    padding: 2px 2px 0px 2px;
+    margin: 3px 2px 0px;
     text-align: right;
+    vertical-align: middle;
+    height: 16px;
     }
     WEffectChainPresetSelector#QuickEffectSelectorRight::drop-down {
       subcontrol-origin: margin;

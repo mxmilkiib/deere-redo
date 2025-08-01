@@ -41,6 +41,41 @@
 <Template>
   <SetVariable name="group">[Channel<Variable name="i"/>]</SetVariable>
 
+  <SingletonDefinition>
+    <ObjectName>StereoVUMeter<Variable name="i"/></ObjectName>
+    <Children>
+      <WidgetGroup>
+        <Layout>horizontal</Layout>
+        <SizePolicy>me,min</SizePolicy>
+        <MaximumSize>-1,210</MaximumSize>
+        <Children>
+          <WidgetGroup><Size>11f,0min</Size></WidgetGroup>
+          <WidgetGroup>
+            <ObjectName>channel_VuMeter_Group</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,me</SizePolicy>
+            <MaximumSize>22,210</MaximumSize>
+            <Children>
+              <Template src="skin:vumeter_v.xml">
+                <SetVariable name="group"><Variable name="group"/></SetVariable>
+                <SetVariable name="side">_left</SetVariable>
+                <SetVariable name="tooltip_meter">channel_VuMeterL</SetVariable>
+                <SetVariable name="tooltip_clip">channel_peak_indicator_left</SetVariable>
+              </Template>
+              <Template src="skin:vumeter_v.xml">
+                <SetVariable name="group"><Variable name="group"/></SetVariable>
+                <SetVariable name="side">_right</SetVariable>
+                <SetVariable name="tooltip_meter">channel_VuMeterR</SetVariable>
+                <SetVariable name="tooltip_clip">channel_peak_indicator_right</SetVariable>
+              </Template>
+            </Children>
+          </WidgetGroup>
+          <Template src="skin:spacer_h.xml"/>
+        </Children>
+      </WidgetGroup>
+    </Children>
+  </SingletonDefinition>
+
   <WidgetGroup>
     <ObjectName>MixerStrip_4Decks</ObjectName>
     <Layout>vertical</Layout>
@@ -124,7 +159,7 @@
             <MaximumSize>60,-1</MaximumSize>
             <Children>
               <!-- Faders
-              Vol fader only (VU meter moved to right of channel strip)
+              Vol fader next to mono VU meter
                   when EQs are shown -->
               <WidgetGroup>
                 <Layout>horizontal</Layout>
@@ -143,9 +178,38 @@
                       <EmitOnDownPress>false</EmitOnDownPress>
                     </Connection>
                   </SliderComposed>
+                  <WidgetGroup>
+                    <Layout>horizontal</Layout>
+                    <ObjectName>4DecksMixerMonoMeterRight</ObjectName>
+                    <Children>
+                      <Template src="skin:vumeter_v.xml">
+                        <SetVariable name="group"><Variable name="group"/></SetVariable>
+                        <SetVariable name="tooltip_meter">channel_VuMeter</SetVariable>
+                        <SetVariable name="tooltip_clip">channel_peak_indicator</SetVariable>
+                      </Template>
+                    </Children>
+                  </WidgetGroup>
                 </Children>
                 <Connection>
                   <ConfigKey>[Skin],show_faders</ConfigKey>
+                  <BindProperty>visible</BindProperty>
+                </Connection>
+              </WidgetGroup>
+
+              <!-- no Faders
+                  stereo VU meter -->
+              <WidgetGroup>
+                <Layout>vertical</Layout>
+                <SizePolicy>min,me</SizePolicy>
+                <MaximumSize>60,180</MaximumSize>
+                <Children>
+                  <SingletonContainer>
+                    <ObjectName>StereoVUMeter<Variable name="i"/></ObjectName>
+                  </SingletonContainer>
+                </Children>
+                <Connection>
+                  <ConfigKey>[Skin],show_faders</ConfigKey>
+                  <Transform><Not/></Transform>
                   <BindProperty>visible</BindProperty>
                 </Connection>
               </WidgetGroup>
@@ -161,6 +225,18 @@
             <Layout>vertical</Layout>
             <SizePolicy>min,me</SizePolicy>
             <Children>
+              <!-- StereoVUMeter -->
+              <WidgetGroup>
+                <Layout>vertical</Layout>
+                <SizePolicy>min,me</SizePolicy>
+                <MaximumSize>60,210</MaximumSize>
+                <Children>
+                  <SingletonContainer>
+                    <ObjectName>StereoVUMeter<Variable name="i"/></ObjectName>
+                  </SingletonContainer>
+                </Children>
+              </WidgetGroup>
+
               <WidgetGroup>
                 <Layout>vertical</Layout>
                 <SizePolicy>min,me</SizePolicy>
