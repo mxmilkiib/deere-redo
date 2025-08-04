@@ -26,7 +26,8 @@
         <!-- <SignalMidColor>#00FF00</SignalMidColor> -->
         <!-- <SignalLowColor>#0000ff</SignalLowColor> -->
         <!-- <SignalRGBHighColor>#FF718F</SignalRGBHighColor> -->
-        <SignalRGBHighColor>#FFAAAA</SignalRGBHighColor>
+        <!-- <SignalRGBHighColor>#FFAAAA</SignalRGBHighColor> -->
+        <SignalRGBHighColor>#FFDDCC</SignalRGBHighColor>
         <!-- <SignalRGBMidColor>#3AA600</SignalRGBMidColor> -->
         <SignalRGBMidColor>#F8D200</SignalRGBMidColor>
         <!-- <SignalRGBLowColor>#0055E1</SignalRGBLowColor> -->
