@@ -34,7 +34,7 @@
         <SignalRGBLowColor>#0055FF</SignalRGBLowColor>
         <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
         <BeatColor>#ffffff</BeatColor>
-        <PlayPosColor>#eeeeee</PlayPosColor>
+        <PlayPosColor>#00ff00</PlayPosColor>
         <EndOfTrackColor>#EA0000</EndOfTrackColor>
         <AxesColor></AxesColor>
         <Align></Align>

@@ -1,7 +1,7 @@
 <!DOCTYPE skin>
 <skin>
   <manifest>
-    <title>Deere-RekboxHighwave</title>
+    <title>Deere-Redo</title>
     <author>RJ Ryan, S.Brandt, Milkii</author>
     <version>2.3.9.02</version>
     <description>A flexible skin with stacked or split waveforms, 4 decks and 8 samplers.</description>
@@ -148,7 +148,7 @@
       <!-- Traditional Blue -->
       <SetVariable name="DeckSignalColor">#007BCD</SetVariable>
       <SetVariable name="DeckBackgroundColor">#343940</SetVariable>
-      <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
+      <SetVariable name="PlayedOverlayColor">#30000011</SetVariable>
     </Template>
 
     <Template src="skin:deck_singletons.xml">
@@ -156,7 +156,7 @@
       <!-- Traditional Orange -->
       <SetVariable name="DeckSignalColor">#E67A00</SetVariable>
       <SetVariable name="DeckBackgroundColor">#403c34</SetVariable>
-      <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
+      <SetVariable name="PlayedOverlayColor">#30001111</SetVariable>
     </Template>
 
     <Template src="skin:deck_singletons.xml">
@@ -164,7 +164,7 @@
       <!-- Violet -->
       <SetVariable name="DeckSignalColor">#B500B5</SetVariable>
       <SetVariable name="DeckBackgroundColor">#403440</SetVariable>
-      <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
+      <SetVariable name="PlayedOverlayColor">#30110000</SetVariable>
     </Template>
 
     <Template src="skin:deck_singletons.xml">
@@ -172,7 +172,7 @@
       <!-- Lime -->
       <SetVariable name="DeckSignalColor">#AABD00</SetVariable>
       <SetVariable name="DeckBackgroundColor">#3d4034</SetVariable>
-      <SetVariable name="PlayedOverlayColor">#30000000</SetVariable>
+      <SetVariable name="PlayedOverlayColor">#30001100</SetVariable>
     </Template>
 
     <SingletonDefinition>

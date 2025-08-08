@@ -25,7 +25,7 @@
         <SignalRGBMidColor>#FFA600</SignalRGBMidColor>
         <SignalRGBLowColor>#0055E1</SignalRGBLowColor>
     <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
-    <PlayPosColor>#eeeeee</PlayPosColor>
+    <PlayPosColor>#00FF00</PlayPosColor>
     <DefaultMark>
       <Align>bottom|right</Align>
       <Color>#619dea</Color>
