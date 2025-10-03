@@ -12,32 +12,11 @@
     <SizePolicy>me,min</SizePolicy>
     <MinimumSize>-1,46</MinimumSize>
     <Children>
-      <WidgetGroup>
-        <ObjectName>DeckControlsGrid</ObjectName>
-        <Layout>vertical</Layout>
-        <SizePolicy>min,min</SizePolicy>
-        <Children>
-          <WidgetGroup>
-            <ObjectName>DeckControlsGrid</ObjectName>
-            <Layout>horizontal</Layout>
+              <WidgetGroup>
+            <ObjectName>DeckControlsGridLeft</ObjectName>
+            <Layout>vertical</Layout>
             <SizePolicy>min,min</SizePolicy>
             <Children>
-
-              <Template src="skin:left_2state_button.xml">
-                <SetVariable name="TooltipId">slip_mode</SetVariable>
-                <SetVariable name="ObjectName">SlipModeButton</SetVariable>
-                <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
-                <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
-                <SetVariable name="state_0_text"></SetVariable>
-                <SetVariable name="state_0_pressed">icon/ic_slip_48px.svg</SetVariable>
-                <SetVariable name="state_0_unpressed">icon/ic_slip_48px.svg</SetVariable>
-                <SetVariable name="state_1_text"></SetVariable>
-                <SetVariable name="state_1_pressed">icon/ic_slip_48px.svg</SetVariable>
-                <SetVariable name="state_1_unpressed">icon/ic_slip_48px.svg</SetVariable>
-                <SetVariable name="left_connection_control"><Variable name="group"/>,slip_enabled</SetVariable>
-              </Template>
-
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">repeat</SetVariable>
                 <SetVariable name="ObjectName">RepeatButton</SetVariable>
@@ -52,28 +31,7 @@
                 <SetVariable name="state_1_unpressed">icon/ic_repeat_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control"><Variable name="group"/>,repeat</SetVariable>
               </Template>
-
-              <Template src="skin:left_right_1state_button.xml">
-                <SetVariable name="TooltipId">beats_translate_curpos</SetVariable>
-                <SetVariable name="ObjectName">BeatsTranslateCurposButton</SetVariable>
-                <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
-                <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
-                <SetVariable name="state_0_text"></SetVariable>
-                <SetVariable name="state_0_pressed">icon/ic_beats_translate_curpos_48px.svg</SetVariable>
-                <SetVariable name="state_0_unpressed">icon/ic_beats_translate_curpos_48px.svg</SetVariable>
-                <SetVariable name="left_connection_control"><Variable name="group"/>,beats_translate_curpos</SetVariable>
-                <SetVariable name="right_connection_control"><Variable name="group"/>,beats_translate_match_alignment</SetVariable>
-              </Template>
-
-            </Children>
-          </WidgetGroup>
-
-          <WidgetGroup>
-            <ObjectName>DeckControlsGrid</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>min,min</SizePolicy>
-            <Children>
+              
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">eject</SetVariable>
                 <SetVariable name="ObjectName">EjectButton</SetVariable>
@@ -88,6 +46,30 @@
                 <SetVariable name="state_1_unpressed">icon/ic_eject_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control"><Variable name="group"/>,eject</SetVariable>
               </Template>
+
+            </Children>
+          </WidgetGroup>
+
+      <SingletonContainer>
+        <ObjectName>DeckOverview<Variable name="i"/></ObjectName>
+      </SingletonContainer>
+
+      <!-- Can't apply margin & padding to WOverview.
+          Due to qproperty-layoutSpacing, this spacer creates a 5px
+          gap between deck options and overview and FX assignment buttons -->
+      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+
+
+      <WidgetGroup>
+        <ObjectName>DeckControlsGridRight</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>min,min</SizePolicy>
+        <Children>
+          <WidgetGroup>
+            <ObjectName>DeckControlsGrid</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,min</SizePolicy>
+            <Children>
 
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">quantize</SetVariable>
@@ -121,22 +103,50 @@
 
             </Children>
           </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>DeckControlsGrid</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,min</SizePolicy>
+            <Children>
+
+              <Template src="skin:left_2state_button.xml">
+                <SetVariable name="TooltipId">slip_mode</SetVariable>
+                <SetVariable name="ObjectName">SlipModeButton</SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
+                <SetVariable name="state_0_text"></SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_slip_48px.svg</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_slip_48px.svg</SetVariable>
+                <SetVariable name="state_1_text"></SetVariable>
+                <SetVariable name="state_1_pressed">icon/ic_slip_48px.svg</SetVariable>
+                <SetVariable name="state_1_unpressed">icon/ic_slip_48px.svg</SetVariable>
+                <SetVariable name="left_connection_control"><Variable name="group"/>,slip_enabled</SetVariable>
+              </Template>
+
+              <Template src="skin:left_right_1state_button.xml">
+                <SetVariable name="TooltipId">track_color</SetVariable>
+                <SetVariable name="ObjectName">TrackColorButton</SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="SquareButtonSizePolicy"/></SetVariable>
+                <SetVariable name="state_0_text"></SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_track_color_48px.svg</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_track_color_48px.svg</SetVariable>
+                <SetVariable name="left_connection_control"><Variable name="group"/>,track_color_next</SetVariable>
+                <SetVariable name="right_connection_control"><Variable name="group"/>,track_color_prev</SetVariable>
+              </Template>
+
+            </Children>
+          </WidgetGroup>
         </Children>
       </WidgetGroup>
 
       <!-- Can't apply margin & padding to WOverview.
           Due to qproperty-layoutSpacing, this spacer creates a 5px
           gap between deck options and overview and FX assignment buttons -->
-      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
-
-      <SingletonContainer>
-        <ObjectName>DeckOverview<Variable name="i"/></ObjectName>
-      </SingletonContainer>
-
-      <!-- Can't apply margin & padding to WOverview.
-          Due to qproperty-layoutSpacing, this spacer creates a 5px
-          gap between deck options and overview and FX assignment buttons -->
-      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
       <WidgetStack currentpage="[Skin],show_4effectunits" persist="true">
         <SizePolicy>max,min</SizePolicy>

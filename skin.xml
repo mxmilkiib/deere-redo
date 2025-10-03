@@ -25,7 +25,11 @@
       <attribute persist="true" config_key="[Deere],show_track_info">1</attribute>
       <attribute persist="true" config_key="[Deere],show_bpm_info">1</attribute>
       <attribute persist="true" config_key="[Skin],timing_shift_buttons">0</attribute>
-      <attribute persist="true" config_key="[Skin],show_beatgrid_controls">1</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls_deck1">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls_deck2">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls_deck3">0</attribute>
+      <attribute persist="true" config_key="[Skin],show_beatgrid_controls_deck4">0</attribute>
       <!-- Mixer -->
       <attribute persist="true" config_key="[Skin],show_mixer">1</attribute>
       <attribute persist="true" config_key="[Skin],show_faders">1</attribute>

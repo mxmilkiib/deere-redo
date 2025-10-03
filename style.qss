@@ -66,7 +66,7 @@ WPushButton#BeatloopButton {
 /* These definitions put a faint border around all the widgets. We have to be
    tricky with top/bottom-ness to get things right. */
 #DeckControls {
-  padding: 1px 7.5px 0px 7.5px;  /*
+  padding: 1px 2px 0px 2px;  /*
   background-color: #456789;  */
 }
 
@@ -1069,17 +1069,28 @@ WOverview #PassthroughLabel {
 #LoopGrid WWidgetGroup,
 #BeatjumpGrid WWidgetGroup,
 #VinylControlsGrid WWidgetGroup,
-#DeckControlsGrid WWidgetGroup {
+#DeckControlsGridLeft WWidgetGroup,
+#DeckControlsGridRight WWidgetGroup,
+#DeckControlsGridRightBottom WWidgetGroup {
   qproperty-layoutSpacing: 2;
 }
+
+#DeckControlsGrid,
+#DeckControlsGridLeft,
+#DeckControlsGridRight {
+  qproperty-layoutSpacing: 2;
+}
+
+
 
 #DeckControlsGrid {
-  qproperty-layoutSpacing: 2;
-  padding: 0px 1px 0px 1px;
-}
+  margin-right: 0px;
+} 
+
 
 /* Fix the overall control row margins */
-#ControlsRow {
+#ControlsRow,
+#DeckControlsGridLeft {
   margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
@@ -1215,7 +1226,7 @@ WBeatSpinBox,
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   }
   #TitleGutter {
-    padding: 0px 1px 0px 0px;
+    padding: 1px 1px 1px 0px;
   }
   #ArtistGutter {
   padding: 0;
@@ -1255,9 +1266,9 @@ WBeatSpinBox,
 #PlayPositionTextSmall:hover,
 #StarratingGutter:hover,
 WTrackProperty:hover {
-  background-color: rgba(255, 102, 0, 128);
+  background-color: rgba(255, 102, 0, 64);
   }
-  #BpmKeyEditRowCollapsed:hover,
+#BpmKeyEditRowCollapsed:hover,
   WTrackProperty[selected="true"] {
     border: 1px solid #FF6600;
   }
@@ -1266,53 +1277,54 @@ WTrackProperty:hover {
   qproperty-layoutAlignment: 'AlignCenter';
   /* emphasize active widget */
   border: 1px solid #666666;
+  /* border: 1px solid #FF66007F; */
+  /* border: 1px solid rgba(255, 102, 0, 64); */
   border-left: 0px;
-  background-color: rgba(255, 102, 0, 64);
 }
 
+
 #BpmKeyEditRowExpanded {
-  margin: 0px 2px 0px 0px;
-  padding: 0px 0px 0px 0px;
+  /* padding-right: 2px; */
   /* emphasize active widget */
   /* border: 1px solid #FF6600; */
-  background-color: rgba(255, 102, 0, 64);
+  /* background-color removed - disabled state shown via BeatEditCover instead */
   color: #D6D6D6;
-  qproperty-layoutSpacing: 0;
-  min-height: 22px;
-  max-height: 22px;
-  qproperty-layoutAlignment: 'AlignTop';
+  qproperty-layoutSpacing: 2;
   qproperty-layoutContentsMargins: rect(0 0 0 0);
 }
 
+/* unlocked collapsed */
+/* highlight = 0, value = 0*/
 #BpmKeyEditTrigger {
   margin: 0px 0px 0px 0px;
   /* make trigger button transparent */
   /* background-color: none; */
-  background-color: rgba(255, 102, 0, 64);
-  border: none;
-  border-radius: 1px;
-  min-height: 22px;
-  max-height: 22px;
+  background-color: none;
+  color: none;
+  border-radius: 2px;
 }
+
+/* unlocked uncollapsed */
+/* highlight = 0, value = 1*/
 #BpmKeyEditTrigger[value="1"] {
-  /* border: 1px solid #FF6600; */
-  border-left: 0px;
+  border: 1px solid rgba(255, 102, 0, 64);
+  /* border-left: 0px; */
+  padding-left: 4px;
 }
 
 #BpmKeyEditRowControls {
   /* Make room between buttons */
   background-color: #333333;
   padding-left: 1px;
-  padding-right: 0px;
-  margin-right: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  qproperty-layoutSpacing: 0;
+  padding-right: 1px;
+  margin-right: 2px;
+  qproperty-layoutSpacing: 2;
 }
 
 #BeatEditCover {
-  background-color: rgba(255, 102, 0, 64);
-  /* background-color: rgba(51, 51, 51, 120); */
+  /* faded/disabled look when bpmlock is active */
+  background-color: rgba(51, 51, 51, 80);
+  opacity: 0.4;
 }
 
 /* This defines the width of the key/cents display per selected notation. */
@@ -1335,11 +1347,12 @@ WTrackProperty:hover {
 
 #HotcueShiftButtons {
   qproperty-layoutSpacing: 2;
-  border-radius: 2px;
+  margin-right: 2px;
 }
 
 #BpmKeyEditTriggerLabel {
   padding-right: 1px;
+  qproperty-alignment: 'AlignRight | AlignVCenter';
 }
 
 #BpmKeyInfoShowHide[highlight="0"] {
@@ -1348,7 +1361,19 @@ WTrackProperty:hover {
 #BpmKeyInfoShowHide[highlight="1"] {
   image: url(skin:icon/ic_chevron_right_24x48px.svg) center center;
 }
-/* End editable widgets in decks */
+/* BPM background - gray by default, orange when bpmlock is enabled */
+#BpmKeyEditTriggerRow {
+  background-color: #333333;
+  border-radius: 2px;
+}
+#BpmKeyEditTriggerRow[highlight="1"] {
+  background-color: rgba(255, 102, 0, 64);
+}
+#BpmKeyEditTriggerRow[highlight="1"] #BpmKeyEditTrigger {
+  border: 1px solid rgba(255, 102, 0, 128);
+}
+
+/* editable widgets in decks */
 
 #DeckTextRow #ArtistGutter WLabel,
 #DeckTextRow #BPMGutter WLabel,
@@ -1666,16 +1691,16 @@ WNumberRate {
 }
 
 #channel_VuMeter_Group {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 1;
   qproperty-layoutAlignment: 'AlignHCenter';
   /* background-color: #828315; */
 }
 
 #main_VuMeter_Group {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
   qproperty-layoutAlignment: 'AlignHCenter';
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 3px;
+  padding-right: 4px;
   /* background-color: #828315; */
 }
 
@@ -1849,8 +1874,7 @@ WWidgetGroup {
  *******************************************************************************/
 
 WPushButton,
-WEffectChainPresetButton,
-#BpmLockToggle[value="1"] {
+WEffectChainPresetButton {
     color: #D2D2D2;
     background-color: #4B4B4B;
     border: 1px solid #4B4B4B;
@@ -1858,13 +1882,24 @@ WEffectChainPresetButton,
     outline: none;
 }
 
+#BpmLockToggle[value="1"] {
+    color: #D2D2D2;
+    background-color: rgba(255, 102, 0, 64);
+    border: 1px solid rgba(255, 102, 0, 180);
+}
+
 WPushButton:hover,
 #PlayToggle:hover,
-WEffectChainPresetButton:hover,
-#BpmLockToggle[value="1"]:hover {
+WEffectChainPresetButton:hover {
     color: #D2D2D2;
     background-color: #5F5F5F;
     border: 1px solid #5F5F5F;
+}
+
+#BpmLockToggle[value="1"]:hover {
+    color: #D2D2D2;
+    background-color: rgba(255, 102, 0, 180);
+    border: 1px solid rgba(255, 102, 0, 64);
 }
 
 /*"Pressed" state*/
