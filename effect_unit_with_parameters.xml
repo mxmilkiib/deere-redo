@@ -27,9 +27,13 @@ Variables:
             <SetVariable name="Effect">1</SetVariable>
           </Template>
 
+          <WidgetGroup><Size>0min,8f</Size></WidgetGroup>
+
           <Template src="skin:effect_single_with_parameters.xml">
             <SetVariable name="Effect">2</SetVariable>
           </Template>
+
+          <WidgetGroup><Size>0min,8f</Size></WidgetGroup>
 
           <Template src="skin:effect_single_with_parameters.xml">
             <SetVariable name="Effect">3</SetVariable>

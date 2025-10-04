@@ -138,13 +138,13 @@
                   <BindProperty>visible</BindProperty>
                 </Connection>
                 <Children>
-                  <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+                  <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
                   <Template src="skin:knob.xml">
                     <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
                     <SetVariable name="control">super1</SetVariable>
                     <SetVariable name="color">blue_gapless</SetVariable>
                   </Template>
-                  <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+                  <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
                 </Children>
               </WidgetGroup>
             </Children>

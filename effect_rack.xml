@@ -41,6 +41,11 @@ Container for all the effect units
             </Children>
           </WidgetGroup>
 
+          <Template src="skin:spacer_vx.xml">
+            <SetVariable name="height">1</SetVariable>
+            <SetVariable name="color">22</SetVariable>
+          </Template>
+
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <SizePolicy>me,me</SizePolicy>
