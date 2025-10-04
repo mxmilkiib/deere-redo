@@ -1478,7 +1478,7 @@ WEffectChainPresetButton::menu-indicator {
 }
 
 #EffectButtonControls {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 1;
 }
 
 #EffectHighlightable[highlight="0"] {
@@ -1700,7 +1700,7 @@ WNumberRate {
   qproperty-layoutSpacing: 0;
   qproperty-layoutAlignment: 'AlignHCenter';
   padding-left: 3px;
-  padding-right: 4px;
+  padding-right: 3px;
   /* background-color: #828315; */
 }
 
@@ -1808,12 +1808,12 @@ border: 0
 }
 
 #EffectUnitEffectsNoParameters {
-  qproperty-layoutSpacing: 4;
+  qproperty-layoutSpacing: 2;
 }
 
 #EffectUnitEffects {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 8;
+  qproperty-layoutSpacing: 4;
 }
 
 #EffectUnitParameters {
