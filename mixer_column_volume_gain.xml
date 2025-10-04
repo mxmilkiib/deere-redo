@@ -11,16 +11,61 @@
     <SizePolicy>max,me</SizePolicy>
     <Children>
       <WidgetGroup>
-        <Layout>vertical</Layout>
-        <Size>40f,-1</Size>
-        <MinimumSize>40,34</MinimumSize>
-        <MaximumSize>40,46</MaximumSize>
+        <Layout>horizontal</Layout>
+        <SizePolicy>me,min</SizePolicy>
         <Children>
-          <Template src="skin:knob.xml">
-            <SetVariable name="TooltipId">pregain</SetVariable>
-            <SetVariable name="control">pregain</SetVariable>
-            <SetVariable name="color">green</SetVariable>
-          </Template>
+          <!-- expanding spacer to center gain knob when kill buttons hidden -->
+          <WidgetGroup>
+            <Size>0me,1min</Size>
+            <Connection>
+              <ConfigKey>[Skin],show_eq_kill_buttons</ConfigKey>
+              <Transform><Not/></Transform>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <Size>40f,-1</Size>
+            <MinimumSize>40,34</MinimumSize>
+            <MaximumSize>40,46</MaximumSize>
+            <Children>
+              <Template src="skin:knob.xml">
+                <SetVariable name="TooltipId">pregain</SetVariable>
+                <SetVariable name="control">pregain</SetVariable>
+                <SetVariable name="color">green</SetVariable>
+              </Template>
+            </Children>
+          </WidgetGroup>
+          <!-- mute button for gain stage -->
+          <PushButton>
+            <TooltipId>mute</TooltipId>
+            <Size>15f,20f</Size>
+            <ObjectName>EQKillButton</ObjectName>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+            </State>
+            <State>
+              <Number>1</Number>
+            </State>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,mute</ConfigKey>
+              <ButtonState>LeftButton</ButtonState>
+            </Connection>
+            <Connection>
+              <ConfigKey>[Skin],show_eq_kill_buttons</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </PushButton>
+          <!-- expanding spacer to center gain knob when kill buttons hidden -->
+          <WidgetGroup>
+            <Size>0me,1min</Size>
+            <Connection>
+              <ConfigKey>[Skin],show_eq_kill_buttons</ConfigKey>
+              <Transform><Not/></Transform>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
         </Children>
       </WidgetGroup>
 

@@ -25,7 +25,7 @@
           <WidgetGroup>
             <Layout>vertical</Layout>
             <SizePolicy>min,me</SizePolicy>
-            <MaximumSize>60,300</MaximumSize>
+            <MaximumSize>65,300</MaximumSize>
             <Children>
               <SingletonContainer>
                 <ObjectName>StereoVUMeterMain</ObjectName>
@@ -77,7 +77,7 @@
                 <GroupName>VolFader_VUMeter_4Decks</GroupName>
                 <Layout>horizontal</Layout>
                 <SizePolicy>min,me</SizePolicy>
-                <MaximumSize>60,-1</MaximumSize>
+                <MaximumSize>65,-1</MaximumSize>
                 <Children>
                   <!-- Faders
                   Vol fader next to mono VU meter
@@ -85,7 +85,7 @@
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>60,180</MaximumSize>
+                    <MaximumSize>65,180</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -102,7 +102,7 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>60,210</MaximumSize>
+                    <MaximumSize>65,210</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -129,7 +129,7 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>60,193</MaximumSize>
+                    <MaximumSize>65,193</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -140,7 +140,7 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>60,180</MaximumSize>
+                    <MaximumSize>65,180</MaximumSize>
                     <Connection>
                       <ConfigKey>[Skin],show_faders</ConfigKey>
                       <BindProperty>visible</BindProperty>
