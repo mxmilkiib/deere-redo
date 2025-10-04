@@ -90,7 +90,7 @@
       <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
       <Text>&#9699;</Text>
       <Align>top|right</Align>
-      <Color>#0000FF</Color>
+      <Color>#00FF00</Color>
       <TextColor>#FFFFFF</TextColor>
     </Mark>
     <Mark>
