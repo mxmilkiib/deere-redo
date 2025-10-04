@@ -7,17 +7,18 @@
     side: The stereo channel to monitor: left or right
     tooltip_meter: The tooltip id for the vu-meter.
     tooltip_clip: The tooltip id for the clip indicator.
+    width: The width of the meter in pixels (default: 5).
 -->
 <Template>
   <WidgetGroup>
       <ObjectName>vumeter_v</ObjectName>
       <Layout>vertical</Layout>
-      <Size>5f,-1</Size>
+      <Size><Variable name="width"/>f,-1</Size>
       <Children>
           <StatusLight>
             <ObjectName>PeakIndicator</ObjectName>
             <TooltipId><Variable name="tooltip_clip"/></TooltipId>
-            <Size>5f,8f</Size>
+            <Size><Variable name="width"/>f,8f</Size>
             <PathStatusLight scalemode="STRETCH">vumeter_clip.png</PathStatusLight>
             <Connection>
                 <ConfigKey><Variable name="group"/>,peak_indicator<Variable name="side"/></ConfigKey>
@@ -34,12 +35,12 @@
                   <VuMeter>
                     <TooltipId><Variable name="tooltip_meter"/></TooltipId>
                     <Size>3me,me</Size>
-                    <MinimumSize>5,40</MinimumSize>
-                    <MaximumSize>5,-1</MaximumSize>
+                    <MinimumSize><Variable name="width"/>,40</MinimumSize>
+                    <MaximumSize><Variable name="width"/>,-1</MaximumSize>
                     <PathBack scalemode="STRETCH">vumeter_v_bg.png</PathBack>
                     <PathVu scalemode="STRETCH">vumeter_v.png</PathVu>
                     <Horizontal>false</Horizontal>
-                    <PeakHoldSize>5</PeakHoldSize>
+                    <PeakHoldSize><Variable name="width"/></PeakHoldSize>
                     <PeakHoldTime>300</PeakHoldTime>
                     <PeakFallTime>20</PeakFallTime>
                     <PeakFallStep>1</PeakFallStep>
@@ -63,12 +64,12 @@
                   <VuMeter>
                     <TooltipId><Variable name="tooltip_meter"/></TooltipId>
                     <Size>3me,me</Size>
-                    <MinimumSize>5,60</MinimumSize>
-                    <MaximumSize>5,-1</MaximumSize>
+                    <MinimumSize><Variable name="width"/>,60</MinimumSize>
+                    <MaximumSize><Variable name="width"/>,-1</MaximumSize>
                     <PathBack scalemode="STRETCH">vumeter_v_bg.png</PathBack>
                     <PathVu scalemode="STRETCH">vumeter_v.png</PathVu>
                     <Horizontal>false</Horizontal>
-                    <PeakHoldSize>5</PeakHoldSize>
+                    <PeakHoldSize><Variable name="width"/></PeakHoldSize>
                     <PeakHoldTime>300</PeakHoldTime>
                     <PeakFallTime>20</PeakFallTime>
                     <PeakFallStep>1</PeakFallStep>

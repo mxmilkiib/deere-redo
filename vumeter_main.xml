@@ -4,8 +4,8 @@
   <WidgetGroup>
     <ObjectName>MainVu</ObjectName>
     <Layout>vertical</Layout>
-    <MinimumSize>20,60</MinimumSize>
-    <MaximumSize>20,300</MaximumSize>
+    <MinimumSize>30,60</MinimumSize>
+    <MaximumSize>30,300</MaximumSize>
     <Children>
 
       <WidgetGroup>
@@ -13,12 +13,15 @@
         <Layout>horizontal</Layout>
         <Children>
           <Template src="skin:vumeter_v.xml">
+            <SetVariable name="width">10</SetVariable>
             <SetVariable name="group">[Main]</SetVariable>
             <SetVariable name="side">_left</SetVariable>
             <SetVariable name="tooltip_meter">main_VuMeterL</SetVariable>
             <SetVariable name="tooltip_clip">main_peak_indicator_left</SetVariable>
           </Template>
+          <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
           <Template src="skin:vumeter_v.xml">
+            <SetVariable name="width">10</SetVariable>
             <SetVariable name="group">[Main]</SetVariable>
             <SetVariable name="side">_right</SetVariable>
             <SetVariable name="tooltip_meter">main_VuMeterR</SetVariable>
