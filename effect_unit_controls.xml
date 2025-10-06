@@ -20,8 +20,6 @@
         <SizePolicy>min,min</SizePolicy>
         <Children>
 
-          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
-
           <WidgetGroup>
             <Layout>vertical</Layout>
             <Connection>
@@ -159,7 +157,7 @@
           <WidgetGroup>
             <ObjectName>EffectUnitHead</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>min,max</SizePolicy>
+            <SizePolicy>me,max</SizePolicy>
             <Children>
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_headphones_enabled</SetVariable>
@@ -173,6 +171,7 @@
                 <SetVariable name="state_1_unpressed">icon/ic_headphones_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit<Variable name="EffectUnit"/>],group_[Headphone]_enable</SetVariable>
               </Template>
+              <WidgetGroup><Size>30f,0min</Size></WidgetGroup>
             </Children>
           </WidgetGroup>
 

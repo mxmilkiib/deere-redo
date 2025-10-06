@@ -61,9 +61,9 @@
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_main_enabled</SetVariable>
                 <SetVariable name="ObjectName">FxAssignmentButton</SetVariable>
-                <SetVariable name="MinimumSize">26,22</SetVariable>
-                <SetVariable name="MaximumSize">26,22</SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SmallWideButtonSizePolicy"/></SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="FXAssignmentButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="FXAssignmentButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="FXAssignmentButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">FX1</SetVariable>
                 <SetVariable name="state_1_text">FX1</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit1],group_[Master]_enable</SetVariable>
@@ -72,9 +72,9 @@
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_main_enabled</SetVariable>
                 <SetVariable name="ObjectName">FxAssignmentButton</SetVariable>
-                <SetVariable name="MinimumSize">18,22</SetVariable>
-                <SetVariable name="MaximumSize">18,22</SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SmallWideButtonSizePolicy"/></SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="FXAssignmentButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="FXAssignmentButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="FXAssignmentButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">2</SetVariable>
                 <SetVariable name="state_1_text">2</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit2],group_[Master]_enable</SetVariable>
@@ -83,9 +83,9 @@
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_main_enabled</SetVariable>
                 <SetVariable name="ObjectName">FxAssignmentButton</SetVariable>
-                <SetVariable name="MinimumSize">18,22</SetVariable>
-                <SetVariable name="MaximumSize">18,22</SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SmallWideButtonSizePolicy"/></SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="FXAssignmentButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="FXAssignmentButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="FXAssignmentButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">3</SetVariable>
                 <SetVariable name="state_1_text">3</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit3],group_[Master]_enable</SetVariable>
@@ -94,9 +94,9 @@
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_main_enabled</SetVariable>
                 <SetVariable name="ObjectName">FxAssignmentButton</SetVariable>
-                <SetVariable name="MinimumSize">18,22</SetVariable>
-                <SetVariable name="MaximumSize">18,22</SetVariable>
-                <SetVariable name="SizePolicy"><Variable name="SmallWideButtonSizePolicy"/></SetVariable>
+                <SetVariable name="MinimumSize"><Variable name="FXAssignmentButtonMinimumSize"/></SetVariable>
+                <SetVariable name="MaximumSize"><Variable name="FXAssignmentButtonMaximumSize"/></SetVariable>
+                <SetVariable name="SizePolicy"><Variable name="FXAssignmentButtonSizePolicy"/></SetVariable>
                 <SetVariable name="state_0_text">4</SetVariable>
                 <SetVariable name="state_1_text">4</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit4],group_[Master]_enable</SetVariable>

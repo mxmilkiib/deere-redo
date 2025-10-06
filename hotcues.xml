@@ -57,11 +57,11 @@
     </Connection>
   </WidgetGroup>
 
-  <!--Extended grid Hotcue 1-8 -->
+  <!--Extended grid Hotcue 1-12 -->
   <WidgetGroup>
     <Layout>vertical</Layout>
-    <MinimumSize>76,48</MinimumSize>
-    <MaximumSize>96,48</MaximumSize>
+    <MinimumSize>114,48</MinimumSize>
+    <MaximumSize>144,48</MaximumSize>
     <SizePolicy>me,min</SizePolicy>
     <Children>
       <WidgetGroup>
@@ -81,6 +81,12 @@
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">4</SetVariable>
           </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">5</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">6</SetVariable>
+          </Template>
         </Children>
       </WidgetGroup>
 
@@ -90,16 +96,22 @@
         <SizePolicy>me,min</SizePolicy>
         <Children>
           <Template src="skin:hotcue_button.xml">
-            <SetVariable name="hotcue">5</SetVariable>
-          </Template>
-          <Template src="skin:hotcue_button.xml">
-            <SetVariable name="hotcue">6</SetVariable>
-          </Template>
-          <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">7</SetVariable>
           </Template>
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">8</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">9</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">10</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">11</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">12</SetVariable>
           </Template>
         </Children>
       </WidgetGroup>
@@ -118,14 +130,14 @@
     </Connection>
   </WidgetGroup>
 
-  <!--Extended grid Hotcue 1-16 -->
+  <!--Extended grid Hotcue 1-24 -->
   <WidgetGroup>
     <Layout>vertical</Layout>
-    <MinimumSize>152,48</MinimumSize>
+    <MinimumSize>228,48</MinimumSize>
     <MaximumSize>-1,48</MaximumSize>
-    <SizePolicy>me,min</SizePolicy>
+    <SizePolicy>min,min</SizePolicy>
     <Children>
-      <!-- Row 1: Hotcues 1-8 -->
+      <!-- Row 1: Hotcues 1-12 -->
       <WidgetGroup>
         <ObjectName>HotcueGrid</ObjectName>
         <Layout>horizontal</Layout>
@@ -154,14 +166,6 @@
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">8</SetVariable>
           </Template>
-        </Children>
-      </WidgetGroup>
-
-      <!-- Row 2: Hotcues 9-16 -->
-      <WidgetGroup>
-        <ObjectName>HotcueGrid</ObjectName>
-        <Layout>horizontal</Layout>
-        <Children>
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">9</SetVariable>
           </Template>
@@ -174,6 +178,14 @@
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">12</SetVariable>
           </Template>
+        </Children>
+      </WidgetGroup>
+
+      <!-- Row 2: Hotcues 13-24 -->
+      <WidgetGroup>
+        <ObjectName>HotcueGrid</ObjectName>
+        <Layout>horizontal</Layout>
+        <Children>
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">13</SetVariable>
           </Template>
@@ -185,6 +197,30 @@
           </Template>
           <Template src="skin:hotcue_button.xml">
             <SetVariable name="hotcue">16</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">17</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">18</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">19</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">20</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">21</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">22</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">23</SetVariable>
+          </Template>
+          <Template src="skin:hotcue_button.xml">
+            <SetVariable name="hotcue">24</SetVariable>
           </Template>
         </Children>
       </WidgetGroup>

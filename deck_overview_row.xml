@@ -9,8 +9,8 @@
   <WidgetGroup>
     <ObjectName>OverviewRow</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>me,min</SizePolicy>
-    <MinimumSize>-1,46</MinimumSize>
+    <SizePolicy>me,max</SizePolicy>
+    <MinimumSize>-1,48</MinimumSize>
     <Children>
               <WidgetGroup>
             <ObjectName>DeckControlsGridLeft</ObjectName>
@@ -57,7 +57,7 @@
       <!-- Can't apply margin & padding to WOverview.
           Due to qproperty-layoutSpacing, this spacer creates a 5px
           gap between deck options and overview and FX assignment buttons -->
-      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
 
 
       <WidgetGroup>
@@ -126,7 +126,6 @@
               </Template>
 
               <Template src="skin:left_right_1state_button.xml">
-                <SetVariable name="TooltipId">track_color</SetVariable>
                 <SetVariable name="ObjectName">TrackColorButton</SetVariable>
                 <SetVariable name="MinimumSize"><Variable name="SquareButtonMinimumSize"/></SetVariable>
                 <SetVariable name="MaximumSize"><Variable name="SquareButtonMaximumSize"/></SetVariable>
@@ -215,6 +214,7 @@
         </Children>
       </WidgetStack>
 
+      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
     </Children>
   </WidgetGroup>
 </Template>

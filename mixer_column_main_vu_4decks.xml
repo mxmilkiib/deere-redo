@@ -25,7 +25,6 @@
           <WidgetGroup>
             <Layout>vertical</Layout>
             <SizePolicy>min,me</SizePolicy>
-            <MaximumSize>65,300</MaximumSize>
             <Children>
               <SingletonContainer>
                 <ObjectName>StereoVUMeterMain</ObjectName>
@@ -85,7 +84,6 @@
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>65,180</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -102,7 +100,6 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>65,210</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -129,7 +126,6 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>65,193</MaximumSize>
                     <Children>
                       <SingletonContainer>
                         <ObjectName>StereoVUMeterMain</ObjectName>
@@ -140,7 +136,6 @@
                   <WidgetGroup>
                     <Layout>vertical</Layout>
                     <SizePolicy>min,me</SizePolicy>
-                    <MaximumSize>65,180</MaximumSize>
                     <Connection>
                       <ConfigKey>[Skin],show_faders</ConfigKey>
                       <BindProperty>visible</BindProperty>

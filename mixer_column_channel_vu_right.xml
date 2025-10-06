@@ -1,5 +1,5 @@
 <!DOCTYPE template>
-<!-- Channel VU meter column -->
+<!-- channel vu meter column for right-side channels (2, 4) -->
 <Template>
   <SetVariable name="group">[Channel<Variable name="i"/>]</SetVariable>
 
@@ -10,7 +10,7 @@
         <Layout>horizontal</Layout>
         <SizePolicy>me,me</SizePolicy>
         <Children>
-          <Template src="skin:spacer_h.xml"/>
+          <WidgetGroup><Size>3f,0min</Size></WidgetGroup>
           <WidgetGroup>
             <ObjectName>channel_VuMeter_Group</ObjectName>
             <Layout>horizontal</Layout>
@@ -32,7 +32,7 @@
               </Template>
             </Children>
           </WidgetGroup>
-          <WidgetGroup><Size>11f,0min</Size></WidgetGroup>
+          <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
         </Children>
       </WidgetGroup>
     </Children>

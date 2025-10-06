@@ -31,12 +31,12 @@
 
               <WidgetGroup>
                 <Layout>vertical</Layout>
+                <SizePolicy>min,me</SizePolicy>
                 <Children>
                   <VuMeter>
                     <TooltipId><Variable name="tooltip_meter"/></TooltipId>
-                    <Size>3me,me</Size>
+                    <SizePolicy>min,me</SizePolicy>
                     <MinimumSize><Variable name="width"/>,40</MinimumSize>
-                    <MaximumSize><Variable name="width"/>,-1</MaximumSize>
                     <PathBack scalemode="STRETCH">vumeter_v_bg.png</PathBack>
                     <PathVu scalemode="STRETCH">vumeter_v.png</PathVu>
                     <Horizontal>false</Horizontal>
@@ -60,12 +60,12 @@
 
               <WidgetGroup>
                 <Layout>vertical</Layout>
+                <SizePolicy>min,me</SizePolicy>
                 <Children>
                   <VuMeter>
                     <TooltipId><Variable name="tooltip_meter"/></TooltipId>
-                    <Size>3me,me</Size>
+                    <SizePolicy>min,me</SizePolicy>
                     <MinimumSize><Variable name="width"/>,60</MinimumSize>
-                    <MaximumSize><Variable name="width"/>,-1</MaximumSize>
                     <PathBack scalemode="STRETCH">vumeter_v_bg.png</PathBack>
                     <PathVu scalemode="STRETCH">vumeter_v.png</PathVu>
                     <Horizontal>false</Horizontal>

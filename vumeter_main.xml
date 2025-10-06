@@ -4,8 +4,8 @@
   <WidgetGroup>
     <ObjectName>MainVu</ObjectName>
     <Layout>vertical</Layout>
+    <SizePolicy>min,me</SizePolicy>
     <MinimumSize>30,60</MinimumSize>
-    <MaximumSize>30,300</MaximumSize>
     <Children>
 
       <WidgetGroup>

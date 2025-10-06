@@ -1,0 +1,50 @@
+<!DOCTYPE template>
+<!--
+Left effect rack container (Effect Units 1 and 3)
+-->
+<Template>
+  <WidgetGroup>
+    <Connection>
+      <ConfigKey>[Skin],show_effectrack</ConfigKey>
+      <BindProperty>visible</BindProperty>
+    </Connection>
+    <Layout>vertical</Layout>
+    <SizePolicy>me,f</SizePolicy>
+    <Children>
+      <WidgetGroup>
+        <ObjectName>EffectRackContainer</ObjectName>
+        <Layout>vertical</Layout>
+        <Children>
+
+          <!-- Effect Unit 1 -->
+          <Template src="skin:effect_unit.xml">
+            <SetVariable name="EffectRack">1</SetVariable>
+            <SetVariable name="EffectUnit">1</SetVariable>
+          </Template>
+
+          <Template src="skin:spacer_vx.xml">
+            <SetVariable name="height">1</SetVariable>
+            <SetVariable name="color">22</SetVariable>
+          </Template>
+
+          <!-- Effect Unit 3 -->
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <SizePolicy>me,me</SizePolicy>
+            <Children>
+              <Template src="skin:effect_unit.xml">
+                <SetVariable name="EffectRack">1</SetVariable>
+                <SetVariable name="EffectUnit">3</SetVariable>
+              </Template>
+            </Children>
+            <Connection>
+              <ConfigKey>[Skin],show_4effectunits</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+    </Children>
+  </WidgetGroup>
+</Template>

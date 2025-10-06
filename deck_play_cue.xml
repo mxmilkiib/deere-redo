@@ -10,9 +10,9 @@
 			<WidgetGroup>
 				<ObjectName>PlayCueContainer</ObjectName>
 				<Layout>vertical</Layout>
-				<MinimumSize>56,42</MinimumSize>
-				<MaximumSize>64, -1</MaximumSize>
-				<SizePolicy>max,me</SizePolicy>
+				<MinimumSize>60,42</MinimumSize>
+				<MaximumSize>60, -1</MaximumSize>
+				<SizePolicy>min,me</SizePolicy>
 				<Children>
 					<Template src="skin:left_right_display_2state_button.xml">
 						<SetVariable name="TooltipId">cue_default_cue_gotoandstop</SetVariable>
@@ -32,7 +32,7 @@
 
 					<WidgetGroup><!-- Play button + play_indicator -->
 						<Layout>stacked</Layout>
-						<SizePolicy>me,me</SizePolicy>
+						<SizePolicy>min,me</SizePolicy>
 						<Children>
 							<Template src="skin:left_right_display_2state_button.xml">
 								<SetVariable name="TooltipId">play_cue_set</SetVariable>

@@ -43,6 +43,10 @@ WPushButton#BeatjumpButton {
 
 }
 
+WPushButton#BeatJumpButton:first-child {
+  margin-right: 1px;
+}
+
 /*******************************************************************************
  ** LOOP BUTTON STYLING ********************************************************
  *******************************************************************************/
@@ -96,7 +100,8 @@ WPushButton#BeatloopButton {
 #DeckTextRow {
   border-top: 0px solid #222;
   border-bottom: 1px solid #222;
-  padding: 0px 0 0px 0px; 
+  padding: 0; 
+  margin: 0;
 }
 #DeckTextRowSmall {
   border: 1px solid #222;
@@ -160,8 +165,13 @@ WPushButton#BeatloopButton {
 
 #ControlsRow {
   border-top: 1px solid #222;
-  padding: 0px;
+  margin: 0px;
+  margin-left: 2px;
+  min-height: 48px;
+  max-height: 48px;
   qproperty-layoutAlignment: 'AlignVCenter';
+  qproperty-layoutAlignment: 'AlignHCenter';
+  qproperty-layoutSpacing: 0;
 }
 
 #MixerBorder {
@@ -982,13 +992,14 @@ WPushButton, #LibraryFeatureControls QPushButton {
 
 WCoverArt,
 WCoverArtMenu {
-  margin: 0px 0px 0px 4px;
-  padding: 0px 0px 0px 4px;
+  margin: 0px 1px 0px 4px;
+  padding: 0px 1px 0px 4px;
 }
 
 /* cue points labels in the overview */
 WOverview {
   text-transform: none;
+  /* max-height: 48px; */
 }
 
 /* Passthrough label on overview waveform */
@@ -1044,25 +1055,27 @@ WOverview #PassthroughLabel {
 
 /* Button alignment and spacing fixes */
 #PlayCueContainer {
-  padding: 2px 0px 0px 0px;
+  padding: 1px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
-#HotcueGrid,
+#HotcueGrid {
+  qproperty-layoutSpacing: 0;
+}
+
 #LoopGridBottom,
 #VinylControlsGrid {
-  padding: 0px 0px 0px 0px;
-  qproperty-layoutSpacing: 2;
+  padding: 1px 0px 0px 0px;
+  qproperty-layoutSpacing: 1;
 }
 
 #DeckCue {
   /* Center the button text */
   text-align: center;
-  /* qproperty-alignment removed - not supported by WPushButton */
 }
 
 #PlayToggle {
   /* Center the button text */
   text-align: center;
-  /* qproperty-alignment removed - not supported by WPushButton */
 }
 
 #HotcueGrid WWidgetGroup,
@@ -1081,24 +1094,25 @@ WOverview #PassthroughLabel {
   qproperty-layoutSpacing: 2;
 }
 
-
-
 #DeckControlsGrid {
   margin-right: 0px;
 } 
 
-
 /* Fix the overall control row margins */
-#ControlsRow,
-#DeckControlsGridLeft {
+#DeckControlsGridLeft,
+#FxAssignmentGrid {
   margin: 0px 1px 0px 1px !important;
   padding: 0px !important;
 }
+/* #DeckControlsGridRight {
+  margin: 0px 0px 0px 0px !important;
+  padding-left: 0px !important;
+} */
 
 /* Fix for parent container margins */
 WidgetGroup#DeckRows > QWidget, 
 WidgetGroup#DeckRows * > #ControlsRow {
-  margin: 0px 1px 0px 1px !important;
+  margin: 0px 0px 0px 0px !important;
   padding: 0px !important;
 }
 
@@ -1106,6 +1120,23 @@ WidgetGroup#DeckRows * > #ControlsRow {
 #VinylControlsGrid {
   padding: 1px;
   qproperty-layoutSpacing: 2;
+}
+
+#HotcueGrid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#SpecialCuesContainer,
+#OutroCuesContainer {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#BeatjumpContainer {
+  /* margin-left: -1px; */
 }
 
 #HotcueGrid WWidgetGroup,
@@ -1117,7 +1148,6 @@ WidgetGroup#DeckRows * > #ControlsRow {
 
 #DeckControlsGrid {
   qproperty-layoutSpacing: 2;
-  padding: 0px;
 }
 
 WBeatSpinBox,
@@ -1125,15 +1155,21 @@ WBeatSpinBox,
   color: #c1cabe;
   background-color: #1f1e1e;
   border: 1px solid #444342;
-  border-radius: 1px;
+  border-radius: 2px;
   font: 15px;
   }
   WBeatSpinBox {
-    padding: 2px;
+    /* max-width: 48px !important; */
+  }
+  BeatloopSizeSpinBox {
+    min-width: 55px !important;
+  }
+  BeatjumpSizeSpinBox {
+    min-width: 55px !important;
   }
   #spinBoxTransition {
-    padding: 0px 2px 0px 2px;
-    margin: 3px 0px 0px 2px;
+    padding: 0;
+    margin: 0;
   }
   WBeatSpinBox:hover,
   #spinBoxTransition:hover,
@@ -1145,7 +1181,7 @@ WBeatSpinBox,
   #spinBoxTransition::down-button {
     subcontrol-origin: border;
     subcontrol-position: bottom right; /* position at the top right corner */
-    padding-right: 4px;
+    padding-right: 3px;
     padding-top: -3px;
     border: 0;
   }
@@ -1234,7 +1270,7 @@ WBeatSpinBox,
   qproperty-layoutSpacing: 0;
 }
 #TitleGutterSmall {
-  padding: 0px;
+  padding: 1px;
 }
 
 #TrackColorWrapper {
@@ -1267,10 +1303,12 @@ WBeatSpinBox,
 #StarratingGutter:hover,
 WTrackProperty:hover {
   background-color: rgba(255, 102, 0, 64);
+  /* border-radius: 2px; */
   }
 #BpmKeyEditRowCollapsed:hover,
   WTrackProperty[selected="true"] {
     border: 1px solid #FF6600;
+  border-radius: 2px;
   }
 
 #BpmKeyEditTriggerRow[value="1"] {
@@ -1280,6 +1318,7 @@ WTrackProperty:hover {
   /* border: 1px solid #FF66007F; */
   /* border: 1px solid rgba(255, 102, 0, 64); */
   border-left: 0px;
+  border-radius: 2px;
 }
 
 
@@ -1297,6 +1336,8 @@ WTrackProperty:hover {
 /* highlight = 0, value = 0*/
 #BpmKeyEditTrigger {
   margin: 0px 0px 0px 0px;
+  padding-bottom: 1px;
+  padding-right: 5px;
   /* make trigger button transparent */
   /* background-color: none; */
   background-color: none;
@@ -1310,6 +1351,7 @@ WTrackProperty:hover {
   border: 1px solid rgba(255, 102, 0, 64);
   /* border-left: 0px; */
   padding-left: 4px;
+  border-radius: 2px;
 }
 
 #BpmKeyEditRowControls {
@@ -1327,6 +1369,9 @@ WTrackProperty:hover {
   opacity: 0.4;
 }
 
+#KeyLabelExpander {
+  margin-bottom: 1px;
+}
 /* This defines the width of the key/cents display per selected notation. */
 #KeyLabelExpander[highlight="0"],  /* Invalid */
 #KeyLabelExpander[highlight="1"],  /* Custom */
@@ -1353,6 +1398,8 @@ WTrackProperty:hover {
 #BpmKeyEditTriggerLabel {
   padding-right: 1px;
   qproperty-alignment: 'AlignRight | AlignVCenter';
+  border-radius: 2px;
+  margin-right: 1px;
 }
 
 #BpmKeyInfoShowHide[highlight="0"] {
@@ -1364,6 +1411,8 @@ WTrackProperty:hover {
 /* BPM background - gray by default, orange when bpmlock is enabled */
 #BpmKeyEditTriggerRow {
   background-color: #333333;
+  padding-bottom: 1px;
+  padding-right: 1px;
   border-radius: 2px;
 }
 #BpmKeyEditTriggerRow[highlight="1"] {
@@ -1371,6 +1420,8 @@ WTrackProperty:hover {
 }
 #BpmKeyEditTriggerRow[highlight="1"] #BpmKeyEditTrigger {
   border: 1px solid rgba(255, 102, 0, 128);
+  padding-bottom: 1px;
+  padding-right: 1px;
 }
 
 /* editable widgets in decks */
@@ -1505,17 +1556,17 @@ WEffectChainPresetButton::menu-indicator {
 }
 
 #EffectUnitControls {
-  border: 1px solid #222222;
-  border-width: 0px 0px 0px 1px;
+  /* border: 1px solid #222222; */
+  border-width: 0;
   qproperty-layoutSpacing: 2;
-  padding: 0px 0px 0px 0px;
+  padding: 0;
   qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
   background-color: #333; /*
   background-color: #664971;  */
 }
 
 #EffectUnitHead {
-  padding: 0px 4px 0px 0px;
+  padding: 0;
 }
 
 #EffectButtonContainer {
@@ -1631,6 +1682,7 @@ WNumberRate {
   padding: 0px 0px 3px 0px;
   border-left: 1px solid #222;
   border-right: 1px solid #222;
+  border-bottom: 0;
 }
 
 #DeckMixer {
@@ -1699,8 +1751,8 @@ WNumberRate {
 #main_VuMeter_Group {
   qproperty-layoutSpacing: 0;
   qproperty-layoutAlignment: 'AlignHCenter';
-  padding-left: 3px;
-  padding-right: 3px;
+  padding-left: 1px;
+  padding-right: 1px;
   /* background-color: #828315; */
 }
 
@@ -1788,18 +1840,23 @@ WStarRating {
 
 #EffectRackContainer {
   background-color: #333333;
-  border: 0
+  border: 0;
+  padding: 0;
+  margin: -3px 0;
 }
 
-#EffectUnit1 {
-border: 0 }
+#EffectUnitsRow {
+  padding: 0;
+  margin: 0;
+}
 
-
-#EffectUnit2 {
-border: 0 }
-
-#EffectUnit3, #EffectUnit4 {
-border: 0
+#EffectUnit1,
+#EffectUnit2,
+#EffectUnit3,
+#EffectUnit4 {
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #EffectUnitNoParameters {
@@ -1934,12 +1991,6 @@ WPushButton[value="2"]:hover,
 #BeatJumpButton {
   border: none;
 }
-
-#BeatJumpButton {
-  
-}
-
-
 
 
 #HotcueButton[light="true"],

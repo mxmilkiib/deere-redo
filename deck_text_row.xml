@@ -16,10 +16,11 @@
     <Layout>horizontal</Layout>
     <SizePolicy>me,min</SizePolicy>
     <Children>
+      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <Size>45f,45</Size>
+        <Size>48f,48f</Size>
         <Children>
           <SingletonContainer>
             <ObjectName>DeckCoverArt<Variable name="i"/></ObjectName>
@@ -30,6 +31,8 @@
           <BindProperty>visible</BindProperty>
         </Connection>
       </WidgetGroup>
+
+      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
 
       <WidgetGroup>
         <ObjectName>DeckTextColumn</ObjectName>
@@ -77,6 +80,8 @@
                       </Transform>
                     </Connection>
                   </Label>
+
+                  <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
 
                   <!-- shift cues buttons - always visible -->
                   <WidgetGroup>
@@ -545,7 +550,7 @@
                         <Layout>horizontal</Layout>
                         <Children>
                           <Label>
-                            <Size>10f,12</Size>
+                            <Size>10f,12f</Size>
                             <ObjectName>BpmKeyInfoShowHide</ObjectName>
                             <Connection>
                               <ConfigKey>[Deere],show_key_controls</ConfigKey>
@@ -555,7 +560,7 @@
 
                           <Key>
                             <ObjectName>BpmKeyEditTriggerLabel</ObjectName>
-                            <Size>30me,22</Size>
+                            <Size>30me,18</Size>
                             <Group><Variable name="group"/></Group>
                             <DisplayCents>false</DisplayCents>
                             <Connection>
