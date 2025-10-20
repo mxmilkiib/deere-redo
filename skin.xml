@@ -88,13 +88,18 @@
 
   <ObjectName>Mixxx</ObjectName>
   <Style src="skin:style.qss"
-         src-mac="skins:Deere/style-mac.qss"
-         src-linux="skins:default-menu-styles-linux.qss"
-         src-windows="skins:default-menu-styles-windows.qss"/>
+         src-mac="skin:style-mac.qss"/>
   <Size>1008me,550me</Size>
   <Layout>horizontal</Layout>
 
   <Children>
+
+
+    <!-- ========================================================================== -->
+    <!-- UI COMPONENT SIZES                                                         -->
+    <!-- ========================================================================== -->
+
+    <!-- small button sizes -->
     <SetVariable name="SmallSquareButtonMinimumSize">15,15</SetVariable>
     <SetVariable name="SmallSquareButtonMaximumSize">15,15</SetVariable>
     <SetVariable name="SmallSquareButtonSizePolicy">f,f</SetVariable>
@@ -102,10 +107,6 @@
     <SetVariable name="SmallWideButtonMinimumSize">50,18</SetVariable>
     <SetVariable name="SmallWideButtonMaximumSize">50,22</SetVariable>
     <SetVariable name="SmallWideButtonSizePolicy">f,f</SetVariable>
-
-    <SetVariable name="MinimalControlsButtonMinimumSize">34,22</SetVariable>
-    <SetVariable name="MinimalControlsButtonMaximumSize">34,22</SetVariable>
-    <SetVariable name="MinimalControlsButtonSizePolicy">f,f</SetVariable>
 
     <SetVariable name="SmallHorizontalStretchButtonMinimumSize">-1,15</SetVariable>
     <SetVariable name="SmallHorizontalStretchButtonMaximumSize">-1,15</SetVariable>
@@ -119,21 +120,14 @@
     <SetVariable name="SmallHorizontalStretchLinkButtonMaximumSize">-1,4</SetVariable>
     <SetVariable name="SmallHorizontalStretchLinkButtonSizePolicy">me,f</SetVariable>
 
+    <!-- standard button sizes -->
     <SetVariable name="SquareButtonMinimumSize">22,22</SetVariable>
     <SetVariable name="SquareButtonMaximumSize">22,22</SetVariable>
     <SetVariable name="SquareButtonSizePolicy">f,f</SetVariable>
 
-    <SetVariable name="FXAssignmentButtonMinimumSize">26,22</SetVariable>
-    <SetVariable name="FXAssignmentButtonMaximumSize">26,22</SetVariable>
-    <SetVariable name="FXAssignmentButtonSizePolicy">f,f</SetVariable>
-
     <SetVariable name="WideButtonMinimumSize">40,22</SetVariable>
     <SetVariable name="WideButtonMaximumSize">40,22</SetVariable>
     <SetVariable name="WideButtonSizePolicy">f,f</SetVariable>
-
-    <SetVariable name="ToolbarButtonMinimumSize">75,22</SetVariable>
-    <SetVariable name="ToolbarButtonMaximumSize">75,22</SetVariable>
-    <SetVariable name="ToolbarButtonSizePolicy">f,f</SetVariable>
 
     <SetVariable name="HorizontalStretchButtonMinimumSize">-1,22</SetVariable>
     <SetVariable name="HorizontalStretchButtonMaximumSize">-1,22</SetVariable>
@@ -143,41 +137,109 @@
     <SetVariable name="VerticalStretchButtonMaximumSize">22,-1</SetVariable>
     <SetVariable name="VerticalStretchButtonSizePolicy">f,me</SetVariable>
 
-    <!-- The waveforms (zoomed and overview) use a lot of memory. They appear in multiple places in
-    main_decks.xml, left_deck.xml, and right_deck.xml, so define them in singletons. This makes
-    toggling between 2/4 decks and stacked/split waveforms slower, but it makes Mixxx startup
-    and shutdown much faster and saves a lot of memory.-->
+    <!-- specialized button sizes -->
+    <SetVariable name="MinimalControlsButtonMinimumSize">34,22</SetVariable>
+    <SetVariable name="MinimalControlsButtonMaximumSize">34,22</SetVariable>
+    <SetVariable name="MinimalControlsButtonSizePolicy">f,f</SetVariable>
+
+    <SetVariable name="FXAssignmentButtonMinimumSize">26,22</SetVariable>
+    <SetVariable name="FXAssignmentButtonMaximumSize">26,22</SetVariable>
+    <SetVariable name="FXAssignmentButtonSizePolicy">f,f</SetVariable>
+
+    <SetVariable name="ToolbarButtonMinimumSize">75,22</SetVariable>
+    <SetVariable name="ToolbarButtonMaximumSize">75,22</SetVariable>
+    <SetVariable name="ToolbarButtonSizePolicy">f,f</SetVariable>
+
+
+    <!-- ========================================================================== -->
+    <!-- WAVEFORM COLORS                                                            -->
+    <!-- ========================================================================== -->
+
+    <!-- main waveform colors (zoomed view) -->
+    <!-- filtered mode: red/green/blue frequency bands -->
+    <SetVariable name="WaveformSignalHighColor">#FF0000</SetVariable>
+    <SetVariable name="WaveformSignalMidColor">#00FF00</SetVariable>
+    <SetVariable name="WaveformSignalLowColor">#0000FF</SetVariable>
+
+    <!-- stacked mode: off-white/yellow/blue bands
+         note: despite the "RGB" name, these are used by stacked waveforms,
+         not literal rgb. changing this would require core code modifications. -->
+    <SetVariable name="WaveformSignalRGBHighColor">#FFDDCC</SetVariable>
+    <SetVariable name="WaveformSignalRGBMidColor">#F8D200</SetVariable>
+    <SetVariable name="WaveformSignalRGBLowColor">#0055FF</SetVariable>
+
+    <!-- overview waveform colors (deck overview + library column) -->
+    <!-- behavior depends on waveform type setting:
+         - RGB mode: uses the "RGB" colors below (off-white/yellow/blue)
+         - Layered mode: deck uses DeckSignalColor, library uses filtered colors -->
+
+    <!-- filtered mode: red/green/blue frequency bands
+         used by library overview when waveform type is set to layered -->
+    <SetVariable name="OverviewSignalHighColor">#FF0000</SetVariable>
+    <SetVariable name="OverviewSignalMidColor">#00FF00</SetVariable>
+    <SetVariable name="OverviewSignalLowColor">#0000FF</SetVariable>
+
+    <!-- rgb/stacked mode: off-white/yellow/blue bands
+         used by deck and library overviews when waveform type is set to rgb -->
+    <SetVariable name="OverviewSignalRGBHighColor">#FFDDCC</SetVariable>
+    <SetVariable name="OverviewSignalRGBMidColor">#F8D200</SetVariable>
+    <SetVariable name="OverviewSignalRGBLowColor">#0055FF</SetVariable>
+
+    <!-- waveform marker colors -->
+    <SetVariable name="WaveformBeatColor">#ffffff</SetVariable>
+    <SetVariable name="WaveformPlayPosColor">#00ff00</SetVariable>
+    <SetVariable name="WaveformEndOfTrackColor">#EA0000</SetVariable>
+    <SetVariable name="WaveformLoopColor">#00FF00</SetVariable>
+    <SetVariable name="WaveformIntroOutroColor">#0000FF</SetVariable>
+    <SetVariable name="WaveformCuePointColor">#FF001C</SetVariable>
+    <SetVariable name="WaveformDefaultMarkColor">#006596</SetVariable>
+
+
+    <!-- ========================================================================== -->
+    <!-- DECK SINGLETON DEFINITIONS                                                 -->
+    <!-- ========================================================================== -->
+
+    <!-- waveforms (zoomed and overview) use a lot of memory. they appear in multiple places in
+    main_decks.xml, left_deck.xml, and right_deck.xml, so define them in singletons. this makes
+    toggling between 2/4 decks and stacked/split waveforms slower, but it makes mixxx startup
+    and shutdown much faster and saves a lot of memory. -->
+
+    <!-- deck 1 - traditional blue -->
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">1</SetVariable>
-      <!-- Traditional Blue -->
       <SetVariable name="DeckSignalColor">#007BCD</SetVariable>
       <SetVariable name="DeckBackgroundColor">#343940</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30000011</SetVariable>
     </Template>
 
+    <!-- deck 2 - traditional orange -->
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">2</SetVariable>
-      <!-- Traditional Orange -->
       <SetVariable name="DeckSignalColor">#E67A00</SetVariable>
       <SetVariable name="DeckBackgroundColor">#403c34</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30001111</SetVariable>
     </Template>
 
+    <!-- deck 3 - violet -->
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">3</SetVariable>
-      <!-- Violet -->
       <SetVariable name="DeckSignalColor">#B500B5</SetVariable>
       <SetVariable name="DeckBackgroundColor">#403440</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30110000</SetVariable>
     </Template>
 
+    <!-- deck 4 - lime -->
     <Template src="skin:deck_singletons.xml">
       <SetVariable name="i">4</SetVariable>
-      <!-- Lime -->
       <SetVariable name="DeckSignalColor">#AABD00</SetVariable>
       <SetVariable name="DeckBackgroundColor">#3d4034</SetVariable>
       <SetVariable name="PlayedOverlayColor">#30001100</SetVariable>
     </Template>
+
+
+    <!-- ========================================================================== -->
+    <!-- OTHER SINGLETON DEFINITIONS                                                -->
+    <!-- ========================================================================== -->
 
     <SingletonDefinition>
       <ObjectName>Library</ObjectName>
@@ -192,6 +254,11 @@
         <Template src="skin:skinsettings_sampler_buttons.xml"/>
       </Children>
     </SingletonDefinition>
+
+
+    <!-- ========================================================================== -->
+    <!-- MAIN LAYOUT                                                                -->
+    <!-- ========================================================================== -->
 
     <WidgetGroup>
       <ObjectName>SkinContainer</ObjectName>

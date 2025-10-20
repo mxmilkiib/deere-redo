@@ -291,7 +291,7 @@ WLibrarySidebar {
   background-color: #1F1F1F;
   alternate-background-color: #1A1A1A;
 /* In selected library rows this sets the color of
-  * shapes in star rating delegate
+  * shapes in star rating delegate (and color indicator dots)
   * focus border of Cover Art and Color delegates
    > See src/library/coverartdelegate.cpp: "option.palette.highlightedText().color();" */
   selection-color: #D6D6D6;
@@ -473,7 +473,10 @@ WTrackTableViewHeader::section {
 WTrackTableViewHeader::up-arrow,
 WTrackTableViewHeader::down-arrow {
   background-color: rgba(26,26,26,220);
-  padding: 0px;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  margin: 2px;
 }
 WTrackTableViewHeader::up-arrow {
   image: url(skin:image/style_sort_up.svg);
@@ -1769,12 +1772,12 @@ WVuMeter, #PeakIndicator {
   background-color: #222222;
 }
 
-/* Starrating for tracks loaded in decks */
-WStarRating {
+/* starrating for tracks loaded in decks */
+#StarratingGutter WStarRating {
   margin            : 0px 0px 0px 0px;
   border            : 0px solid #ffffff;
   padding           : 0px;
-  color             : #d2d2d2;
+  color             : #FFD700;
   background-color  : none;
   max-height        : 22px;
 }

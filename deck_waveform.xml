@@ -22,25 +22,21 @@
         <SizePolicy>me,me</SizePolicy>
         <MinimumSize>-1,80</MinimumSize>
         <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
-        <!-- <SignalHighColor>#FF0000</SignalHighColor> -->
-        <!-- <SignalMidColor>#00FF00</SignalMidColor> -->
-        <!-- <SignalLowColor>#0000ff</SignalLowColor> -->
-        <!-- <SignalRGBHighColor>#FF718F</SignalRGBHighColor> -->
-        <!-- <SignalRGBHighColor>#FFAAAA</SignalRGBHighColor> -->
-        <SignalRGBHighColor>#FFDDCC</SignalRGBHighColor>
-        <!-- <SignalRGBMidColor>#3AA600</SignalRGBMidColor> -->
-        <SignalRGBMidColor>#F8D200</SignalRGBMidColor>
-        <!-- <SignalRGBLowColor>#0055E1</SignalRGBLowColor> -->
-        <SignalRGBLowColor>#0055FF</SignalRGBLowColor>
+        <SignalHighColor><Variable name="WaveformSignalHighColor"/></SignalHighColor>
+        <SignalMidColor><Variable name="WaveformSignalMidColor"/></SignalMidColor>
+        <SignalLowColor><Variable name="WaveformSignalLowColor"/></SignalLowColor>
+        <SignalRGBHighColor><Variable name="WaveformSignalRGBHighColor"/></SignalRGBHighColor>
+        <SignalRGBMidColor><Variable name="WaveformSignalRGBMidColor"/></SignalRGBMidColor>
+        <SignalRGBLowColor><Variable name="WaveformSignalRGBLowColor"/></SignalRGBLowColor>
         <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
-        <BeatColor>#ffffff</BeatColor>
-        <PlayPosColor>#00ff00</PlayPosColor>
-        <EndOfTrackColor>#EA0000</EndOfTrackColor>
+        <BeatColor><Variable name="WaveformBeatColor"/></BeatColor>
+        <PlayPosColor><Variable name="WaveformPlayPosColor"/></PlayPosColor>
+        <EndOfTrackColor><Variable name="WaveformEndOfTrackColor"/></EndOfTrackColor>
         <AxesColor></AxesColor>
         <Align></Align>
         <DefaultMark>
           <Align>top</Align>
-          <Color>#006596</Color>
+          <Color><Variable name="WaveformDefaultMarkColor"/></Color>
           <TextColor>#000000</TextColor>
           <Text> %1 </Text>
         </DefaultMark>
@@ -49,15 +45,15 @@
           <Pixmap>image/marker_cue.png</Pixmap>
           <Text>CUE</Text>
           <Align>bottom</Align>
-          <Color>#FF001C</Color>
+          <Color><Variable name="WaveformCuePointColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
-        <!-- Loop -->
+        <!-- loop -->
         <MarkRange>
           <StartControl>loop_start_position</StartControl>
           <EndControl>loop_end_position</EndControl>
           <EnabledControl>loop_enabled</EnabledControl>
-          <Color>#00FF00</Color>
+          <Color><Variable name="WaveformLoopColor"/></Color>
           <Opacity>0.8</Opacity>
           <DisabledColor>#FFFFFF</DisabledColor>
           <DisabledOpacity>0.5</DisabledOpacity>
@@ -67,7 +63,7 @@
           <Pixmap>image/marker_loop_in.png</Pixmap>
           <Text>IN</Text>
           <Align>bottom</Align>
-          <Color>#00FF00</Color>
+          <Color><Variable name="WaveformLoopColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
         <Mark>
@@ -75,15 +71,15 @@
           <Pixmap>image/marker_loop_out.png</Pixmap>
           <Text>OUT</Text>
           <Align>bottom</Align>
-          <Color>#00FF00</Color>
+          <Color><Variable name="WaveformLoopColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
-        <!-- Intro -->
+        <!-- intro -->
         <MarkRange>
           <StartControl>intro_start_position</StartControl>
           <EndControl>intro_end_position</EndControl>
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <Opacity>0.1</Opacity>
         </MarkRange>
         <Mark>
@@ -91,7 +87,7 @@
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
           <Text>&#9698;</Text>
           <Align>bottom|right</Align>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
         <Mark>
@@ -99,15 +95,15 @@
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
           <Text>&#9698;</Text>
           <Align>bottom|left</Align>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
-        <!-- Outro -->
+        <!-- outro -->
         <MarkRange>
           <StartControl>outro_start_position</StartControl>
           <EndControl>outro_end_position</EndControl>
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <Opacity>0.1</Opacity>
         </MarkRange>
         <Mark>
@@ -115,7 +111,7 @@
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
           <Text>&#9699;</Text>
           <Align>bottom|right</Align>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
         <Mark>
@@ -123,7 +119,7 @@
           <VisibilityControl>[Skin],show_intro_outro_cues</VisibilityControl>
           <Text>&#9699;</Text>
           <Align>bottom|left</Align>
-          <Color>#0000FF</Color>
+          <Color><Variable name="WaveformIntroOutroColor"/></Color>
           <TextColor>#FFFFFF</TextColor>
         </Mark>
         <!--
