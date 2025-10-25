@@ -15,16 +15,14 @@
     <SizePolicy>me,me</SizePolicy>
     <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
     <PlayedOverlayColor><Variable name="PlayedOverlayColor"/></PlayedOverlayColor>
-    <SignalHighColor></SignalHighColor>
-    <SignalMidColor></SignalMidColor>
-    <SignalLowColor></SignalLowColor>
-    <!-- <SignalRGBHighColor></SignalRGBHighColor> -->
-    <!-- <SignalRGBMidColor></SignalRGBMidColor> -->
-    <!-- <SignalRGBLowColor></SignalRGBLowColor> -->
-        <SignalRGBHighColor>#FFF0D7</SignalRGBHighColor>
-        <SignalRGBMidColor>#FFA600</SignalRGBMidColor>
-        <SignalRGBLowColor>#0055E1</SignalRGBLowColor>
-    <SignalColor><Variable name="DeckSignalColor"/></SignalColor>
+    <!-- overview waveform colors (configured in skin.xml) -->
+    <SignalHighColor><Variable name="OverviewSignalHighColor"/></SignalHighColor>
+    <SignalMidColor><Variable name="OverviewSignalMidColor"/></SignalMidColor>
+    <SignalLowColor><Variable name="OverviewSignalLowColor"/></SignalLowColor>
+    <SignalRGBHighColor><Variable name="OverviewSignalRGBHighColor"/></SignalRGBHighColor>
+    <SignalRGBMidColor><Variable name="OverviewSignalRGBMidColor"/></SignalRGBMidColor>
+    <SignalRGBLowColor><Variable name="OverviewSignalRGBLowColor"/></SignalRGBLowColor>
+    <SignalColor><Variable name="OverviewSignalColor"/></SignalColor>
     <PlayPosColor>#00FF00</PlayPosColor>
     <DefaultMark>
       <Align>bottom|right</Align>

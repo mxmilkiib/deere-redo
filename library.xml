@@ -76,6 +76,14 @@
               <Library>
                 <ShowButtonText>false</ShowButtonText>
                 <TrackTableBackgroundColorOpacity>0.175</TrackTableBackgroundColorOpacity>
+                <!-- overview waveform colors (configured in skin.xml) -->
+                <SignalHighColor><Variable name="OverviewSignalHighColor"/></SignalHighColor>
+                <SignalMidColor><Variable name="OverviewSignalMidColor"/></SignalMidColor>
+                <SignalLowColor><Variable name="OverviewSignalLowColor"/></SignalLowColor>
+                <SignalRGBHighColor><Variable name="OverviewSignalRGBHighColor"/></SignalRGBHighColor>
+                <SignalRGBMidColor><Variable name="OverviewSignalRGBMidColor"/></SignalRGBMidColor>
+                <SignalRGBLowColor><Variable name="OverviewSignalRGBLowColor"/></SignalRGBLowColor>
+                <SignalColor><Variable name="OverviewSignalColor"/></SignalColor>
               </Library>
 
             </Children>
