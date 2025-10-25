@@ -31,7 +31,7 @@
                 <SetVariable name="state_1_unpressed">icon/ic_repeat_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control"><Variable name="group"/>,repeat</SetVariable>
               </Template>
-              
+
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">eject</SetVariable>
                 <SetVariable name="ObjectName">EjectButton</SetVariable>
