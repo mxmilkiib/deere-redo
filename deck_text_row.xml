@@ -323,7 +323,7 @@
           <WidgetGroup>
             <ObjectName>TrackColorWrapper</ObjectName>
             <Layout>horizontal</Layout>
-            <Size>0me,2</Size>
+            <Size>0me,2f</Size>
             <Children>
               <TrackWidgetGroup>
                 <Size>0me,2f</Size>

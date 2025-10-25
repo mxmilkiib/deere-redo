@@ -5,7 +5,7 @@
   Variables:
     group: the group to connect to
 -->
-<Template>  
+<Template>
 			<!-- Play / Cue -->
 			<WidgetGroup>
 				<ObjectName>PlayCueContainer</ObjectName>
@@ -28,7 +28,7 @@
 						<SetVariable name="display_connection_control"><Variable name="group"/>,cue_indicator</SetVariable>
 					</Template>
 
-			<WidgetGroup><Size>0,2f</Size></WidgetGroup>
+					<WidgetGroup><Size>0,2f</Size></WidgetGroup>
 
 					<WidgetGroup><!-- Play button + play_indicator -->
 						<Layout>stacked</Layout>
@@ -52,6 +52,7 @@
 								<SetVariable name="left_connection_control"><Variable name="group"/>,play</SetVariable>
 							</Template>
 							<Template src="skin:left_2state_button.xml">
+								<SetVariable name="ObjectName">PlayIndicator</SetVariable>
 								<SetVariable name="MinimumSize"><Variable name="HorizontalStretchButtonMinimumSize"/></SetVariable>
 								<SetVariable name="MaximumSize"><Variable name="HorizontalStretchButtonMaximumSize"/></SetVariable>
 								<SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable>
