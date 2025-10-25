@@ -58,6 +58,18 @@
                 <SetVariable name="label">Main</SetVariable>
               </Template>
 
+              <!-- TEMP: waveform height control test -->
+              <!-- DISABLED: causes crashes on other feature branches -->
+              <!--
+              <Template src="skin:knob_toolbar.xml">
+                <SetVariable name="TooltipId">waveform_height</SetVariable>
+                <SetVariable name="group">[Library]</SetVariable>
+                <SetVariable name="control">waveform_height</SetVariable>
+                <SetVariable name="color">orange</SetVariable>
+                <SetVariable name="label">WF Ht</SetVariable>
+              </Template>
+              -->
+
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_main_enabled</SetVariable>
                 <SetVariable name="ObjectName">FxAssignmentButton</SetVariable>
