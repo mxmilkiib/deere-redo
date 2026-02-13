@@ -8,10 +8,38 @@
   <WidgetGroup>
     <ObjectName>DeckMixer</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>min,min</SizePolicy>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
-      <Template src="skin:mixer_column_eq_left.xml"/>
-      <Template src="skin:mixer_column_volume_gain.xml"/>
+      <WidgetGroup>
+        <Layout>vertical</Layout>
+        <SizePolicy>min,me</SizePolicy>
+        <Children>
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,me</SizePolicy>
+            <Children>
+              <Template src="skin:mixer_column_eq_left.xml"/>
+              <Template src="skin:mixer_column_volume_gain.xml"/>
+            </Children>
+          </WidgetGroup>
+          <WidgetGroup>
+            <SizePolicy>i,f</SizePolicy>
+            <MinimumSize>,14</MinimumSize>
+            <Layout>vertical</Layout>
+            <Children>
+              <EffectChainPresetSelector>
+                <ObjectName>QuickEffectSelectorLeft</ObjectName>
+                <Size>60me,18f</Size>
+                <EffectUnitGroup>[QuickEffectRack1_<Variable name="group"/>]</EffectUnitGroup>
+              </EffectChainPresetSelector>
+            </Children>
+            <Connection>
+              <ConfigKey persist="true">[Skin],show_eq_knobs</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
+        </Children>
+      </WidgetGroup>
       <Template src="skin:mixer_column_pfl_levels.xml"/>
     </Children>
   </WidgetGroup>

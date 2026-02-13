@@ -32,6 +32,9 @@
         <BeatColor><Variable name="WaveformBeatColor"/></BeatColor>
         <PlayPosColor><Variable name="WaveformPlayPosColor"/></PlayPosColor>
         <EndOfTrackColor><Variable name="WaveformEndOfTrackColor"/></EndOfTrackColor>
+        <SlipBorderOutlineColor><Variable name="WaveformSlipBorderColor"/></SlipBorderOutlineColor>
+        <SlipBorderTopOutlineSize>10</SlipBorderTopOutlineSize>
+        <SlipBorderBottomOutlineSize>10</SlipBorderBottomOutlineSize>
         <AxesColor></AxesColor>
         <Align></Align>
         <DefaultMark>

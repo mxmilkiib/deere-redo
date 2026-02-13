@@ -10,8 +10,8 @@
 			<WidgetGroup>
 				<ObjectName>PlayCueContainer</ObjectName>
 				<Layout>vertical</Layout>
-				<MinimumSize>60,42</MinimumSize>
-				<MaximumSize>60, -1</MaximumSize>
+				<MinimumSize>52,42</MinimumSize>
+				<MaximumSize>52, -1</MaximumSize>
 				<SizePolicy>min,me</SizePolicy>
 				<Children>
 					<Template src="skin:left_right_display_2state_button.xml">

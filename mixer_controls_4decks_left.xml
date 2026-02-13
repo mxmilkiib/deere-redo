@@ -50,48 +50,6 @@
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <SizePolicy>me,min</SizePolicy>
-        <Children>
-          <!-- mute button for gain stage -->
-          <PushButton>
-            <TooltipId>mute</TooltipId>
-            <Size>15f,20f</Size>
-            <ObjectName>EQKillButton</ObjectName>
-            <NumberStates>2</NumberStates>
-            <State>
-              <Number>0</Number>
-            </State>
-            <State>
-              <Number>1</Number>
-            </State>
-            <Connection>
-              <ConfigKey><Variable name="group"/>,mute</ConfigKey>
-              <ButtonState>LeftButton</ButtonState>
-            </Connection>
-            <Connection>
-              <ConfigKey>[Skin],show_eq_kill_buttons</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-          </PushButton>
-          <!-- expanding spacer to push gain knob to right side when kill buttons hidden -->
-          <WidgetGroup>
-            <Size>0me,1min</Size>
-            <Connection>
-              <ConfigKey>[Skin],show_eq_kill_buttons</ConfigKey>
-              <Transform><Not/></Transform>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-          </WidgetGroup>
-          <Template src="skin:knob.xml">
-            <SetVariable name="TooltipId">pregain</SetVariable>
-            <SetVariable name="control">pregain</SetVariable>
-            <SetVariable name="color">green</SetVariable>
-          </Template>
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <Layout>horizontal</Layout>
         <SizePolicy>me,max</SizePolicy>
         <Children>
           <Template src="skin:mixer_column_eq_left.xml"/>
@@ -100,11 +58,11 @@
 
       <WidgetGroup>
         <Layout>vertical</Layout>
-        <Size>60f,</Size>
+        <Size>55f,</Size>
         <Children>
           <EffectChainPresetSelector>
             <ObjectName>QuickEffectSelectorLeft</ObjectName>
-            <Size>60f,18</Size>
+            <Size>55f,18</Size>
             <SizePolicy>f,min</SizePolicy>
             <EffectUnitGroup>[QuickEffectRack1_<Variable name="group"/>]</EffectUnitGroup>
           </EffectChainPresetSelector>
@@ -121,28 +79,6 @@
         <SizePolicy>min,me</SizePolicy>
         <Children>
 
-          <WidgetGroup>
-            <ObjectName>MixerButtonContainerLeft</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>min,min</SizePolicy>
-            <Children>
-              <Template src="skin:left_2state_button.xml">
-                <SetVariable name="TooltipId">pfl</SetVariable>
-                <SetVariable name="ObjectName">DeckPFLButton</SetVariable>
-                <SetVariable name="MinimumSize">22,22</SetVariable>
-                <SetVariable name="MaximumSize">22,22</SetVariable>
-                <SetVariable name="SizePolicy">f,f</SetVariable>
-                <SetVariable name="state_0_text"></SetVariable>
-                <SetVariable name="state_0_pressed">icon/ic_headphones_48px.svg</SetVariable>
-                <SetVariable name="state_0_unpressed">icon/ic_headphones_48px.svg</SetVariable>
-                <SetVariable name="state_1_text"></SetVariable>
-                <SetVariable name="state_1_pressed">icon/ic_headphones_48px.svg</SetVariable>
-                <SetVariable name="state_1_unpressed">icon/ic_headphones_48px.svg</SetVariable>
-                <SetVariable name="left_connection_control"><Variable name="group"/>,pfl</SetVariable>
-              </Template>
-            </Children>
-          </WidgetGroup>
-
           <WidgetGroup><Size>0min,3f</Size></WidgetGroup>
 
           <!-- with EQs -->
@@ -158,7 +94,7 @@
               <WidgetGroup>
                 <Layout>horizontal</Layout>
                 <SizePolicy>min,me</SizePolicy>
-                <MaximumSize>50,180</MaximumSize>
+                <MaximumSize>45,180</MaximumSize>
                 <Children>
                   <SliderComposed>
                     <TooltipId>channel_volume</TooltipId>
@@ -226,6 +162,8 @@
 
           <WidgetGroup><Size>0min,3f</Size></WidgetGroup>
 
+          <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
+
           <WidgetGroup>
             <ObjectName>MixerButtonContainerLeft</ObjectName>
             <Layout>horizontal</Layout>
@@ -233,6 +171,21 @@
             <Children>
               <Template src="skin:crossfader_orientation_button.xml">
                 <SetVariable name="Unit">Deck<Variable name="i"/></SetVariable>
+              </Template>
+              <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+              <Template src="skin:left_2state_button.xml">
+                <SetVariable name="TooltipId">pfl</SetVariable>
+                <SetVariable name="ObjectName">DeckPFLButton</SetVariable>
+                <SetVariable name="MinimumSize">22,22</SetVariable>
+                <SetVariable name="MaximumSize">22,22</SetVariable>
+                <SetVariable name="SizePolicy">f,f</SetVariable>
+                <SetVariable name="state_0_text"></SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_headphones_48px.svg</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_headphones_48px.svg</SetVariable>
+                <SetVariable name="state_1_text"></SetVariable>
+                <SetVariable name="state_1_pressed">icon/ic_headphones_48px.svg</SetVariable>
+                <SetVariable name="state_1_unpressed">icon/ic_headphones_48px.svg</SetVariable>
+                <SetVariable name="left_connection_control"><Variable name="group"/>,pfl</SetVariable>
               </Template>
             </Children>
           </WidgetGroup>

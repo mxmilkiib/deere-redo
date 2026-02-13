@@ -3,7 +3,7 @@
 <Template>
   <WidgetGroup>
     <Layout>vertical</Layout>
-    <SizePolicy>me,me</SizePolicy>
+    <SizePolicy>min,me</SizePolicy>
     <Children>
 
       <!-- 2 Decks: Spacer sized like channel Gain knob -->

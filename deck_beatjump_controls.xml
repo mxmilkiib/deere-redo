@@ -12,9 +12,10 @@
     <Layout>horizontal</Layout>
     <SizePolicy>min,min</SizePolicy>
     <Children>
-    <!-- <WidgetGroup><Size>1min,0min</Size></WidgetGroup> -->
+    <WidgetGroup><Size>0f,0min</Size></WidgetGroup>
     <WidgetGroup>
       <Layout>vertical</Layout>
+      <SizePolicy>min,max</SizePolicy>
       <Children>
         <BeatSpinBox>
           <ObjectName>BeatjumpSizeSpinBox</ObjectName>
@@ -22,7 +23,7 @@
           <Size>46f,22f</Size>
           <Value><Variable name="group"/>,beatjump_size</Value>
         </BeatSpinBox>
-            <!-- <WidgetGroup><Size>0min,0min</Size></WidgetGroup> -->
+        <WidgetGroup><Size>0min,0f</Size></WidgetGroup>
         <WidgetGroup>
           <Layout>horizontal</Layout>
           <Children>
@@ -38,7 +39,7 @@
               <SetVariable name="left_connection_control"><Variable name="group"/>,beatjump_backward</SetVariable>
               <SetVariable name="right_connection_control"><Variable name="group"/>,beatjump_1_backward</SetVariable>
             </Template>
-            <WidgetGroup><Size>0min,2min</Size></WidgetGroup>
+            <WidgetGroup><Size>0f,0min</Size></WidgetGroup>
             <Template src="skin:left_right_1state_button.xml">
               <SetVariable name="TooltipId">beatjump_forward</SetVariable>
               <SetVariable name="ObjectName">BeatJumpButton</SetVariable>

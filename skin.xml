@@ -156,34 +156,34 @@
     <!-- ========================================================================== -->
 
     <!-- main waveform colors (zoomed view) -->
-    <!-- filtered mode: red/green/blue frequency bands -->
-    <SetVariable name="WaveformSignalHighColor">#FF0000</SetVariable>
-    <SetVariable name="WaveformSignalMidColor">#00FF00</SetVariable>
-    <SetVariable name="WaveformSignalLowColor">#0000FF</SetVariable>
+    <!-- filtered mode: off-white/yellow/blue bands -->
+    <SetVariable name="WaveformSignalHighColor">#FFDDCC</SetVariable>
+    <SetVariable name="WaveformSignalMidColor">#F8D200</SetVariable>
+    <SetVariable name="WaveformSignalLowColor">#0055FF</SetVariable>
 
-    <!-- stacked mode: off-white/yellow/blue bands
+    <!-- stacked mode: red/green/blue frequency bands
          note: despite the "RGB" name, these are used by stacked waveforms,
          not literal rgb. changing this would require core code modifications. -->
-    <SetVariable name="WaveformSignalRGBHighColor">#FFDDCC</SetVariable>
-    <SetVariable name="WaveformSignalRGBMidColor">#F8D200</SetVariable>
-    <SetVariable name="WaveformSignalRGBLowColor">#0055FF</SetVariable>
-
+    <SetVariable name="WaveformSignalRGBHighColor">#FF0000</SetVariable>
+    <SetVariable name="WaveformSignalRGBMidColor">#00FF00</SetVariable>
+    <SetVariable name="WaveformSignalRGBLowColor">#0000FF</SetVariable>
+h
     <!-- overview waveform colors (deck overview + library column) -->
     <!-- behavior depends on waveform type setting:
-         - RGB mode: uses the "RGB" colors below (off-white/yellow/blue)
+         - RGB mode: uses the "RGB" colors below (red/green/blue)
          - Layered mode: deck uses DeckSignalColor, library uses filtered colors -->
 
-    <!-- filtered mode: red/green/blue frequency bands
+    <!-- filtered mode: off-white/yellow/blue bands
          used by library overview when waveform type is set to layered -->
-    <SetVariable name="OverviewSignalHighColor">#FF0000</SetVariable>
-    <SetVariable name="OverviewSignalMidColor">#00FF00</SetVariable>
-    <SetVariable name="OverviewSignalLowColor">#0000FF</SetVariable>
+    <SetVariable name="OverviewSignalHighColor">#FFDDCC</SetVariable>
+    <SetVariable name="OverviewSignalMidColor">#F8D200</SetVariable>
+    <SetVariable name="OverviewSignalLowColor">#0055FF</SetVariable>
 
-    <!-- rgb/stacked mode: off-white/yellow/blue bands
+    <!-- rgb/stacked mode: red/green/blue frequency bands
          used by deck and library overviews when waveform type is set to rgb -->
-    <SetVariable name="OverviewSignalRGBHighColor">#FFDDCC</SetVariable>
-    <SetVariable name="OverviewSignalRGBMidColor">#F8D200</SetVariable>
-    <SetVariable name="OverviewSignalRGBLowColor">#0055FF</SetVariable>
+    <SetVariable name="OverviewSignalRGBHighColor">#FF0000</SetVariable>
+    <SetVariable name="OverviewSignalRGBMidColor">#00FF00</SetVariable>
+    <SetVariable name="OverviewSignalRGBLowColor">#0000FF</SetVariable>
 
     <!-- waveform marker colors -->
     <SetVariable name="WaveformBeatColor">#ffffff</SetVariable>
@@ -193,6 +193,7 @@
     <SetVariable name="WaveformIntroOutroColor">#0000FF</SetVariable>
     <SetVariable name="WaveformCuePointColor">#FF001C</SetVariable>
     <SetVariable name="WaveformDefaultMarkColor">#006596</SetVariable>
+    <SetVariable name="WaveformSlipBorderColor">#f08c00</SetVariable>
 
 
     <!-- ========================================================================== -->

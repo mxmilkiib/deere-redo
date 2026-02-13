@@ -39,6 +39,12 @@
             </Children>
           </WidgetGroup>
 
+          <EffectChainPresetButton>
+            <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
+            <Size>22f,22f</Size>
+            <ObjectName>EffectChainSelector</ObjectName>
+          </EffectChainPresetButton>
+
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
@@ -51,8 +57,8 @@
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="ObjectName">EffectUnitMixModeButton</SetVariable>
                 <SetVariable name="TooltipId">EffectUnit_mix_mode</SetVariable>
-                <SetVariable name="MinimumSize">40,20</SetVariable>
-                <SetVariable name="MaximumSize">40,20</SetVariable>
+                <SetVariable name="MinimumSize">40,22</SetVariable>
+                <SetVariable name="MaximumSize">40,22</SetVariable>
                 <SetVariable name="state_0_unpressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
                 <SetVariable name="state_0_pressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
                 <SetVariable name="state_1_unpressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
@@ -72,22 +78,22 @@
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
-        <SizePolicy>max,min</SizePolicy>
+        <SizePolicy>min,min</SizePolicy>
         <Children>
 
           <PushButton>
             <ObjectName>EffectUnitToggle</ObjectName>
             <TooltipId>EffectUnit_show_parameters</TooltipId>
-            <Size>45min,20f</Size>
+            <Size>45min,22f</Size>
             <NumberStates>2</NumberStates>
             <State>
               <Number>0</Number>
-              <Text>&#8198;&#8198;FX<Variable name="EffectUnit"/></Text>
+              <Text>FX<Variable name="EffectUnit"/></Text>
               <Alignment>left</Alignment>
             </State>
             <State>
               <Number>1</Number>
-              <Text>&#8198;&#8198;FX<Variable name="EffectUnit"/></Text>
+              <Text>FX<Variable name="EffectUnit"/></Text>
               <Alignment>left</Alignment>
             </State>
             <Connection>
@@ -97,7 +103,13 @@
             </Connection>
           </PushButton>
 
-          <WidgetGroup><Size>2min,2me</Size></WidgetGroup>
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+
+          <EffectChainPresetButton>
+            <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
+            <Size>22f,22f</Size>
+            <ObjectName>EffectChainSelector</ObjectName>
+          </EffectChainPresetButton>
 
           <WidgetGroup>
             <Layout>vertical</Layout>
@@ -117,8 +129,8 @@
                   <Template src="skin:left_2state_button.xml">
                     <SetVariable name="ObjectName">EffectUnitMixModeButton</SetVariable>
                     <SetVariable name="TooltipId">EffectUnit_mix_mode</SetVariable>
-                    <SetVariable name="MinimumSize">40,20</SetVariable>
-                    <SetVariable name="MaximumSize">40,20</SetVariable>
+                    <SetVariable name="MinimumSize">40,22</SetVariable>
+                    <SetVariable name="MaximumSize">40,22</SetVariable>
                     <SetVariable name="state_0_unpressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
                     <SetVariable name="state_0_pressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
                     <SetVariable name="state_1_unpressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
@@ -152,12 +164,12 @@
             </Connection>
           </WidgetGroup>
 
-          <WidgetGroup><SizePolicy>min,me</SizePolicy></WidgetGroup>
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
           <WidgetGroup>
             <ObjectName>EffectUnitHead</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>me,max</SizePolicy>
+            <SizePolicy>min,max</SizePolicy>
             <Children>
               <Template src="skin:left_2state_button.xml">
                 <SetVariable name="TooltipId">EffectUnit_headphones_enabled</SetVariable>
@@ -171,7 +183,6 @@
                 <SetVariable name="state_1_unpressed">icon/ic_headphones_48px.svg</SetVariable>
                 <SetVariable name="left_connection_control">[EffectRack1_EffectUnit<Variable name="EffectUnit"/>],group_[Headphone]_enable</SetVariable>
               </Template>
-              <WidgetGroup><Size>30f,0min</Size></WidgetGroup>
             </Children>
           </WidgetGroup>
 

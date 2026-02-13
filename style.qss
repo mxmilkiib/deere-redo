@@ -70,7 +70,7 @@ WPushButton#BeatloopButton {
 /* These definitions put a faint border around all the widgets. We have to be
    tricky with top/bottom-ness to get things right. */
 #DeckControls {
-  padding: 1px 2px 0px 2px;  /*
+  padding: 1px 0px 0px 0px;  /*
   background-color: #456789;  */
 }
 
@@ -166,16 +166,16 @@ WPushButton#BeatloopButton {
 #ControlsRow {
   border-top: 1px solid #222;
   margin: 0px;
-  margin-left: 2px;
+  margin-left: 0px;
   min-height: 48px;
   max-height: 48px;
-  qproperty-layoutAlignment: 'AlignVCenter';
-  qproperty-layoutAlignment: 'AlignHCenter';
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
   qproperty-layoutSpacing: 0;
 }
 
 #MixerBorder {
   background-color: #222;
+  padding: 0 1px;
 }
 
 #Deck1, #Deck3 {
@@ -493,6 +493,8 @@ WSearchLineEdit {
   border: 1px solid #4B4B4B;
   background-color: #1e1e1e;
   color: #d2d2d2;
+  font-size: 12px;
+  font-weight: bold;
   }
   WSearchLineEdit:focus {
     border: 1px solid #FF6600;
@@ -1098,13 +1100,13 @@ WOverview #PassthroughLabel {
 }
 
 #DeckControlsGrid {
-  margin-right: 0px;
+  margin: 0 0px;
 } 
 
 /* Fix the overall control row margins */
 #DeckControlsGridLeft,
 #FxAssignmentGrid {
-  margin: 0px 1px 0px 1px !important;
+  margin: 0px 0px 0px 1px !important;
   padding: 0px !important;
 }
 /* #DeckControlsGridRight {
@@ -1139,7 +1141,7 @@ WidgetGroup#DeckRows * > #ControlsRow {
 }
 
 #BeatjumpContainer {
-  /* margin-left: -1px; */
+  padding-left: 1px;
 }
 
 #HotcueGrid WWidgetGroup,
@@ -1492,11 +1494,11 @@ WTrackProperty:hover {
 }
 
 #EffectUnit1, #EffectUnit2, #EffectUnit3, #EffectUnit4 {
-  qproperty-layoutAlignment: 'AlignTop';
+  qproperty-layoutAlignment: 'AlignVCenter';
 }
 
 #EffectUnitToggle {
-  padding: 0px 0px 0px 27px;
+  padding: 0px 16px 0px 4px;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -1504,11 +1506,15 @@ WTrackProperty:hover {
 }
 
 #EffectUnitToggle[value="0"] {
-  image: url(skin:icon/ic_unfold_more_48px.svg) no-repeat top right;
+  background-image: url(skin:icon/ic_unfold_more_48px.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
 #EffectUnitToggle[value="1"] {
-  image: url(skin:icon/ic_unfold_less_48px.svg) no-repeat top right;
+  background-image: url(skin:icon/ic_unfold_less_48px.svg);
+  background-repeat: no-repeat;
+  background-position: right center;
 }
 
 WEffectChainPresetButton {
@@ -1558,12 +1564,17 @@ WEffectChainPresetButton::menu-indicator {
   qproperty-alignment: 'AlignHCenter';
 }
 
+#EffectUnitRow {
+  qproperty-layoutAlignment: 'AlignHCenter | AlignVCenter';
+  qproperty-layoutSpacing: 4;
+  padding: 0 2px;
+}
+
 #EffectUnitControls {
   /* border: 1px solid #222222; */
   border-width: 0;
   qproperty-layoutSpacing: 2;
   padding: 0;
-  qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
   background-color: #333; /*
   background-color: #664971;  */
 }
@@ -1681,10 +1692,10 @@ WNumberRate {
 #Mixer {
   qproperty-layoutAlignment: 'AlignTop';
   background-color: #333;
-  margin: 0px 0px 1px 0px;
-  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 3px 2px 2px;
   border-left: 1px solid #222;
-  border-right: 1px solid #222;
+  border-right: 0px;
   border-bottom: 0;
 }
 
@@ -1724,7 +1735,7 @@ WNumberRate {
 
 #ButtonContainer {
   qproperty-layoutAlignment: 'AlignCenter';
-  padding: 1px 0px 1px 0px;
+  padding: 0px;
 }
 
 #MixerButtonContainerRight {
@@ -1749,14 +1760,15 @@ WNumberRate {
   qproperty-layoutSpacing: 1;
   qproperty-layoutAlignment: 'AlignHCenter';
   /* background-color: #828315; */
+  padding: 0 2px;
 }
 
 #main_VuMeter_Group {
   qproperty-layoutSpacing: 0;
   qproperty-layoutAlignment: 'AlignHCenter';
-  padding-left: 1px;
+  /* padding-left: 1px;
   padding-right: 1px;
-  /* background-color: #828315; */
+ background-color: #828315; */
 }
 
 #MainVu {
@@ -1765,7 +1777,7 @@ WNumberRate {
 }
 
 #vumeter_v, #vumeter_h {
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 0;
 }
 
 WVuMeter, #PeakIndicator {
@@ -1849,7 +1861,7 @@ WVuMeter, #PeakIndicator {
 }
 
 #EffectUnitsRow {
-  padding: 0;
+  padding: 0 1px;
   margin: 0;
 }
 
@@ -1864,7 +1876,7 @@ WVuMeter, #PeakIndicator {
 
 #EffectUnitNoParameters {
   padding: 0px;
-  qproperty-layoutAlignment: 'AlignCenter';
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
 }
 
 #EffectUnitEffectsNoParameters {
@@ -2296,7 +2308,7 @@ do not highlight either state. */
 
 /* common styles for WEffectSelector, QMenu, QToolTip */
 WEffectSelector QAbstractScrollArea {
-  min-width: 180px;
+  min-width: 160px;
 }
 WEffectChainPresetSelector QAbstractScrollArea {
   min-width: 140px;
@@ -2460,10 +2472,10 @@ WEffectChainPresetSelector:!editable,
   }
   WEffectSelector:!editable,
   #fadeModeCombobox:!editable {
-    font: 13px;
+    font: 12px;
   }
   WEffectChainPresetSelector:!editable {
-    font: 11px;
+    font: 10px;
   }
 WEffectSelector:!editable,
 WEffectSelector:!editable:on,
@@ -2502,8 +2514,8 @@ WEffectChainPresetSelector:!editable:on {
     height: 16px;
   }
   WEffectChainPresetSelector::down-arrow {
-    width: 12px;
-    height: 12px;
+    width: 0px;
+    height: 0px;
   }
   WEffectSelector::down-arrow,
   WSearchLineEdit::down-arrow,
@@ -2518,45 +2530,50 @@ WEffectChainPresetSelector:!editable:on {
     color: #4495F4;
     font-weight: bold;
   }
+  /* selected item in dropdown menu */
+  WEffectChainPresetSelector QAbstractItemView::item:selected {
+    background-color: #0080C0;
+    color: #ffffff;
+  }
   WEffectSelector::indicator:checked,
   WEffectChainPresetSelector::indicator:checked,
   #fadeModeCombobox::indicator:checked {
     /* checkbox container is 28 x 22px;
       use margin + border to create a square checkbox sized like kill buttons */
-    margin: 0px 0px 0px 5px;
+    margin: 2px 0px 2px 5px;
   }
 
   /* QuickEffect selector of left-hand decks and in 4-decks mixer
     has it's down arrow on the left side, below the QuickEffect toggle */
   WEffectChainPresetSelector#QuickEffectSelectorLeft {
-    padding: 2px 2px 0px 2px;
-    margin: 3px 2px 0px;
-    text-align: left;
+    padding: 1px 0px 1px 0px;
+    margin: 3px 0px 0px 0px;
+    text-align: center;
     vertical-align: middle;
-    height: 16px;
+    height: 14px;
     }
     WEffectChainPresetSelector#QuickEffectSelectorLeft::drop-down {
       subcontrol-origin: margin;
-      subcontrol-position: left center;
+      subcontrol-position: center center;
+      width: 0px;
     }
   WEffectChainPresetSelector#QuickEffectSelectorRight {
-    padding: 2px 2px 0px 2px;
-    margin: 3px 2px 0px;
-    text-align: right;
+    padding: 1px 0px 1px 0px;
+    margin: 3px 0px 0px 0px;
+    text-align: center;
     vertical-align: middle;
-    height: 16px;
+    height: 14px;
     }
     WEffectChainPresetSelector#QuickEffectSelectorRight::drop-down {
       subcontrol-origin: margin;
-      subcontrol-position: right center;
+      subcontrol-position: center center;
+      width: 0px;
     }
 
 WEffectSelector::checked, /* selected item */
 WEffectSelector::indicator, /* checkbox, tick mark */
 WEffectSelector::drop-down,
 WEffectSelector::indicator:unchecked,
-WEffectChainPresetSelector::checked,
-WEffectChainPresetSelector::indicator,
 WEffectChainPresetSelector::drop-down,
 WEffectChainPresetSelector::indicator:unchecked,
 WSearchLineEdit::checked,
@@ -2733,13 +2750,13 @@ WRateRange {
 }
 
 
-/* *  { border: 1px solid rgba(255, 0, 0, 0.5); }  */
+/* *  { border: 1px solid rgba(255, 0, 0, 0.5); }  *
 
-/* QFrame { border: 1px solid blue; } */
-/* QLabel { border: 1px solid rgb(0, 109, 128); } */
-/* QComboBox { border: 1px solid magenta; } */
-/* QPushButton { border: 1px solid orange; } */
-/* QSlider { border: 1px solid teal; }  */
+QFrame { border: 1px solid blue; }
+QLabel { border: 1px solid rgb(0, 109, 128); }
+QComboBox { border: 1px solid magenta; }
+QPushButton { border: 1px solid orange; }
+QSlider { border: 1px solid teal; }
 
 /* Beatjump button hover effects */
 QPushButton[name="BeatJumpButton"]:hover {

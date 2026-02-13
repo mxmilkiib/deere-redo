@@ -19,7 +19,7 @@ Variables:
       <WidgetGroup>
         <ObjectName>EffectUnitNoParameters</ObjectName>
         <Layout>horizontal</Layout>
-        <SizePolicy>min,max</SizePolicy>
+        <SizePolicy>max,max</SizePolicy>
         <Children>
 
           <WidgetGroup>

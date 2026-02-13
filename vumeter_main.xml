@@ -5,7 +5,7 @@
     <ObjectName>MainVu</ObjectName>
     <Layout>vertical</Layout>
     <SizePolicy>min,me</SizePolicy>
-    <MinimumSize>30,60</MinimumSize>
+    <MinimumSize>21,60</MinimumSize>
     <Children>
 
       <WidgetGroup>

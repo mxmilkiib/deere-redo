@@ -17,12 +17,12 @@
     <State>
       <Number>0</Number>
       <Text>&#9675; <Variable name="text"/></Text>
-      <Style>text-align: left;</Style>
+      <Alignment>left</Alignment>
     </State>
     <State>
       <Number>1</Number>
       <Text>&#9679; <Variable name="text"/></Text>
-      <Style>text-align: left;</Style>
+      <Alignment>left</Alignment>
     </State>
     <Connection>
       <ConfigKey persist="true"><Variable name="skinsetting"/></ConfigKey>

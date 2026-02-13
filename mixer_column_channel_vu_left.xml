@@ -15,6 +15,7 @@
             <ObjectName>channel_VuMeter_Group</ObjectName>
             <Layout>horizontal</Layout>
             <SizePolicy>min,me</SizePolicy>
+            <MinimumSize>15,0</MinimumSize>
             <Children>
               <Template src="skin:vumeter_v.xml">
                 <SetVariable name="width">5</SetVariable>
@@ -32,7 +33,7 @@
               </Template>
             </Children>
           </WidgetGroup>
-          <WidgetGroup><Size>3f,0min</Size></WidgetGroup>
+          <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
         </Children>
       </WidgetGroup>
     </Children>
