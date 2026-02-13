@@ -88,12 +88,12 @@
             <NumberStates>2</NumberStates>
             <State>
               <Number>0</Number>
-              <Text>FX<Variable name="EffectUnit"/></Text>
+              <Text> FX<Variable name="EffectUnit"/></Text>
               <Alignment>left</Alignment>
             </State>
             <State>
               <Number>1</Number>
-              <Text>FX<Variable name="EffectUnit"/></Text>
+              <Text> FX<Variable name="EffectUnit"/></Text>
               <Alignment>left</Alignment>
             </State>
             <Connection>

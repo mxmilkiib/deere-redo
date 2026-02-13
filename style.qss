@@ -1498,7 +1498,8 @@ WTrackProperty:hover {
 }
 
 #EffectUnitToggle {
-  padding: 0px 16px 0px 4px;
+  margin-top: 3px;
+  padding: 0px 16px 0px 0px;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -1506,13 +1507,13 @@ WTrackProperty:hover {
 }
 
 #EffectUnitToggle[value="0"] {
-  background-image: url(skin:icon/ic_unfold_more_48px.svg);
+  background-image: url(skin:icon/ic_unfold_more_16px.svg);
   background-repeat: no-repeat;
   background-position: right center;
 }
 
 #EffectUnitToggle[value="1"] {
-  background-image: url(skin:icon/ic_unfold_less_48px.svg);
+  background-image: url(skin:icon/ic_unfold_less_16px.svg);
   background-repeat: no-repeat;
   background-position: right center;
 }
@@ -1565,9 +1566,8 @@ WEffectChainPresetButton::menu-indicator {
 }
 
 #EffectUnitRow {
-  qproperty-layoutAlignment: 'AlignHCenter | AlignVCenter';
-  qproperty-layoutSpacing: 4;
-  padding: 0 2px;
+  qproperty-layoutSpacing: 0;
+  padding: 0;
 }
 
 #EffectUnitControls {
@@ -1861,7 +1861,7 @@ WVuMeter, #PeakIndicator {
 }
 
 #EffectUnitsRow {
-  padding: 0 1px;
+  padding: 0;
   margin: 0;
 }
 

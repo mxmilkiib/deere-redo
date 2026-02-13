@@ -18,8 +18,11 @@
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
           <Template src="skin:effect_unit_no_parameters.xml"/>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
           <Template src="skin:effect_unit_controls.xml"/>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
         </Children>
         <Connection>
           <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
@@ -33,8 +36,11 @@
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
           <Template src="skin:effect_unit_with_parameters.xml"/>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
           <Template src="skin:effect_unit_controls.xml"/>
+          <WidgetGroup><Size>0min,0min</Size><SizePolicy>me,min</SizePolicy></WidgetGroup>
         </Children>
         <Connection>
           <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
