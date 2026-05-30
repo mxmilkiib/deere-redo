@@ -106,17 +106,46 @@
             <SetVariable name="skinsetting">[Skin],show_starrating</SetVariable>
           </Template>
 
-          <Template src="skin:skinsettings_button.xml">
-            <SetVariable name="TooltipId"></SetVariable>
-            <SetVariable name="text">8 Hotcues</SetVariable>
-            <SetVariable name="skinsetting">[Skin],show_8_hotcues</SetVariable>
-          </Template>
-
-          <Template src="skin:skinsettings_button.xml">
-            <SetVariable name="TooltipId"></SetVariable>
-            <SetVariable name="text">16 Hotcues</SetVariable>
-            <SetVariable name="skinsetting">[Skin],show_16_hotcues</SetVariable>
-          </Template>
+          <PushButton>
+            <ObjectName>SkinSettingsButton</ObjectName>
+            <Size>80me,20f</Size>
+            <NumberStates>5</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>&#9679; 4 Hotcues</Text>
+              <Alignment>left</Alignment>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>&#9679; 8 Hotcues</Text>
+              <Alignment>left</Alignment>
+            </State>
+            <State>
+              <Number>2</Number>
+              <Text>&#9679; 16 Hotcues</Text>
+              <Alignment>left</Alignment>
+            </State>
+            <State>
+              <Number>3</Number>
+              <Text>&#9679; 24 Hotcues</Text>
+              <Alignment>left</Alignment>
+            </State>
+            <State>
+              <Number>4</Number>
+              <Text>&#9679; 36 Hotcues</Text>
+              <Alignment>left</Alignment>
+            </State>
+            <Connection>
+              <ConfigKey persist="true">[Skin],hotcue_count</ConfigKey>
+              <ButtonState>LeftButton</ButtonState>
+            </Connection>
+            <!-- Right-click resets the count to the first option (4 Hotcues). EmitOnDownPress false emits only the release value (0), so no higher count flashes while the button is held. -->
+            <Connection>
+              <ConfigKey>[Skin],hotcue_count</ConfigKey>
+              <ButtonState>RightButton</ButtonState>
+              <EmitOnDownPress>false</EmitOnDownPress>
+            </Connection>
+          </PushButton>
 
           <Template src="skin:skinsettings_button.xml">
             <SetVariable name="TooltipId"></SetVariable>
