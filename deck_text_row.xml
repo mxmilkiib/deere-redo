@@ -16,7 +16,7 @@
     <Layout>horizontal</Layout>
     <SizePolicy>me,min</SizePolicy>
     <Children>
-      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
       <WidgetGroup>
         <Layout>horizontal</Layout>
@@ -52,6 +52,7 @@
                 <SizePolicy>me,me</SizePolicy>
                 <Children>
 
+                  <WidgetGroup><Size>0f,0min</Size></WidgetGroup>
                   <!-- We allow to hide track/artist info (aka AM-Mode) in the skin settings,
                        display just a label with asterixes instead. -->
                   <TrackProperty>
@@ -81,7 +82,7 @@
                     </Connection>
                   </Label>
 
-                  <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
+                  <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
                   <!-- shift cues buttons - always visible -->
                   <WidgetGroup>
@@ -386,6 +387,7 @@
                         <ObjectName>StarratingGutter</ObjectName>
                         <Layout>horizontal</Layout>
                         <SizePolicy>min,min</SizePolicy>
+                        <MaximumSize>95,22</MaximumSize>
                         <Children>
                           <StarRating>
                             <TooltipId>starrating</TooltipId>
@@ -461,6 +463,8 @@
                         <SetVariable name="left_connection_control"><Variable name="group"/>,sync_key</SetVariable>
                         <SetVariable name="right_connection_control"><Variable name="group"/>,reset_key</SetVariable>
                       </Template>
+
+                  <WidgetGroup><Size>0,0min</Size></WidgetGroup>
 
                     </Children>
                     <Connection>
@@ -608,6 +612,7 @@
           </WidgetGroup><!-- LowerTextRow -->
         </Children>
       </WidgetGroup><!-- DeckTextColumn -->
+      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
     </Children>
   </WidgetGroup><!-- DeckTextRow -->
 </Template>

@@ -25,6 +25,8 @@
             <Layout>horizontal</Layout>
             <Children>
 
+              <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+
               <WidgetGroup>
                 <Layout>horizontal</Layout>
                 <Children>

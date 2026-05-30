@@ -50,6 +50,8 @@
             </Children>
           </WidgetGroup>
 
+			<WidgetGroup><Size>2,0min</Size></WidgetGroup>
+
       <SingletonContainer>
         <ObjectName>DeckOverview<Variable name="i"/></ObjectName>
       </SingletonContainer>
@@ -57,7 +59,7 @@
       <!-- Can't apply margin & padding to WOverview.
           Due to qproperty-layoutSpacing, this spacer creates a 5px
           gap between deck options and overview and FX assignment buttons -->
-      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>2,0min</Size></WidgetGroup>
 
 
       <WidgetGroup>
@@ -145,7 +147,7 @@
       <!-- Can't apply margin & padding to WOverview.
           Due to qproperty-layoutSpacing, this spacer creates a 5px
           gap between deck options and overview and FX assignment buttons -->
-      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>2,0min</Size></WidgetGroup>
 
       <WidgetStack currentpage="[Skin],show_4effectunits" persist="true">
         <SizePolicy>max,min</SizePolicy>
@@ -214,7 +216,7 @@
         </Children>
       </WidgetStack>
 
-      <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
+      <WidgetGroup><Size>2,0min</Size></WidgetGroup>
     </Children>
   </WidgetGroup>
 </Template>

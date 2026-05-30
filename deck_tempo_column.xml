@@ -25,8 +25,8 @@
                 <SetVariable name="TooltipId">sync_enabled</SetVariable>
                 <SetVariable name="ObjectName">DeckSync</SetVariable>
                 <SetVariable name="MinimumSize">35,18</SetVariable>
-                <SetVariable name="MaximumSize">35,18</SetVariable>
-                <!-- <SetVariable name="SizePolicy"><Variable name="HorizontalStretchButtonSizePolicy"/></SetVariable> -->
+                <SetVariable name="MaximumSize">200,18</SetVariable>
+                <SetVariable name="SizePolicy">me,f</SetVariable>
                 <SetVariable name="state_0_text">Sync</SetVariable>
                 <SetVariable name="state_1_text">Sync</SetVariable>
                 <SetVariable name="left_connection_control"><Variable name="group"/>,sync_enabled</SetVariable>
@@ -47,6 +47,7 @@
             <ObjectName>RateTempButtons</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
+              <Template src="skin:spacer_h.xml"/>
               <Template src="skin:left_right_1state_button.xml">
                 <SetVariable name="ObjectName">TempRateDown</SetVariable>
                 <SetVariable name="TooltipId">rate_temp_down_rate_temp_down_small</SetVariable>
@@ -72,6 +73,7 @@
                 <SetVariable name="left_connection_control"><Variable name="group"/>,rate_temp_up</SetVariable>
                 <SetVariable name="right_connection_control"><Variable name="group"/>,rate_temp_up_small</SetVariable>
               </Template>
+              <Template src="skin:spacer_h.xml"/>
 
             </Children>
           </WidgetGroup>
@@ -100,6 +102,7 @@
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <Children>
+              <Template src="skin:spacer_h.xml"/>
               <SliderComposed>
                 <TooltipId>rate</TooltipId>
                 <Size>50f,-1me</Size>
@@ -110,6 +113,7 @@
                   <ConfigKey><Variable name="group"/>,rate</ConfigKey>
                 </Connection>
               </SliderComposed>
+              <Template src="skin:spacer_h.xml"/>
             </Children>
           </WidgetGroup>
 

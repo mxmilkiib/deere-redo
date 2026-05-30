@@ -21,6 +21,7 @@
         <Group><Variable name="group"/></Group>
         <SizePolicy>me,me</SizePolicy>
         <MinimumSize>-1,80</MinimumSize>
+        <Margin>2,0,2,0</Margin>
         <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
         <SignalHighColor><Variable name="WaveformSignalHighColor"/></SignalHighColor>
         <SignalMidColor><Variable name="WaveformSignalMidColor"/></SignalMidColor>
@@ -175,6 +176,7 @@
         </Children>
       </WidgetGroup>
 
+      <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
     </Children>
   </WidgetGroup>
 </Template>

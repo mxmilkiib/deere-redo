@@ -13,6 +13,7 @@
     <TooltipId>waveform_overview</TooltipId>
     <Group><Variable name="group"/></Group>
     <SizePolicy>me,me</SizePolicy>
+    <Margin>2,0,2,0</Margin>
     <BgColor><Variable name="DeckBackgroundColor"/></BgColor>
     <PlayedOverlayColor><Variable name="PlayedOverlayColor"/></PlayedOverlayColor>
     <!-- overview waveform colors (configured in skin.xml) -->
