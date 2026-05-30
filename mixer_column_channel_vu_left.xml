@@ -9,13 +9,14 @@
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <SizePolicy>me,me</SizePolicy>
+        <MaximumSize>15,-1</MaximumSize>
         <Children>
-          <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
           <WidgetGroup>
             <ObjectName>channel_VuMeter_Group</ObjectName>
             <Layout>horizontal</Layout>
             <SizePolicy>min,me</SizePolicy>
             <MinimumSize>15,0</MinimumSize>
+            <MaximumSize>15,-1</MaximumSize>
             <Children>
               <Template src="skin:vumeter_v.xml">
                 <SetVariable name="width">5</SetVariable>
@@ -33,7 +34,6 @@
               </Template>
             </Children>
           </WidgetGroup>
-          <WidgetGroup><Size>1f,0min</Size></WidgetGroup>
         </Children>
       </WidgetGroup>
     </Children>
@@ -46,6 +46,7 @@
       <WidgetGroup>
         <Layout>vertical</Layout>
         <SizePolicy>min,me</SizePolicy>
+        <MaximumSize>15,-1</MaximumSize>
         <Children>
           <SingletonContainer>
             <ObjectName>StereoVUMeter<Variable name="i"/></ObjectName>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="313" viewBox="0 0 8 313" overflow="visible">
+  <defs>
+    <filter id="sh" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0.4" stdDeviation="0.6" flood-color="#000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+  <!-- labels at exact tick positions: 0,-3,-6,-9,-12,-15,-18,-21,-24,-27,-30 dBFS -->
+  <!-- -3 is a 1px tick mark only -->
+  <text x="4" y="7"     text-anchor="middle" font-family="sans-serif" font-size="7"   fill="#fff" filter="url(#sh)">0</text>
+  <rect  x="0" y="91"   width="8" height="1" fill="#fff" filter="url(#sh)"/>
+  <text x="4" y="159"   text-anchor="middle" font-family="sans-serif" font-size="6"   fill="#fff" filter="url(#sh)">-6</text>
+  <text x="4" y="205"   text-anchor="middle" font-family="sans-serif" font-size="6"   fill="#fff" filter="url(#sh)">-9</text>
+  <text x="4" y="237"   text-anchor="middle" font-family="sans-serif" font-size="6"   fill="#fff" filter="url(#sh)">-12</text>
+  <text x="4" y="260"   text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#fff" filter="url(#sh)">-15</text>
+  <text x="4" y="277"   text-anchor="middle" font-family="sans-serif" font-size="5.5" fill="#fff" filter="url(#sh)">-18</text>
+  <text x="4" y="288"   text-anchor="middle" font-family="sans-serif" font-size="5"   fill="#fff" filter="url(#sh)">-21</text>
+  <text x="4" y="296"   text-anchor="middle" font-family="sans-serif" font-size="5"   fill="#fff" filter="url(#sh)">-24</text>
+  <text x="4" y="302"   text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#fff" filter="url(#sh)">-27</text>
+  <text x="4" y="307"   text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#fff" filter="url(#sh)">-30</text>
+</svg>
