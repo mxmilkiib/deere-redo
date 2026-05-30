@@ -11,13 +11,12 @@
     <Layout>vertical</Layout>
     <SizePolicy>min,min</SizePolicy>
     <MinimumSize>24,48</MinimumSize>
-    <MaximumSize>26,48</MaximumSize>
+    <MaximumSize>24,48</MaximumSize>
     <Children>
       <Template src="skin:special_cue_button.xml">
         <SetVariable name="cue_type">intro_start</SetVariable>
         <SetVariable name="label">|&#9698;</SetVariable>
       </Template>
-      <WidgetGroup><Size>0min,2f</Size></WidgetGroup>
       <Template src="skin:special_cue_button.xml">
         <SetVariable name="cue_type">intro_end</SetVariable>
         <SetVariable name="label">&#9698;|</SetVariable>

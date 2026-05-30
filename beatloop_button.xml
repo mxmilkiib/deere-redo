@@ -16,13 +16,13 @@
     <NumberStates>2</NumberStates>
     <State>
       <Number>0</Number>
-      <Text><Variable name="beats"/> ↺</Text>
+      <Text><Variable name="beats"/>↺</Text>
       <!-- <Pressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Pressed> -->
       <!-- <Unpressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Unpressed> -->
     </State>
     <State>
       <Number>1</Number>
-      <Text><Variable name="beats"/> ↺</Text>
+      <Text><Variable name="beats"/>↺</Text>
       <!-- <Pressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Pressed> -->
       <!-- <Unpressed scalemode="STRETCH_ASPECT">icon/ic_beatloop_activate_48px.svg</Unpressed> -->
     </State>

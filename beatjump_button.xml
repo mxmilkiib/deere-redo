@@ -16,7 +16,7 @@
     <NumberStates>1</NumberStates>
     <State>
       <Number>0</Number>
-      <Text><Variable name="beats"/> ⇄</Text>
+      <Text><Variable name="beats"/>⇄</Text>
       <!-- <Pressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Pressed> -->
       <!-- <Unpressed scalemode="STRETCH_ASPECT">icon/ic_chevron_right_small.svg</Unpressed> -->
     </State>

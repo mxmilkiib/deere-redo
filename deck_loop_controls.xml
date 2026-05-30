@@ -9,8 +9,10 @@
 <Template>
 
 <WidgetGroup>
+  <ObjectName>LoopControlsSimple</ObjectName>
   <Layout>vertical</Layout>
   <SizePolicy>min,min</SizePolicy>
+  <MaximumSize>118,48</MaximumSize>
     <Children>
 
       <!-- SpinBox + loop_activate (original Deere style) -->
@@ -24,7 +26,7 @@
             <Size>46f,22f</Size>
             <Value><Variable name="group"/>,beatloop_size</Value>
           </BeatSpinBox>
-          <WidgetGroup><Size>2,0min</Size></WidgetGroup>
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
           <Template src="skin:left_right_display_2state_button.xml">
             <SetVariable name="TooltipId">beatloop_activate</SetVariable>
             <SetVariable name="ObjectName">BeatloopActivate</SetVariable>
@@ -74,10 +76,10 @@
           </Template>
         </Children>
       </WidgetGroup>
-      <WidgetGroup><Size>0,2f</Size></WidgetGroup>
       <!-- Row of loop actions (in, out, reloop, double, halve, etc) -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
+        <SizePolicy>min,min</SizePolicy>
         <Children>
           <Template src="skin:left_right_1state_button.xml">
             <SetVariable name="TooltipId">loop_in</SetVariable>
@@ -142,13 +144,18 @@
 </Children>
 </WidgetGroup>
 
-<WidgetGroup><Size>2f,0</Size></WidgetGroup>
 
 <WidgetGroup>
 <Layout>horizontal</Layout>
 <SizePolicy>min,min</SizePolicy>
+<MaximumSize>192,48</MaximumSize>
+<Connection>
+  <ConfigKey>[Skin],show_16_beatjump_loop</ConfigKey>
+  <BindProperty>visible</BindProperty>
+</Connection>
 <Children>
 
+			<WidgetGroup><Size>2f,0f</Size></WidgetGroup>
       <!-- 16 loop grid -->
       <WidgetGroup>
         <Layout>vertical</Layout>
@@ -188,8 +195,6 @@
             </Children>
           </WidgetGroup>
 
-			<WidgetGroup><Size>0,1f</Size></WidgetGroup>
-
           <WidgetGroup>
             <ObjectName>LoopGridBottom</ObjectName>
             <Layout>horizontal</Layout>
@@ -224,11 +229,8 @@
 
           </WidgetGroup>
         </Children>
-        <Connection>
-          <ConfigKey>[Skin],show_16_beatjump_loop</ConfigKey>
-          <BindProperty>visible</BindProperty>
-        </Connection>
       </WidgetGroup>
+			<WidgetGroup><Size>1f,0f</Size></WidgetGroup>
     </Children>
   </WidgetGroup>
 </Template>
