@@ -39,11 +39,15 @@
             </Children>
           </WidgetGroup>
 
-          <EffectChainPresetButton>
+          <EffectChainPresetSelector>
             <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
-            <Size>22f,22f</Size>
+            <!-- <MinimumSize>110,22</MinimumSize> -->
+            <MinimumSize>80,22</MinimumSize>
+            <MaximumSize>110,22</MaximumSize>
+            <!-- <SizePolicy>f,f</SizePolicy> -->
+            <SizePolicy>min,f</SizePolicy>
             <ObjectName>EffectChainSelector</ObjectName>
-          </EffectChainPresetButton>
+          </EffectChainPresetSelector>
 
           <WidgetGroup>
             <Layout>horizontal</Layout>
@@ -105,11 +109,23 @@
 
           <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
-          <EffectChainPresetButton>
-            <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
-            <Size>22f,22f</Size>
-            <ObjectName>EffectChainSelector</ObjectName>
-          </EffectChainPresetButton>
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,min</SizePolicy>
+            <Children>
+              <EffectChainPresetSelector>
+                <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
+                <MinimumSize>80,22</MinimumSize>
+                <MaximumSize>110,22</MaximumSize>
+                <SizePolicy>min,f</SizePolicy>
+                <ObjectName>EffectChainSelector</ObjectName>
+              </EffectChainPresetSelector>
+            </Children>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
 
           <WidgetGroup>
             <Layout>vertical</Layout>
