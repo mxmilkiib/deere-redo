@@ -1,0 +1,188 @@
+MIXXX DEERE-REDO SKIN: XML TEMPLATE INCLUSION STRUCTURE
+========================================================
+
+Accurate, verified hierarchy derived from reading the actual XML files.
+Templates expand inline: each <Template src="..."/> inserts its children
+directly into the parent layout as siblings (not wrapped in an extra node).
+Singletons are defined once and referenced by name elsewhere.
+
+Last verified: 2026-05-13
+
+
+// MARK: ROOT STRUCTURE
+
+skin.xml
+├── style.qss                              (QSS styling rules)
+├── Global variable definitions            (button sizes, colors, etc.)
+├── Singleton definitions
+│   ├── deck_singletons.xml × 4           (decks 1-4)
+│   │   ├── DeckWaveform[n]  → deck_waveform.xml
+│   │   ├── DeckCoverArt[n]  → deck_coverart.xml
+│   │   └── DeckOverview[n]  → deck_overview.xml
+│   ├── library.xml
+│   └── skinsettings_sampler_buttons.xml
+│
+├── tool_bar.xml
+│
+├── Main layout stack
+│   ├── Regular layout
+│   │   ├── parallel_waveforms.xml         (stacked full-width waveforms)
+│   │   │   └── deck_spinny.xml × 4
+│   │   └── main_decks.xml
+│   │       ├── left_gutter.xml            (LeftGutter, vertical me,me)
+│   │       │   ├── deck.xml  i=1          → see DECK below
+│   │       │   └── deck.xml  i=3          (hidden if !show_4decks)
+│   │       ├── mixer.xml                  → see MIXER below
+│   │       └── right_gutter.xml           (RightGutter, vertical me,me)
+│   │           ├── deck.xml  i=2
+│   │           └── deck.xml  i=4          (hidden if !show_4decks)
+│   │
+│   └── Maximised library layout
+│       ├── decks_small.xml
+│       └── library.xml  (singleton ref)
+│
+├── effect_rack.xml                        → see EFFECT RACK below
+├── sample_decks.xml
+├── microphone_rack.xml
+└── skin_settings.xml
+
+
+// MARK: DECK STRUCTURE
+// -- deck.xml
+
+deck.xml  (ObjectName: Deck[n], horizontal me,me)
+├── DeckRows  (WidgetGroup, vertical me,me)
+│   ├── deck_text_row.xml                  (DeckTextRow: artist/title/bpm/key)
+│   │
+│   ├── Visual row  (anonymous horizontal WG, hidden when parallel waveforms on)
+│   │   ├── deck_spinny.xml                (WSpinny, 55f×55f)
+│   │   └── SingletonContainer: DeckWaveform[n]
+│   │
+│   ├── deck_overview_row.xml              (OverviewRow, horizontal me,max, min 48px tall)
+│   │   ├── DeckControlsGridLeft  (vertical min,min)
+│   │   │   ├── RepeatButton
+│   │   │   └── EjectButton
+│   │   ├── [2px spacer]
+│   │   ├── SingletonContainer: DeckOverview[n]   (WOverview waveform strip)
+│   │   ├── [2px spacer]
+│   │   └── DeckControlsGridRight  (vertical min,min)
+│   │       ├── FX assignment buttons
+│   │       └── Pitch/key controls
+│   │
+│   └── deck_controls_row.xml              → see CONTROLS ROW below
+│
+└── DeckRateSlider  (vertical min,min)
+    └── deck_tempo_column.xml              (pitch slider + rate controls)
+
+
+// MARK: CONTROLS ROW
+// -- deck_controls_row.xml
+
+ControlsRow  (WidgetGroup, horizontal min,min, SpaceBetween 0)
+├── [4f flex spacer]                       (absorbs left padding to centre buttons)
+├── deck_play_cue.xml                      PlayCueContainer (vertical me,me, max 46px wide)
+│   ├── DeckCue button                     (HorizontalStretch size)
+│   ├── [0×2f vertical spacer]
+│   └── PlayToggle / PreviewIndicator / PlayIndicator  (stacked layout)
+├── [2px spacer]
+├── special_cues.xml                       SpecialCuesContainer (vertical min,min, 24-26px wide)
+│   │                                      hidden if ![Skin],show_intro_outro_cues
+│   ├── intro_start button  (SpecialCueButton, square)
+│   ├── [0×2f vertical flex spacer]
+│   └── intro_end button
+├── [2px spacer]
+├── hotcues.xml                            5 mutually-exclusive WidgetGroups (one visible at a time)
+│   │                                      active grid selected by [Skin],hotcue_count (0-4)
+│   ├── Grid 0: 4  hotcues  2×2  min 40px  max  48px  (visible when hotcue_count==0)
+│   │   ├── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   │   └── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   ├── Grid 1: 8  hotcues  2×4  min 76px  max  96px  (visible when hotcue_count==1)
+│   │   ├── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   │   └── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   ├── Grid 2: 16 hotcues  2×8  min 152px max 192px  (visible when hotcue_count==2)
+│   │   ├── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   │   └── HotcueGrid row  (horizontal me,min, SpaceBetween 2)
+│   ├── Grid 3: 24 hotcues  2×12 min 228px max 286px  (visible when hotcue_count==3)
+│   │   ├── HotcueGrid row  (horizontal, SpaceBetween 2)
+│   │   └── HotcueGrid row  (horizontal, SpaceBetween 2)
+│   └── Grid 4: 36 hotcues  2×18 min 342px max 430px  (visible when hotcue_count==4)
+│       ├── HotcueGrid row  (horizontal, SpaceBetween 2)
+│       └── HotcueGrid row  (horizontal, SpaceBetween 2)
+├── [2px spacer]
+├── outro_cues.xml                         OutroCuesContainer (vertical min,min, 24-26px wide)
+│   │                                      hidden if ![Skin],show_intro_outro_cues
+│   ├── outro_start button
+│   ├── [0×2f vertical flex spacer]
+│   └── outro_end button
+├── [2px spacer]
+├── deck_loop_controls.xml                 2 top-level WidgetGroups inlined into ControlsRow:
+│   ├── LoopControlsSimple  (vertical min,min, max 118×48px) — always visible
+│   │   ├── Row: BeatloopSizeSpinBox + loop in/out/anchor/activate buttons  (2px spacers)
+│   │   └── Row: loop activate/deactivate/double/halve buttons
+│   └── LoopGrid  (vertical min,min, max 192×48px, CSS margin-left 1px)
+│       │          — hidden if ![Skin],show_loop_hotcues
+│       ├── LoopGridTop   (horizontal, 8 beatloop buttons)
+│       ├── [0×2f spacer]
+│       └── LoopGridBottom  (horizontal, 8 beatloop buttons)
+├── [2px spacer]
+├── deck_beatjump_controls.xml             BeatjumpContainer (horizontal min,min)
+│   └── inner WidgetGroup (vertical min,max)
+│       ├── BeatjumpSizeSpinBox  (46f×22f)
+│       ├── [0×0f vertical flex spacer]
+│       └── Row: BeatJumpButton backward  [2px spacer]  BeatJumpButton forward
+└── [4f flex spacer]                       (absorbs right padding to centre buttons)
+
+
+// MARK: MIXER
+// -- mixer.xml
+
+MixerBorder  (WidgetGroup, vertical)
+└── Mixer  (WidgetGroup, vertical max,min)
+    └── DeckControls  (vertical max,me)
+        └── [channel strips + crossfader section]
+
+
+// MARK: EFFECT RACK
+// -- effect_rack.xml
+
+EffectRack outer  (vertical me,f, hidden if ![Skin],show_effectrack)
+└── EffectRackContainer  (vertical)
+    └── effect_unit_controls.xml × 4      (one per effect unit)
+        ├── EffectUnitToggle button        (PushButton, ObjectName EffectUnitToggle, 45min×22f, CSS max-width 46px, margin-top 1px)
+        ├── EffectChainPresetSelector      (WEffectChainPresetSelector, 80–110×22px, min,f policy)
+        ├── mix knob  (knob.xml)
+        └── per-effect rows × 3
+            ├── WEffectSelector            (dropdown, 10px font)
+            ├── enable button
+            └── parameter knobs
+
+
+// MARK: SPACING RULES
+// -- how gaps are set
+
+Spacing philosophy:
+- ControlsRow inter-group gaps: explicit <WidgetGroup><Size>2,0</Size></WidgetGroup>
+  spacers between each template group; qproperty-layoutSpacing: 0 on ControlsRow.
+  Edge centering via <Size>4f,0</Size> flex spacers at each end.
+- HotcueGrid row button gaps: #HotcueGrid { qproperty-layoutSpacing: 2; } in QSS
+  (specificity 10) overrides global WWidgetGroup { qproperty-layoutSpacing: 0; } (specificity 1).
+- Vertical row gaps in DeckRows: global WWidgetGroup { qproperty-layoutSpacing: 0; }
+  baseline. Current margins: #OverviewRow { margin: 0; }, #ControlsRow { margin-top: 2px;
+  padding-bottom: 1px; }. #DeckRows > WWidgetGroup { qproperty-layoutAlignment: 'AlignTop
+  | AlignHCenter'; } pins each row to the top of its allocated space.
+- Per-group alignment: AlignLeft | AlignTop on #LoopControlsSimple, #LoopGrid,
+  #LoopGridTop, #LoopGridBottom, #BeatjumpContainer, #HotcueGridContainer, #OverviewRow
+  — pins button content to top-left within each container.
+- MaximumSize caps: all control groups have natural-content-width MaximumSize values
+  to prevent unbounded expansion on wide/HiDPI displays.
+- Inner button group gaps (loop, beatjump): explicit <Size>2,0</Size> spacer WGs
+  between buttons within each row; containing WG layoutSpacing stays at 0.
+
+Key config keys driving visibility:
+- [Skin],show_4decks          → deck 3 and 4 visibility
+- [Skin],show_intro_outro_cues → SpecialCuesContainer / OutroCuesContainer
+- [Skin],hotcue_count          → which hotcue grid (0-4) is visible
+- [Skin],show_loop_hotcues     → LoopGrid (16-beatloop grid) visibility
+- [Skin],show_effectrack       → entire effect rack
+- [Skin],show_coverart         → spinny vs cover art widget in visual row
+- [Deere],show_parallel_waveforms → parallel vs per-deck waveform display
