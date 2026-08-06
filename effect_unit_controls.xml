@@ -129,6 +129,10 @@
                 <SetVariable name="left_connection_control"><Variable name="group"/>,mix_mode</SetVariable>
               </Template>
             </Children>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
           </WidgetGroup>
 
           <!-- Effect Chain Preset Selector -->
@@ -144,6 +148,10 @@
                 <ObjectName>EffectChainSelector</ObjectName>
               </EffectChainPresetSelector>
             </Children>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
           </WidgetGroup>
 
           <!-- Show Effect Parameters button (penultimate) -->
@@ -191,10 +199,6 @@
           </WidgetGroup>
 
         </Children>
-        <Connection>
-          <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
-          <BindProperty>visible</BindProperty>
-        </Connection>
       </WidgetGroup>
 
     </Children>
