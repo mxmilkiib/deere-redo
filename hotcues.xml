@@ -17,8 +17,8 @@
   <WidgetGroup>
     <ObjectName>HotcueGridContainer</ObjectName>
     <Layout>vertical</Layout>
-    <MinimumSize>40,48</MinimumSize>
-    <MaximumSize>48,48</MaximumSize>
+    <MinimumSize>46,48</MinimumSize>
+    <MaximumSize>46,48</MaximumSize>
     <SizePolicy>me,min</SizePolicy>
     <Children>
       <WidgetGroup>
