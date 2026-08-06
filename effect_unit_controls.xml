@@ -81,29 +81,29 @@
       </WidgetGroup>
 
       <!-- Controls when parameters are shown.
-           Left-to-right order: Super Knob, Mix dial + Mix Mode, Chain Selector, FX toggle, Headphones -->
+           Left-to-right order: Chain Selector, Mix dial + Mix Mode, Super Knob, FX toggle, Headphones -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
 
-          <!-- Super Knob (leftmost) -->
+          <!-- Effect Chain Preset Selector (leftmost) -->
           <WidgetGroup>
-            <Layout>vertical</Layout>
+            <Layout>horizontal</Layout>
             <SizePolicy>min,min</SizePolicy>
+            <Children>
+              <EffectChainPresetSelector>
+                <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
+                <MinimumSize>80,22</MinimumSize>
+                <MaximumSize>110,22</MaximumSize>
+                <SizePolicy>min,f</SizePolicy>
+                <ObjectName>EffectChainSelector</ObjectName>
+              </EffectChainPresetSelector>
+            </Children>
             <Connection>
-              <ConfigKey>[Skin],show_superknobs</ConfigKey>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
               <BindProperty>visible</BindProperty>
             </Connection>
-            <Children>
-              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-              <Template src="skin:knob.xml">
-                <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
-                <SetVariable name="control">super1</SetVariable>
-                <SetVariable name="color">blue_gapless</SetVariable>
-              </Template>
-              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-            </Children>
           </WidgetGroup>
 
           <!-- Mix dial + Mix Mode button (horizontal: dial left of button) -->
@@ -135,23 +135,27 @@
             </Connection>
           </WidgetGroup>
 
-          <!-- Effect Chain Preset Selector -->
+          <!-- Super Knob (after Mix Mode) -->
           <WidgetGroup>
-            <Layout>horizontal</Layout>
+            <Layout>vertical</Layout>
             <SizePolicy>min,min</SizePolicy>
-            <Children>
-              <EffectChainPresetSelector>
-                <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
-                <MinimumSize>80,22</MinimumSize>
-                <MaximumSize>110,22</MaximumSize>
-                <SizePolicy>min,f</SizePolicy>
-                <ObjectName>EffectChainSelector</ObjectName>
-              </EffectChainPresetSelector>
-            </Children>
+            <Connection>
+              <ConfigKey>[Skin],show_superknobs</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
             <Connection>
               <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
               <BindProperty>visible</BindProperty>
             </Connection>
+            <Children>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+              <Template src="skin:knob.xml">
+                <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
+                <SetVariable name="control">super1</SetVariable>
+                <SetVariable name="color">blue_gapless</SetVariable>
+              </Template>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+            </Children>
           </WidgetGroup>
 
           <!-- Show Effect Parameters button (penultimate) -->
@@ -162,12 +166,12 @@
             <NumberStates>2</NumberStates>
             <State>
               <Number>0</Number>
-              <Text> FX<Variable name="EffectUnit"/></Text>
+              <Text>FX<Variable name="EffectUnit"/></Text>
               <Alignment>center</Alignment>
             </State>
             <State>
               <Number>1</Number>
-              <Text> FX<Variable name="EffectUnit"/></Text>
+              <Text>FX<Variable name="EffectUnit"/></Text>
               <Alignment>center</Alignment>
             </State>
             <Connection>
@@ -176,6 +180,8 @@
               <ButtonState>LeftButton</ButtonState>
             </Connection>
           </PushButton>
+
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
 
           <!-- Headphones button (rightmost) -->
           <WidgetGroup>
