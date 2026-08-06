@@ -35,7 +35,7 @@ Variables:
             <EffectRack><Variable name="EffectRack"/></EffectRack>
             <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
             <Effect><Variable name="Effect"/></Effect>
-            <MinimumSize>45,20</MinimumSize>
+            <MinimumSize>85,20</MinimumSize>
             <MaximumSize>120,-1</MaximumSize>
             <SizePolicy>me,min</SizePolicy>
           </EffectSelector>
@@ -84,7 +84,7 @@ Variables:
             <EffectRack><Variable name="EffectRack"/></EffectRack>
             <EffectUnit><Variable name="EffectUnit"/></EffectUnit>
             <Effect><Variable name="Effect"/></Effect>
-            <MinimumSize>45,20</MinimumSize>
+            <MinimumSize>85,20</MinimumSize>
             <MaximumSize>120,-1</MaximumSize>
             <SizePolicy>me,min</SizePolicy>
           </EffectSelector>
