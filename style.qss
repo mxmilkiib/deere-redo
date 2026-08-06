@@ -2025,8 +2025,9 @@ WStarRating {
 }
 
 #EffectUnitEffects {
+  padding: 4px 0px;
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 4;
+  qproperty-layoutSpacing: 2;
 }
 
 #EffectUnitParameters {

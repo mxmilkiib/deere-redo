@@ -80,35 +80,58 @@
         </Connection>
       </WidgetGroup>
 
+      <!-- Controls when parameters are shown.
+           Left-to-right order: Super Knob, Mix dial + Mix Mode, Chain Selector, FX toggle, Headphones -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
 
-          <PushButton>
-            <ObjectName>EffectUnitToggle</ObjectName>
-            <TooltipId>EffectUnit_show_parameters</TooltipId>
-            <Size>45min,22f</Size>
-            <NumberStates>2</NumberStates>
-            <State>
-              <Number>0</Number>
-              <Text> FX<Variable name="EffectUnit"/></Text>
-              <Alignment>left</Alignment>
-            </State>
-            <State>
-              <Number>1</Number>
-              <Text> FX<Variable name="EffectUnit"/></Text>
-              <Alignment>left</Alignment>
-            </State>
+          <!-- Super Knob (leftmost) -->
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <SizePolicy>min,min</SizePolicy>
             <Connection>
-              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
-              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-              <ButtonState>LeftButton</ButtonState>
+              <ConfigKey>[Skin],show_superknobs</ConfigKey>
+              <BindProperty>visible</BindProperty>
             </Connection>
-          </PushButton>
+            <Children>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+              <Template src="skin:knob.xml">
+                <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
+                <SetVariable name="control">super1</SetVariable>
+                <SetVariable name="color">blue_gapless</SetVariable>
+              </Template>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+            </Children>
+          </WidgetGroup>
 
-          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+          <!-- Mix dial + Mix Mode button (horizontal: dial left of button) -->
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <SizePolicy>min,min</SizePolicy>
+            <Children>
+              <Template src="skin:knob.xml">
+                <SetVariable name="TooltipId">EffectUnit_mix</SetVariable>
+                <SetVariable name="control">mix</SetVariable>
+                <SetVariable name="color">purple_gapless</SetVariable>
+              </Template>
 
+              <Template src="skin:left_2state_button.xml">
+                <SetVariable name="ObjectName">EffectUnitMixModeButton</SetVariable>
+                <SetVariable name="TooltipId">EffectUnit_mix_mode</SetVariable>
+                <SetVariable name="MinimumSize">40,22</SetVariable>
+                <SetVariable name="MaximumSize">40,22</SetVariable>
+                <SetVariable name="state_0_unpressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
+                <SetVariable name="state_0_pressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
+                <SetVariable name="state_1_unpressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
+                <SetVariable name="state_1_pressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
+                <SetVariable name="left_connection_control"><Variable name="group"/>,mix_mode</SetVariable>
+              </Template>
+            </Children>
+          </WidgetGroup>
+
+          <!-- Effect Chain Preset Selector -->
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <SizePolicy>min,min</SizePolicy>
@@ -121,67 +144,32 @@
                 <ObjectName>EffectChainSelector</ObjectName>
               </EffectChainPresetSelector>
             </Children>
-            <Connection>
-              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection>
           </WidgetGroup>
 
-          <WidgetGroup>
-            <Layout>vertical</Layout>
-            <SizePolicy>min,me</SizePolicy>
-            <Children>
-
-              <WidgetGroup>
-                <Layout>vertical</Layout>
-                <SizePolicy>min,min</SizePolicy>
-                <Children>
-                  <Template src="skin:knob.xml">
-                    <SetVariable name="TooltipId">EffectUnit_mix</SetVariable>
-                    <SetVariable name="control">mix</SetVariable>
-                    <SetVariable name="color">purple_gapless</SetVariable>
-                  </Template>
-
-                  <Template src="skin:left_2state_button.xml">
-                    <SetVariable name="ObjectName">EffectUnitMixModeButton</SetVariable>
-                    <SetVariable name="TooltipId">EffectUnit_mix_mode</SetVariable>
-                    <SetVariable name="MinimumSize">40,22</SetVariable>
-                    <SetVariable name="MaximumSize">40,22</SetVariable>
-                    <SetVariable name="state_0_unpressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
-                    <SetVariable name="state_0_pressed">icon/ic_fx_mixmode_d-w.svg</SetVariable>
-                    <SetVariable name="state_1_unpressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
-                    <SetVariable name="state_1_pressed">icon/ic_fx_mixmode_d+w.svg</SetVariable>
-                    <SetVariable name="left_connection_control"><Variable name="group"/>,mix_mode</SetVariable>
-                  </Template>
-                </Children>
-              </WidgetGroup>
-
-              <WidgetGroup>
-                <Layout>vertical</Layout>
-                <SizePolicy>min,min</SizePolicy>
-                <Connection>
-                  <ConfigKey>[Skin],show_superknobs</ConfigKey>
-                  <BindProperty>visible</BindProperty>
-                </Connection>
-                <Children>
-                  <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-                  <Template src="skin:knob.xml">
-                    <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
-                    <SetVariable name="control">super1</SetVariable>
-                    <SetVariable name="color">blue_gapless</SetVariable>
-                  </Template>
-                  <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-                </Children>
-              </WidgetGroup>
-            </Children>
+          <!-- Show Effect Parameters button (penultimate) -->
+          <PushButton>
+            <ObjectName>EffectUnitToggle</ObjectName>
+            <TooltipId>EffectUnit_show_parameters</TooltipId>
+            <Size>45min,22f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text> FX<Variable name="EffectUnit"/></Text>
+              <Alignment>center</Alignment>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text> FX<Variable name="EffectUnit"/></Text>
+              <Alignment>center</Alignment>
+            </State>
             <Connection>
               <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
-              <BindProperty>visible</BindProperty>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>LeftButton</ButtonState>
             </Connection>
-          </WidgetGroup>
+          </PushButton>
 
-          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
-
+          <!-- Headphones button (rightmost) -->
           <WidgetGroup>
             <ObjectName>EffectUnitHead</ObjectName>
             <Layout>horizontal</Layout>
@@ -203,6 +191,10 @@
           </WidgetGroup>
 
         </Children>
+        <Connection>
+          <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+          <BindProperty>visible</BindProperty>
+        </Connection>
       </WidgetGroup>
 
     </Children>
