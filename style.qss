@@ -1677,6 +1677,7 @@ WEffectChainPresetButton::menu-indicator {
 
 #EffectUnitRow {
   qproperty-layoutSpacing: 0;
+  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   padding: 0;
 }
 
