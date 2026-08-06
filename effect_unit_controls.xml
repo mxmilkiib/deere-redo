@@ -81,13 +81,36 @@
       </WidgetGroup>
 
       <!-- Controls when parameters are shown.
-           Left-to-right order: Chain Selector, Mix dial + Mix Mode, Super Knob, FX toggle, Headphones -->
+           Left-to-right order matches closed state: Super Knob, Chain Selector, Mix+MixMode, FX toggle, Headphones -->
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
 
-          <!-- Effect Chain Preset Selector (leftmost) -->
+          <!-- Super Knob (leftmost) -->
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <SizePolicy>min,min</SizePolicy>
+            <Connection>
+              <ConfigKey>[Skin],show_superknobs</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+            <Children>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+              <Template src="skin:knob.xml">
+                <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
+                <SetVariable name="control">super1</SetVariable>
+                <SetVariable name="color">blue_gapless</SetVariable>
+              </Template>
+              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
+            </Children>
+          </WidgetGroup>
+
+          <!-- Effect Chain Preset Selector -->
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <SizePolicy>min,min</SizePolicy>
@@ -133,29 +156,6 @@
               <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
               <BindProperty>visible</BindProperty>
             </Connection>
-          </WidgetGroup>
-
-          <!-- Super Knob (after Mix Mode) -->
-          <WidgetGroup>
-            <Layout>vertical</Layout>
-            <SizePolicy>min,min</SizePolicy>
-            <Connection>
-              <ConfigKey>[Skin],show_superknobs</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-            <Connection>
-              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
-              <BindProperty>visible</BindProperty>
-            </Connection>
-            <Children>
-              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-              <Template src="skin:knob.xml">
-                <SetVariable name="TooltipId">EffectUnit_super1</SetVariable>
-                <SetVariable name="control">super1</SetVariable>
-                <SetVariable name="color">blue_gapless</SetVariable>
-              </Template>
-              <WidgetGroup><Size>0min,1f</Size></WidgetGroup>
-            </Children>
           </WidgetGroup>
 
           <!-- Show Effect Parameters button (penultimate) -->
