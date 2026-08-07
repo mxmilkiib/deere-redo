@@ -158,7 +158,12 @@
             </Connection>
           </WidgetGroup>
 
-          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+          <WidgetGroup><Size>2f,0min</Size>
+            <Connection>
+              <ConfigKey><Variable name="group"/>,show_parameters</ConfigKey>
+              <BindProperty>visible</BindProperty>
+            </Connection>
+          </WidgetGroup>
 
           <!-- Show Effect Parameters button (penultimate) -->
           <PushButton>
