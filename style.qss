@@ -1613,7 +1613,7 @@ WTrackProperty:hover {
   font-weight: normal;
   font-size: 11px;
   border: 0px;
-  qproperty-layoutAlignment: 'AlignVCenter | AlignLeft';
+  qproperty-layoutAlignment: 'AlignVCenter';
 }
 
 #EffectUnitToggle[value="0"] {
@@ -1685,14 +1685,9 @@ WEffectChainPresetButton::menu-indicator {
   /* border: 1px solid #222222; */
   border-width: 0;
   qproperty-layoutSpacing: 2;
-  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
   padding: 0;
   background-color: #333; /*
   background-color: #664971;  */
-}
-
-#EffectUnitControlsOpen {
-  qproperty-layoutSpacing: 2;
 }
 
 #EffectUnitHead {
@@ -2038,7 +2033,7 @@ WStarRating {
 
 #EffectUnitParameters {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 2;
+  qproperty-layoutSpacing: 24;
 }
 
 #EffectUnit {
