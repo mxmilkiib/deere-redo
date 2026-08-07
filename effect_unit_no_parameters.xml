@@ -25,7 +25,7 @@ Variables:
           <WidgetGroup>
             <ObjectName>EffectUnitEffectsNoParameters</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>min,min</SizePolicy>
+            <SizePolicy>me,min</SizePolicy>
             <Children>
               <Template src="skin:effect_single_no_parameters.xml">
                 <SetVariable name="Effect">1</SetVariable>
