@@ -158,6 +158,8 @@
             </Connection>
           </WidgetGroup>
 
+          <WidgetGroup><Size>2f,0min</Size></WidgetGroup>
+
           <!-- Show Effect Parameters button (penultimate) -->
           <PushButton>
             <ObjectName>EffectUnitToggle</ObjectName>
