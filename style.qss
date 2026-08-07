@@ -2033,7 +2033,7 @@ WStarRating {
 
 #EffectUnitParameters {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  qproperty-layoutSpacing: 24;
+  qproperty-layoutSpacing: 2;
 }
 
 #EffectUnit {

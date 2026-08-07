@@ -11,7 +11,7 @@
   <WidgetGroup>
     <ObjectName>EffectUnitControls</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>max,min</SizePolicy>
+    <SizePolicy>max,f</SizePolicy>
     <Children>
 
       <!-- Super/Mix knobs when parameters are hidden -->
@@ -83,7 +83,6 @@
       <!-- Controls when parameters are shown.
            Left-to-right order matches closed state: Super Knob, Chain Selector, Mix+MixMode, FX toggle, Headphones -->
       <WidgetGroup>
-        <ObjectName>EffectUnitControlsOpen</ObjectName>
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
         <Children>
